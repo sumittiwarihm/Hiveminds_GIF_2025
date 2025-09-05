@@ -1,0 +1,160 @@
+table Sale_2024
+	lineageTag: 9041a1c0-6bc1-471c-b8bc-0ed099027f58
+
+	measure amz2025_spends = CALCULATE(SUM('public amazon_paid'[Spend]),ALL('calender_dates_amz_2025'),USERELATIONSHIP( 'public amazon_paid'[date],'calender_dates_amz_2025'[Date]))
+		lineageTag: 5c393323-e87d-4ba6-ba82-393daf44ce97
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% change_spends' =
+			
+			VAR BaselineSpends = SUM ('Sale_2024'[Spends] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Spend] ),
+			        ALL ( 'calender_dates_amz_2025' ),
+			        USERELATIONSHIP (
+			            'public amazon_paid'[Date],
+			            'calender_dates_amz_2025'[Date]
+			        )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends - BaselineSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		lineageTag: 5a9c34c3-b9c5-457b-aba3-510291a0841a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column GIF
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: f47ac073-0a07-42fe-a1a1-84379648371c
+		summarizeBy: none
+		sourceColumn: GIF
+
+		variation Variation
+			isDefault
+			relationship: c0926897-75c8-4c3d-bffd-09100333b6ee
+			defaultHierarchy: LocalDateTable_ef866020-51c8-43a7-be38-0dea91997d64.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Impressions
+		dataType: int64
+		formatString: 0
+		lineageTag: d3362ef5-af4c-45af-a644-20e7cb5b9229
+		summarizeBy: sum
+		sourceColumn: Impressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clicks
+		dataType: int64
+		formatString: 0
+		lineageTag: a458187f-27e8-48b7-943a-e90c64a5827a
+		summarizeBy: sum
+		sourceColumn: Clicks
+
+		annotation SummarizationSetBy = Automatic
+
+	column Spends
+		dataType: int64
+		formatString: 0
+		lineageTag: 667781de-f238-4e6f-9680-d88faddf3428
+		summarizeBy: sum
+		sourceColumn: Spends
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d11f82d-649f-47bc-806c-f0a7fb602d1e
+		summarizeBy: sum
+		sourceColumn: Orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: int64
+		formatString: 0
+		lineageTag: f61acc10-b7fb-4029-b6a9-50b2467cced5
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTR
+		dataType: double
+		lineageTag: 9888d82e-81df-434b-93b8-13d44a5bd6f1
+		summarizeBy: sum
+		sourceColumn: CTR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CPC
+		dataType: double
+		lineageTag: 74b687de-7b3e-4fee-b4ff-225cda3db18f
+		summarizeBy: sum
+		sourceColumn: CPC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CVR
+		dataType: double
+		lineageTag: 538d23f2-ee48-4ea2-8775-d87e2bd3717e
+		summarizeBy: sum
+		sourceColumn: CVR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AOV
+		dataType: double
+		lineageTag: 27e503a3-0415-4b6c-8c81-76f132381489
+		summarizeBy: sum
+		sourceColumn: AOV
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ROI
+		dataType: double
+		lineageTag: 2b9a0d4d-59e5-459b-ae66-1fbd7242ac40
+		summarizeBy: sum
+		sourceColumn: ROI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Sale_2024 = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
+				    Sale_2024_Table = Source{[name="Sale_2024",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sale_2024_Table, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"GIF", type date}, {"Impressions", Int64.Type}, {"Clicks", Int64.Type}, {"Spends", Int64.Type}, {"Orders", Int64.Type}, {"Sales", Int64.Type}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

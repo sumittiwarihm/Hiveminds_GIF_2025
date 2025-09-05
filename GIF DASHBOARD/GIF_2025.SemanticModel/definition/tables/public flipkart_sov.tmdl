@@ -1,0 +1,224 @@
+table 'public flipkart_sov'
+	lineageTag: 36fd5305-35b1-4a0b-aa71-45fcbfaa9316
+
+	measure 'SoV % Overall_fk' =
+			
+			DIVIDE (
+			    COUNTROWS ( 'public flipkart_sov' ),
+			    CALCULATE (
+			        COUNTROWS ( 'public flipkart_sov'),
+			        ALL ( 'public flipkart_sov'[brand_vs_comp] )
+			    )
+			)
+		formatString: 0%;-0%;0%
+		lineageTag: d10d9495-e8c5-41ec-9f4a-6e8e4af11849
+
+	measure 'Total Organic Slots_fk' =
+			
+			CALCULATE (
+			    COUNTROWS ( 'public flipkart_sov' ),
+			    'public flipkart_sov'[is_sponsored] = "Organic"
+			)
+		formatString: 0
+		lineageTag: b3f5bc72-bbd1-41a1-bf57-09756cb9ab3d
+
+	measure 'Total Slots_fk' = COUNTROWS ( 'public flipkart_sov' )
+		formatString: 0
+		lineageTag: 721e4cc2-b472-4933-93d8-dc4ab810b77d
+
+	measure 'Total Sponsored Slots_fk' =
+			
+			CALCULATE (
+			    COUNTROWS ( 'public flipkart_sov' ),
+			    'public flipkart_sov'[is_sponsored] = "Sponsored"
+			)
+		formatString: 0
+		lineageTag: b7f0698d-7f1b-4b36-aa8a-6d1c99d9fd73
+
+	column keyword
+		dataType: string
+		lineageTag: b7b7eb91-6c5c-41dc-9b0e-2f21245b02a8
+		summarizeBy: none
+		sourceColumn: keyword
+
+		annotation SummarizationSetBy = Automatic
+
+	column title
+		dataType: string
+		lineageTag: 758f4a6f-32e2-4a5c-a7ea-ba44a39ccd52
+		summarizeBy: none
+		sourceColumn: title
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_sponsored
+		dataType: string
+		lineageTag: 353df965-c4a3-4446-9c40-bae121975408
+		summarizeBy: none
+		sourceColumn: is_sponsored
+
+		annotation SummarizationSetBy = Automatic
+
+	column slot
+		dataType: string
+		lineageTag: 7ad87315-d110-4817-9caf-30b32481c67a
+		summarizeBy: none
+		sourceColumn: slot
+
+		annotation SummarizationSetBy = Automatic
+
+	column page_result
+		dataType: string
+		lineageTag: f7abd8c7-97b2-43cc-9ee9-b1f0c4eaa2f6
+		summarizeBy: none
+		sourceColumn: page_result
+
+		annotation SummarizationSetBy = Automatic
+
+	column fsn
+		dataType: string
+		lineageTag: a7203f4d-94a2-4513-b9b3-f8382a8157e3
+		summarizeBy: none
+		sourceColumn: fsn
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: string
+		lineageTag: 3e7a6fbc-f760-41e3-a1aa-d00597237fde
+		summarizeBy: none
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+	column account
+		dataType: string
+		lineageTag: 20dd0b41-895c-4a6a-ba7e-5363510172ad
+		summarizeBy: none
+		sourceColumn: account
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5d2389ef-e9a3-4126-9fff-59b2cc273d37
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: e0a4bcf5-612e-4ce7-9a9e-dcf5aef8f343
+			defaultHierarchy: LocalDateTable_9690223d-9f91-4185-8751-b2f6a4653247.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column hour
+		dataType: string
+		lineageTag: 9a06b6ed-64d9-44eb-95ed-5e1f33a8fcc6
+		summarizeBy: none
+		sourceColumn: hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column Combined_Account_Keyword = ```
+			FORMAT('public flipkart_sov'[account], "") & " - " & FORMAT('public flipkart_sov'[keyword], "")
+			
+			```
+		lineageTag: 49ef90fd-6122-47e8-ba5e-bf90726f3d77
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand_Status = ```
+			
+			SWITCH(
+			    TRUE(),
+			    SEARCH("jockey", LOWER('public flipkart_sov'[title]), 1, 0) > 0, "Brand",
+			    "Other"
+			)
+			
+			
+			```
+		lineageTag: 669e2941-d1ae-4e0d-a464-ab69e91beb6f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand
+		dataType: string
+		lineageTag: 36e1798f-7d45-4837-a3b6-5864fc0d4248
+		summarizeBy: none
+		sourceColumn: brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand_vs_comp =
+			
+			IF (
+			    LOWER('public flipkart_sov'[brand]) = "jockey",
+			    "Brand",
+			    "Comp"
+			)
+		lineageTag: a9de7506-2b13-4868-bf7a-9035b8aa2acd
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column mrp
+		dataType: string
+		lineageTag: 7628dbd2-1b34-4f03-aa6c-f1c000a2c254
+		summarizeBy: none
+		sourceColumn: mrp
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category
+		dataType: string
+		lineageTag: 14f28cd5-98bf-486b-aba0-b90f9d8c823a
+		summarizeBy: none
+		sourceColumn: sub_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category_1
+		dataType: string
+		lineageTag: 13279c96-3d5e-4dba-b83a-256e84e5acd7
+		summarizeBy: none
+		sourceColumn: sub_category_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category_2
+		dataType: string
+		lineageTag: f87f26a9-2b8e-414f-928c-f8dfee8a1587
+		summarizeBy: none
+		sourceColumn: sub_category_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category_3
+		dataType: string
+		lineageTag: 4c7a256d-414a-41d0-951c-778e704ee8f8
+		summarizeBy: none
+		sourceColumn: sub_category_3
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public flipkart_sov' = m
+		mode: import
+		source =
+				let
+				    Source = Table.SelectRows(
+				    PostgreSQL.Database("nucleus.ckojnefw0d56.us-west-1.rds.amazonaws.com", "GIF_2025"){[Schema="public", Item="flipkart_sov"]}[Data],
+				    each [account] = "Jockey"
+				)
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

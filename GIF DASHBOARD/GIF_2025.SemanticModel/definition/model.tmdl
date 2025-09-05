@@ -1,0 +1,41 @@
+model Model
+	culture: en-IN
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Target VS Achieved","Sale_2024"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_27e9ce9d-915c-430d-b9d2-89f75440e43b
+ref table 'public amazon_buybox'
+ref table LocalDateTable_6581351a-bd8b-46d4-8b1c-b59eb7966829
+ref table 'public amazon_sov'
+ref table LocalDateTable_4038819a-87eb-4c82-acd2-4488c1ac1e5f
+ref table 'public amazon_paid'
+ref table 'public flipkart_buybox'
+ref table 'public flipkart_sov'
+ref table LocalDateTable_9690223d-9f91-4185-8751-b2f6a4653247
+ref table LocalDateTable_b6bd5d84-0634-42c3-b28f-0d060091e32f
+ref table 'Amazon Parameter'
+ref table HIVEMINDS_FLIPKART_HOURLY_VIEW
+ref table LocalDateTable_025c5599-ebd7-4bad-8531-b3382f05021f
+ref table LocalDateTable_23340ab3-90de-4c4e-9f03-06677e2a0b5e
+ref table 'Hourly Parameter'
+ref table 'Amazon Hourly Parameter'
+ref table Amazon_Campaign_Mapping
+ref table 'Target VS Achieved'
+ref table Sale_2024
+ref table LocalDateTable_ef866020-51c8-43a7-be38-0dea91997d64
+ref table calender_dates_amz_2025
+ref table LocalDateTable_08b90c8d-ff37-4c9a-9de9-ba7c5b869fe3
+
+ref cultureInfo en-IN
+

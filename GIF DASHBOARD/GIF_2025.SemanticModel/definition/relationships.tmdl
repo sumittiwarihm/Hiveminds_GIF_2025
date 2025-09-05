@@ -1,0 +1,48 @@
+relationship 4db6ae68-cf52-41bf-b5be-b518962267d0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public amazon_buybox'.date
+	toColumn: LocalDateTable_6581351a-bd8b-46d4-8b1c-b59eb7966829.Date
+
+relationship d857be2d-51a9-4cfe-8102-b07cc19ad1a2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public amazon_sov'.date
+	toColumn: LocalDateTable_4038819a-87eb-4c82-acd2-4488c1ac1e5f.Date
+
+relationship e0a4bcf5-612e-4ce7-9a9e-dcf5aef8f343
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public flipkart_sov'.date
+	toColumn: LocalDateTable_9690223d-9f91-4185-8751-b2f6a4653247.Date
+
+relationship 5fbe5546-7293-41e8-a374-275090e6eba2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public flipkart_buybox'.date
+	toColumn: LocalDateTable_b6bd5d84-0634-42c3-b28f-0d060091e32f.Date
+
+relationship 6473cdef-ea31-400a-b4e7-8cf2f8b52ad3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.DATE
+	toColumn: LocalDateTable_025c5599-ebd7-4bad-8531-b3382f05021f.Date
+
+relationship 2ed8c2bd-b140-43f0-9710-722c9fa409e0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.ROW_INGESTED_DATETIME_IST
+	toColumn: LocalDateTable_23340ab3-90de-4c4e-9f03-06677e2a0b5e.Date
+
+relationship 0c18c856-4130-1054-aeb1-e08ed111bbc3
+	fromColumn: 'public amazon_paid'.Campaigns
+	toColumn: Amazon_Campaign_Mapping.'Campaign Name'
+
+relationship c0926897-75c8-4c3d-bffd-09100333b6ee
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Sale_2024.GIF
+	toColumn: LocalDateTable_ef866020-51c8-43a7-be38-0dea91997d64.Date
+
+relationship af37cc52-846e-4d8d-8210-0ed1edc57d87
+	joinOnDateBehavior: datePartOnly
+	fromColumn: calender_dates_amz_2025.Date
+	toColumn: LocalDateTable_08b90c8d-ff37-4c9a-9de9-ba7c5b869fe3.Date
+
+relationship 37d12195-f6c4-ef17-0d13-6de9294d01e8
+	fromColumn: 'public amazon_paid'.date
+	toColumn: calender_dates_amz_2025.Date
+

@@ -1,0 +1,719 @@
+table HIVEMINDS_FLIPKART_HOURLY_VIEW
+	lineageTag: ef47f8f4-7b08-4d5a-a8bc-e6c84990e35d
+
+	measure fk_cpc = DIVIDE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),0 )
+		lineageTag: 8ec22150-f0ac-432a-ad42-323c1e1e8a19
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure fk_ctr = DIVIDE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[views]),0 )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4ba8f93b-1f35-4dee-a5cd-81704feb8d61
+
+	measure fk_cvr = DIVIDE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS]),SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[clicks]),0 )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9943b4e8-ae84-4393-aa4a-706fd3f6e3c7
+
+	measure fk_roas = DIVIDE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]),SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),0 )
+		lineageTag: 0a5e8fc1-5ee6-4cf1-ad1d-572f31999710
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure HourlySpends = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			VAR CurrentSpends = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevSpends = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			RETURN
+			IF(
+			    ISBLANK(PrevSpends),
+			    CurrentSpends,  -- show full spend if no previous hour (i.e. 1st hour)
+			    CurrentSpends - PrevSpends
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: aa2773f9-a31d-47f4-b103-b31dd862bebc
+
+	measure FK_Spends = 1*SUM(HIVEMINDS_FLIPKART_HOURLY_VIEW[AD_SPEND])
+		formatString: #,0
+		lineageTag: edc1eda3-bb3c-4095-9d0d-f05b0924667d
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure FK_Hour = 1 * SUM(HIVEMINDS_FLIPKART_HOURLY_VIEW[HOUR])
+		formatString: 0
+		lineageTag: 5c22f59b-9e73-4f14-ba32-970c16b5bf1f
+
+	measure HourlyClicks = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			VAR CurrentClicks = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevClicks = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			RETURN
+			IF(ISBLANK(PrevClicks), CurrentClicks, CurrentClicks - PrevClicks)
+			
+			```
+		formatString: #,0
+		lineageTag: c66b745c-80dd-4a33-a0f5-d2a33ab76ada
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure HourlySales = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			VAR CurrentSales = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevSales = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			RETURN
+			IF(ISBLANK(PrevSales), CurrentSales, CurrentSales - PrevSales)
+			
+			```
+		formatString: #,0
+		lineageTag: 99cde68f-f00b-4a15-af0c-2188e959a33a
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure HourlyOrders = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			VAR CurrentOrders = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevOrders = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			RETURN
+			IF(ISBLANK(PrevOrders), CurrentOrders, CurrentOrders - PrevOrders)
+			
+			```
+		formatString: #,0
+		lineageTag: 429f0a01-aac2-4cf9-8637-37d762d65b72
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure HourlyImpressions = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			VAR CurrentImpressions = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[VIEWS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevImpressions = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[VIEWS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			RETURN
+			IF(ISBLANK(PrevImpressions), CurrentImpressions, CurrentImpressions - PrevImpressions)
+			
+			```
+		formatString: #,0
+		lineageTag: b3574202-5e34-435b-b522-fd29f83a8a53
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure HourlyCTR = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			-- Current hour clicks & impressions
+			VAR CurrentClicks = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR CurrentImpr = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[VIEWS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			-- Previous hour clicks & impressions
+			VAR PrevClicks = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevImpr = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[VIEWS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			-- Compute CTRs
+			VAR CurrentCTR = DIVIDE(CurrentClicks, CurrentImpr)
+			VAR PrevCTR = DIVIDE(PrevClicks, PrevImpr)
+			
+			RETURN
+			IF(
+			    ISBLANK(PrevCTR),
+			    CurrentCTR,
+			    CurrentCTR - PrevCTR
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0916e1f1-74e9-43cf-b8d4-81dfc5006911
+
+	measure HourlyCPC = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			VAR CurrSpends = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR CurrClicks = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevSpends = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevClicks = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR CurrCPC = DIVIDE(CurrSpends, CurrClicks)
+			VAR PrevCPC = DIVIDE(PrevSpends, PrevClicks)
+			
+			RETURN
+			IF(ISBLANK(PrevCPC), CurrCPC, CurrCPC - PrevCPC)
+			
+			```
+		formatString: 0.00
+		lineageTag: c0863dcd-c31e-442e-9cb8-fb207e34a421
+
+	measure HourlyROAS = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			VAR CurrSales = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DIRECT_REVENUE]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR CurrSpends = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevSales = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DIRECT_REVENUE]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevSpends = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR CurrROAS = DIVIDE(CurrSales, CurrSpends)
+			VAR PrevROAS = DIVIDE(PrevSales, PrevSpends)
+			
+			RETURN
+			IF(ISBLANK(PrevROAS), CurrROAS, CurrROAS - PrevROAS)
+			
+			```
+		lineageTag: 6ec9e006-03e1-4933-a76c-94c6f7325308
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure HourlyCVR = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			VAR CurrOrders = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR CurrClicks = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevOrders = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevClicks = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR CurrCVR = DIVIDE(CurrOrders, CurrClicks)
+			VAR PrevCVR = DIVIDE(PrevOrders, PrevClicks)
+			
+			RETURN
+			IF(ISBLANK(PrevCVR), CurrCVR, CurrCVR - PrevCVR)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7a54f7f8-ae1d-4ec2-b9af-21ce20770d3a
+
+	measure HourlyACOS = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			VAR CurrSpends = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR CurrRevenue = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevSpends = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevRevenue = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR CurrACOS = DIVIDE(CurrSpends, CurrRevenue)
+			VAR PrevACOS = DIVIDE(PrevSpends, PrevRevenue)
+			
+			RETURN
+			IF(ISBLANK(PrevACOS), CurrACOS, CurrACOS - PrevACOS)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0eb3aa4a-6397-4f7e-a33c-43d661f1fa3a
+
+	measure HourlyAOV = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			-- Current hour sales & orders
+			VAR CurrSales = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR CurrOrders = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			-- Previous hour sales & orders
+			VAR PrevSales = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevOrders = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			-- Compute AOVs
+			VAR CurrAOV = DIVIDE(CurrSales, CurrOrders)
+			VAR PrevAOV = DIVIDE(PrevSales, PrevOrders)
+			
+			RETURN
+			IF(ISBLANK(PrevAOV), CurrAOV, CurrAOV - PrevAOV)
+			
+			```
+		lineageTag: c8f7768c-7fe2-448a-a16f-dcc474804ba6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'HourlyImpressions no neg' = ```
+			
+			VAR CurrentHour = MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR])
+			VAR CurrentDate = SELECTEDVALUE('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE])
+			
+			VAR CurrentImpressions = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[VIEWS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			VAR PrevImpressions = 
+			    CALCULATE(
+			        SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[VIEWS]),
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[HOUR] = CurrentHour - 1,
+			        'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] = CurrentDate
+			    )
+			
+			RETURN
+			    ABS(CurrentImpressions - COALESCE(PrevImpressions, 0))
+			
+			```
+		formatString: #,0
+		lineageTag: 90150a6c-eb10-4b16-8ed4-355d79946c21
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column ADGROUP_NAME
+		dataType: string
+		lineageTag: 9b5e2e65-2457-40b7-ac82-45cf1e444114
+		summarizeBy: none
+		sourceColumn: ADGROUP_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column AD_GROUP_ID
+		dataType: string
+		lineageTag: 75d8663c-1ffb-4831-bcc6-6a2f82dd1498
+		summarizeBy: none
+		sourceColumn: AD_GROUP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column AD_SPEND
+		dataType: double
+		formatString: #,0
+		lineageTag: ed9a0033-2d68-4f9c-adf3-19e033c45213
+		summarizeBy: sum
+		sourceColumn: AD_SPEND
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column A_ACCOUNT
+		dataType: string
+		lineageTag: b9fb0050-8848-4cb5-b328-c5d210d21189
+		summarizeBy: none
+		sourceColumn: A_ACCOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column B_ACCOUNT
+		dataType: string
+		lineageTag: b91c6e8d-abc6-4e76-bd95-1a12c4fcedb9
+		summarizeBy: none
+		sourceColumn: B_ACCOUNT
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAMPAIGN_ID
+		dataType: string
+		lineageTag: 32bb11d2-b5c1-4ece-93d4-47b98b2cc5ad
+		summarizeBy: none
+		sourceColumn: CAMPAIGN_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAMPAIGN_NAME
+		dataType: string
+		lineageTag: 84a8d45a-6266-4fc6-a431-34d719749a5c
+		summarizeBy: none
+		sourceColumn: CAMPAIGN_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAMPAIGN_TYPE
+		dataType: string
+		lineageTag: dc79170a-7d9d-4cea-8e1b-b6bb58960a2e
+		summarizeBy: none
+		sourceColumn: CAMPAIGN_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLICKS
+		dataType: double
+		formatString: #,0
+		lineageTag: 1b416223-7ee8-406a-b436-c2cdbfbb2ab6
+		summarizeBy: sum
+		sourceColumn: CLICKS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8ac901d9-04fb-483a-a79b-9e721263837f
+		summarizeBy: none
+		sourceColumn: DATE
+
+		variation Variation
+			isDefault
+			relationship: 6473cdef-ea31-400a-b4e7-8cf2f8b52ad3
+			defaultHierarchy: LocalDateTable_025c5599-ebd7-4bad-8531-b3382f05021f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DIRECT_REVENUE
+		dataType: double
+		lineageTag: 893c25c4-9cf2-4085-89fb-9227ee53b801
+		summarizeBy: sum
+		sourceColumn: DIRECT_REVENUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HOUR
+		dataType: int64
+		formatString: 0
+		lineageTag: c7844e63-d870-4c77-9abc-bf0aedef4ec2
+		summarizeBy: sum
+		sourceColumn: HOUR
+
+		annotation SummarizationSetBy = Automatic
+
+	column HOUR_MIN
+		dataType: string
+		lineageTag: 55b6a0a3-e642-483f-a249-64d94ee5c3c7
+		summarizeBy: none
+		sourceColumn: HOUR_MIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column INDIRECT_REVENUE
+		dataType: double
+		lineageTag: 64dff549-a625-4ba4-a71c-4af07b2597f6
+		summarizeBy: sum
+		sourceColumn: INDIRECT_REVENUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column MAPPED_ADVERTISER_1
+		dataType: string
+		lineageTag: 1596ebe8-b6b6-4975-ae83-ce904f277fc1
+		summarizeBy: none
+		sourceColumn: MAPPED_ADVERTISER_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAPPED_ADVERTISER_2
+		dataType: string
+		lineageTag: fff4e1a9-d448-46f2-822d-c4ac79589c2e
+		summarizeBy: none
+		sourceColumn: MAPPED_ADVERTISER_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column MAPPED_CAMPAIGN_TYPE
+		dataType: string
+		lineageTag: b644236e-6ab3-40d0-9f11-7a438055d0ab
+		summarizeBy: none
+		sourceColumn: MAPPED_CAMPAIGN_TYPE
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_INGESTED_DATETIME_IST
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4684f79f-e0e9-46ee-a495-468d83808ca3
+		summarizeBy: none
+		sourceColumn: ROW_INGESTED_DATETIME_IST
+
+		variation Variation
+			isDefault
+			relationship: 2ed8c2bd-b140-43f0-9710-722c9fa409e0
+			defaultHierarchy: LocalDateTable_23340ab3-90de-4c4e-9f03-06677e2a0b5e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column TCPT_ACCOUNT_ID
+		dataType: double
+		lineageTag: 97fe084c-685e-4e6b-9b9c-b6163cd8c1bb
+		summarizeBy: count
+		sourceColumn: TCPT_ACCOUNT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TOTAL_ORDERS
+		dataType: double
+		formatString: #,0
+		lineageTag: 3d42873d-50db-462c-9060-f630775116f5
+		summarizeBy: sum
+		sourceColumn: TOTAL_ORDERS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column TOTAL_REVENUE
+		dataType: double
+		formatString: #,0
+		lineageTag: 2b2fbccf-a1ab-4765-9096-5904784d73a0
+		summarizeBy: sum
+		sourceColumn: TOTAL_REVENUE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column UNITS_SOLD_DIRECT
+		dataType: double
+		lineageTag: 58262514-dd98-4b3a-810f-54865e4aa7dc
+		summarizeBy: sum
+		sourceColumn: UNITS_SOLD_DIRECT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column UNITS_SOLD_INDIRECT
+		dataType: double
+		lineageTag: 93857b49-7a43-4b8e-b2e9-0c4a8c4986cd
+		summarizeBy: sum
+		sourceColumn: UNITS_SOLD_INDIRECT
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column VIEWS
+		dataType: double
+		formatString: #,0
+		lineageTag: a4617d76-8ca8-454c-8905-e439e078eb53
+		summarizeBy: sum
+		sourceColumn: VIEWS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	partition HIVEMINDS_FLIPKART_HOURLY_VIEW = m
+		mode: import
+		source =
+				let
+				    Source = ClickHouse.Database("50.17.224.92", 8123, null, []),
+				    client_hiveminds_db_power_bi_Database = Source{[Name="client_hiveminds_db_power_bi",Kind="Database"]}[Data],
+				    HIVEMINDS_FLIPKART_HOURLY_VIEW_Table = client_hiveminds_db_power_bi_Database{[Name="HIVEMINDS_FLIPKART_HOURLY_VIEW",Kind="Table"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(HIVEMINDS_FLIPKART_HOURLY_VIEW_Table, each [MAPPED_ADVERTISER_1] = "Jockey"),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"HOUR", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
