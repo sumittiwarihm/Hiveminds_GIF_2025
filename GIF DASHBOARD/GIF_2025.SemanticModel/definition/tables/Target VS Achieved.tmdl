@@ -19,6 +19,78 @@ table 'Target VS Achieved'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column Column1
+		dataType: string
+		lineageTag: b8989797-6b7e-4b41-a264-a81cbf8f5f8d
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column _1
+		dataType: string
+		lineageTag: 273640d5-d4af-49e8-89fb-4f3211977c5d
+		summarizeBy: none
+		sourceColumn: _1
+
+		annotation SummarizationSetBy = Automatic
+
+	column _2
+		dataType: string
+		lineageTag: 8afb9a5f-4ed3-4126-a750-211a47c1ca94
+		summarizeBy: none
+		sourceColumn: _2
+
+		annotation SummarizationSetBy = Automatic
+
+	column _3
+		dataType: string
+		lineageTag: f4b0a21f-596e-4d05-b4ba-098a9a450cac
+		summarizeBy: none
+		sourceColumn: _3
+
+		annotation SummarizationSetBy = Automatic
+
+	column _4
+		dataType: string
+		lineageTag: 434e1281-16f5-414b-91ca-95e7afa60959
+		summarizeBy: none
+		sourceColumn: _4
+
+		annotation SummarizationSetBy = Automatic
+
+	column _5
+		dataType: string
+		lineageTag: 09f4d03f-905a-4918-b8dc-cd01bbef2892
+		summarizeBy: none
+		sourceColumn: _5
+
+		annotation SummarizationSetBy = Automatic
+
+	column _6
+		dataType: string
+		lineageTag: 037d6508-b598-458d-a8f7-9e1305fd1409
+		summarizeBy: none
+		sourceColumn: _6
+
+		annotation SummarizationSetBy = Automatic
+
+	column _7
+		dataType: string
+		lineageTag: dcc8369d-99db-4811-8101-2f63898c83fe
+		summarizeBy: none
+		sourceColumn: _7
+
+		annotation SummarizationSetBy = Automatic
+
+	column _8
+		dataType: string
+		lineageTag: 87505f92-daba-492b-b869-96c353171f56
+		summarizeBy: none
+		sourceColumn: _8
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Target VS Achieved' = m
 		mode: import
 		source =
