@@ -1,0 +1,240 @@
+table 'public flipkart_buybox'
+	lineageTag: 112e1e63-1dbb-4714-872c-69783df1de72
+
+	measure '%instock F' = ```
+			DIVIDE(
+			    COUNTAX(FILTER('public flipkart_buybox', 'public flipkart_buybox'[availability] = "Instock"), 'public flipkart_buybox'[availability]),
+			    COUNT('public flipkart_buybox'[availability]),
+			    0
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 35d0bee6-b105-4e67-9d8f-d5e1605b63ce
+
+	measure '%out of stock F' = ```
+			DIVIDE(
+			    COUNTAX(FILTER('public flipkart_buybox', 'public flipkart_buybox'[availability] = "Out Of Stock"), 'public flipkart_buybox'[availability]),
+			    COUNT('public flipkart_buybox'[availability]),
+			    0
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a34fb48a-e903-4fd9-8678-ee4c0eef1c99
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 61e814d9-90ff-49df-9b07-0ba472ceeeea
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: 5fbe5546-7293-41e8-a374-275090e6eba2
+			defaultHierarchy: LocalDateTable_b6bd5d84-0634-42c3-b28f-0d060091e32f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column fsn
+		dataType: string
+		lineageTag: 40130372-669e-41f5-80fc-0c3bcf195f4e
+		summarizeBy: none
+		sourceColumn: fsn
+
+		annotation SummarizationSetBy = Automatic
+
+	column title
+		dataType: string
+		lineageTag: 9c21e1d1-dae6-477f-9c9f-356ace35e77a
+		summarizeBy: none
+		sourceColumn: title
+
+		annotation SummarizationSetBy = Automatic
+
+	column pincode
+		dataType: string
+		lineageTag: 98f652fe-c679-45cc-9fe4-a6d3503c8068
+		summarizeBy: none
+		sourceColumn: pincode
+
+		annotation SummarizationSetBy = Automatic
+
+	column availability
+		dataType: string
+		lineageTag: c1225c1d-c966-4085-a417-6605410d4696
+		summarizeBy: none
+		sourceColumn: availability
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller
+		dataType: string
+		lineageTag: 378b3a41-6aad-4ffb-af29-2b60b6841656
+		summarizeBy: none
+		sourceColumn: seller
+
+		annotation SummarizationSetBy = Automatic
+
+	column rating
+		dataType: string
+		lineageTag: 80bcf76d-0141-4270-b4f4-fd55466bc7a3
+		summarizeBy: none
+		sourceColumn: rating
+
+		annotation SummarizationSetBy = Automatic
+
+	column no_of_ratings
+		dataType: string
+		lineageTag: 57318471-78ec-4ab2-b02a-dd3188ba7215
+		summarizeBy: none
+		sourceColumn: no_of_ratings
+
+		annotation SummarizationSetBy = Automatic
+
+	column no_of_reviews
+		dataType: string
+		lineageTag: de21767a-9a2c-4383-9e3d-a933d8ef1b5f
+		summarizeBy: none
+		sourceColumn: no_of_reviews
+
+		annotation SummarizationSetBy = Automatic
+
+	column selling_price
+		dataType: string
+		lineageTag: ba8f2667-9022-4fbe-a761-a81380031081
+		summarizeBy: none
+		sourceColumn: selling_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column mrp
+		dataType: string
+		lineageTag: bbf5adf0-621e-4121-b51b-7cb0e8c840df
+		summarizeBy: none
+		sourceColumn: mrp
+
+		annotation SummarizationSetBy = Automatic
+
+	column free_delivery
+		dataType: string
+		lineageTag: 96704228-2be8-4e3b-a587-92af80e0c453
+		summarizeBy: none
+		sourceColumn: free_delivery
+
+		annotation SummarizationSetBy = Automatic
+
+	column platform
+		dataType: string
+		lineageTag: b93090b0-a36f-4f88-bd0f-ed27c228af3c
+		summarizeBy: none
+		sourceColumn: platform
+
+		annotation SummarizationSetBy = Automatic
+
+	column hour
+		dataType: string
+		lineageTag: 1392610c-57de-4616-bdf2-1f981cc1b788
+		summarizeBy: none
+		sourceColumn: hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column account
+		dataType: string
+		lineageTag: efa24495-af37-460b-ba39-abbe8e82fdd7
+		summarizeBy: none
+		sourceColumn: account
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: d5de94c8-e486-46c4-b966-a76173cca73f
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category
+		dataType: string
+		lineageTag: 03fe5dce-b64c-45ba-894d-d5a708e5aa98
+		summarizeBy: none
+		sourceColumn: sub_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category_1
+		dataType: string
+		lineageTag: 40f2c6dc-892a-41a5-9d96-3f0454129896
+		summarizeBy: none
+		sourceColumn: sub_category_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category_2
+		dataType: string
+		lineageTag: 5bf1e73f-cf22-4aa4-af99-a382e2011c50
+		summarizeBy: none
+		sourceColumn: sub_category_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category_3
+		dataType: string
+		lineageTag: a177c7cc-8f2e-4d98-994a-277fe5de4ed5
+		summarizeBy: none
+		sourceColumn: sub_category_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column City =
+			
+			IF('public flipkart_buybox'[pincode] = "110001", "New Delhi",
+			    IF('public flipkart_buybox'[pincode] = "560001", "Bengaluru",
+			        IF('public flipkart_buybox'[pincode] = "400001", "Mumbai",
+			            IF('public flipkart_buybox'[pincode] = "500001", "Hyderabad",
+			                IF('public flipkart_buybox'[pincode] = "700001", "Kolkata",
+			                    BLANK()
+			                )
+			            )
+			        )
+			    )
+			)
+		lineageTag: 60b0379c-74d5-4844-b820-3af59d2ddc0c
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Yes = IF('public flipkart_buybox'[availability]="Instock",1,0)
+		formatString: 0
+		lineageTag: 4370e4d1-da50-4d2b-a414-ae0179b6ded7
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column No = IF('public flipkart_buybox'[availability]="Out of stock",1,0)
+		formatString: 0
+		lineageTag: c8c87676-8473-4972-b218-45cdba61723a
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public flipkart_buybox' = m
+		mode: import
+		source =
+				let
+				    Source = Table.SelectRows(
+				    PostgreSQL.Database("nucleus.ckojnefw0d56.us-west-1.rds.amazonaws.com", "GIF_2025"){[Schema="public", Item="flipkart_buybox"]}[Data],
+				    each [account] = "Jockey"
+				)
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

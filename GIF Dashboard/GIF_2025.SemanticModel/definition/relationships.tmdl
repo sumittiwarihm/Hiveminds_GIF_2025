@@ -1,0 +1,57 @@
+relationship 4db6ae68-cf52-41bf-b5be-b518962267d0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public amazon_buybox'.date
+	toColumn: LocalDateTable_6581351a-bd8b-46d4-8b1c-b59eb7966829.Date
+
+relationship d857be2d-51a9-4cfe-8102-b07cc19ad1a2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public amazon_sov'.date
+	toColumn: LocalDateTable_4038819a-87eb-4c82-acd2-4488c1ac1e5f.Date
+
+relationship e0a4bcf5-612e-4ce7-9a9e-dcf5aef8f343
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public flipkart_sov'.date
+	toColumn: LocalDateTable_9690223d-9f91-4185-8751-b2f6a4653247.Date
+
+relationship 5fbe5546-7293-41e8-a374-275090e6eba2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public flipkart_buybox'.date
+	toColumn: LocalDateTable_b6bd5d84-0634-42c3-b28f-0d060091e32f.Date
+
+relationship 6473cdef-ea31-400a-b4e7-8cf2f8b52ad3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.DATE
+	toColumn: LocalDateTable_025c5599-ebd7-4bad-8531-b3382f05021f.Date
+
+relationship 2ed8c2bd-b140-43f0-9710-722c9fa409e0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.ROW_INGESTED_DATETIME_IST
+	toColumn: LocalDateTable_23340ab3-90de-4c4e-9f03-06677e2a0b5e.Date
+
+relationship 0c18c856-4130-1054-aeb1-e08ed111bbc3
+	fromColumn: 'public amazon_paid'.Campaigns
+	toColumn: Amazon_Campaign_Mapping.'Campaign Name'
+
+relationship 9feedcd1-3c63-d065-e285-89e55e9eeb1b
+	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.CAMPAIGN_NAME
+	toColumn: Flipkart_Campaign_Mapping.'Campaign Names'
+
+relationship dce86d4d-bf51-45b8-aa2f-d522bdc98eba
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Sale_2024.GIF
+	toColumn: LocalDateTable_118b7cbb-fbf5-47ae-b051-868deb4308b6.Date
+
+relationship d643c0c4-6b3f-4b85-ad09-d18dbaf31aff
+	joinOnDateBehavior: datePartOnly
+	fromColumn: calender_dates_amz_2025.Date
+	toColumn: LocalDateTable_e6af0bfa-767c-4d6f-8411-cf27f66ef56e.Date
+
+relationship 693c7684-0ae0-137f-6988-257a87315400
+	fromColumn: 'public amazon_paid'.date
+	toColumn: calender_dates_amz_2025.Date
+
+relationship d5400c31-a757-4bdc-b831-972b86c135d9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Target VS Achieved'.GIF
+	toColumn: LocalDateTable_f110064c-2896-4d45-b249-42b10a2cd3e1.Date
+

@@ -1,0 +1,66 @@
+table Flipkart_Campaign_Mapping
+	lineageTag: 64141ff2-f185-4c25-83d0-d800b553113a
+
+	column 'Campaign Names'
+		dataType: string
+		lineageTag: fd66f399-a2fb-473f-9648-f48244c16c1d
+		summarizeBy: none
+		sourceColumn: Campaign Names
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 8cb7047e-145b-4607-932c-d65ae79803fc
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Category'
+		dataType: string
+		lineageTag: 8092a718-601b-4581-b9a2-d24862e7b66f
+		summarizeBy: none
+		sourceColumn: Sub Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column BCG
+		dataType: string
+		lineageTag: 115abc9c-baf2-472d-9f29-32e4fdaa2462
+		summarizeBy: none
+		sourceColumn: BCG
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ad Type'
+		dataType: string
+		lineageTag: 9d22bd88-88ab-4ab5-8498-efe1587408ae
+		summarizeBy: none
+		sourceColumn: Ad Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Campaign Type'
+		dataType: string
+		lineageTag: ccdc52a6-3b3a-4c4f-8e55-31787a9a8ce6
+		summarizeBy: none
+		sourceColumn: Campaign Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Flipkart_Campaign_Mapping = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=767219124#gid=767219124"),
+				    Flipkart_Campaign_Mapping_Table = Source{[name="Flipkart_Campaign_Mapping",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Flipkart_Campaign_Mapping_Table, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Campaign Names", type text}, {"Category", type text}, {"Sub Category", type text}, {"BCG", type text}, {"Ad Type", type text}, {"Campaign Type", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

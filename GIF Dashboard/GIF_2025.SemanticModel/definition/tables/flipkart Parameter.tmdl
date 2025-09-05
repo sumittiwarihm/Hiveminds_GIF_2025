@@ -1,0 +1,55 @@
+table 'flipkart Parameter'
+	lineageTag: 14c2c11f-0f28-477f-b541-3ffb41228685
+
+	column Parameter
+		lineageTag: 91c63adb-5912-4b3c-b2a6-b7cb922b4475
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Fields'
+		isHidden
+		lineageTag: d341a091-1c97-4a71-9d2c-690e1c8ffb9b
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: aab094d9-e31a-4c44-b05b-c7e8f42d2c65
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'flipkart Parameter' = calculated
+		mode: import
+		source =
+				{
+				    ("SPEND", NAMEOF('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]), 0),
+				    ("CLICKS", NAMEOF('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]), 1),
+				    ("ACOS", NAMEOF('HIVEMINDS_FLIPKART_HOURLY_VIEW'[fk_ACOS]), 2),
+				    ("CPC", NAMEOF('HIVEMINDS_FLIPKART_HOURLY_VIEW'[fk_cpc]), 3),
+				    ("CTR", NAMEOF('HIVEMINDS_FLIPKART_HOURLY_VIEW'[fk_ctr]), 4),
+				    ("CVR", NAMEOF('HIVEMINDS_FLIPKART_HOURLY_VIEW'[fk_cvr]), 5),
+				    ("ROAS", NAMEOF('HIVEMINDS_FLIPKART_HOURLY_VIEW'[fk_roas]), 6),
+				    ("SALES", NAMEOF('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]), 7),
+				    ("ORDERS", NAMEOF('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS]), 8)
+				}
+
+	annotation PBI_Id = 6edbee5c051b41c699922d395c53e9e1
+

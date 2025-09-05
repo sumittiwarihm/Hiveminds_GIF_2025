@@ -1,0 +1,361 @@
+table 'public amazon_buybox'
+	lineageTag: 91e01d76-3895-4a14-8b0d-6e71335bfc0c
+
+	measure %instock = ```
+			DIVIDE(
+			    COUNTAX(FILTER('public amazon_buybox', 'public amazon_buybox'[availability] = "In stock"), 'public amazon_buybox'[availability]),
+			    COUNT('public amazon_buybox'[availability]),
+			    0
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4159a173-4694-4185-ae56-a11b1e67c7ce
+
+	measure '%out of stock' = ```
+			DIVIDE(
+			    COUNTAX(FILTER('public amazon_buybox', 'public amazon_buybox'[availability] = "Out Of Stock"), 'public amazon_buybox'[availability]),
+			    COUNT('public amazon_buybox'[availability]),
+			    0
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ca1cc849-e371-415c-bfa7-7c86d62276cb
+
+	column asin
+		dataType: string
+		lineageTag: edf31a45-9583-4ad9-8c0d-bbf1622f1d7f
+		summarizeBy: none
+		sourceColumn: asin
+
+		annotation SummarizationSetBy = Automatic
+
+	column title
+		dataType: string
+		lineageTag: e61621f6-82c0-41b2-92b7-6a586cb4c8a8
+		summarizeBy: none
+		sourceColumn: title
+
+		annotation SummarizationSetBy = Automatic
+
+	column availability
+		dataType: string
+		lineageTag: 06ba654d-8c99-405a-93e5-4a6e1008cd4a
+		summarizeBy: none
+		sourceColumn: availability
+
+		annotation SummarizationSetBy = Automatic
+
+	column seller
+		dataType: string
+		lineageTag: 5f79bc06-8919-43ce-92e1-b509818a7d98
+		summarizeBy: none
+		sourceColumn: seller
+
+		annotation SummarizationSetBy = Automatic
+
+	column pin
+		dataType: string
+		lineageTag: ce73c631-2f34-4af6-a3e6-20208816de07
+		summarizeBy: none
+		sourceColumn: pin
+
+		annotation SummarizationSetBy = Automatic
+
+	column buy_now
+		dataType: string
+		lineageTag: d1e6187d-80ce-4d44-848e-34e2eb8e8bc5
+		summarizeBy: none
+		sourceColumn: buy_now
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: double
+		lineageTag: ee223e1c-ea0c-47f3-97d0-93f36b25d6cd
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column mrp
+		dataType: int64
+		formatString: 0
+		lineageTag: 132ca350-5918-47a4-98bf-8201823cb977
+		summarizeBy: sum
+		sourceColumn: mrp
+
+		annotation SummarizationSetBy = Automatic
+
+	column free_delivery
+		dataType: string
+		lineageTag: c16c4b15-5e72-42c6-a2ab-731357c5fcbb
+		summarizeBy: none
+		sourceColumn: free_delivery
+
+		annotation SummarizationSetBy = Automatic
+
+	column fast_delivery
+		dataType: string
+		lineageTag: b9c87c4a-aa62-4bbc-9a12-abffc0b7c3af
+		summarizeBy: none
+		sourceColumn: fast_delivery
+
+		annotation SummarizationSetBy = Automatic
+
+	column bsr
+		dataType: string
+		lineageTag: ae43ed8e-bcd0-4d8e-80ba-a437d8831b9b
+		summarizeBy: none
+		sourceColumn: bsr
+
+		annotation SummarizationSetBy = Automatic
+
+	column fresh_available
+		dataType: string
+		lineageTag: a9465cb7-600c-4e05-956e-078b7b388e7a
+		summarizeBy: none
+		sourceColumn: fresh_available
+
+		annotation SummarizationSetBy = Automatic
+
+	column fresh_price
+		dataType: string
+		lineageTag: e30b42de-859d-4f2f-864e-4df0d3765611
+		summarizeBy: none
+		sourceColumn: fresh_price
+
+		annotation SummarizationSetBy = Automatic
+
+	column fresh_seller
+		dataType: string
+		lineageTag: d624cb02-90fc-4e11-accf-39e9c92ae1f6
+		summarizeBy: none
+		sourceColumn: fresh_seller
+
+		annotation SummarizationSetBy = Automatic
+
+	column ratings
+		dataType: double
+		lineageTag: 53a02c32-f280-4448-a76a-7a9a0396f1df
+		summarizeBy: sum
+		sourceColumn: ratings
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_ratings
+		dataType: string
+		lineageTag: cd92129e-c45e-4c92-b9e2-3c21ec308d80
+		summarizeBy: none
+		sourceColumn: total_ratings
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 955d1c56-c2eb-4456-97f2-0573fa6b7f92
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: 4db6ae68-cf52-41bf-b5be-b518962267d0
+			defaultHierarchy: LocalDateTable_6581351a-bd8b-46d4-8b1c-b59eb7966829.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column delivery_days
+		dataType: string
+		lineageTag: 9c09d44e-6063-41b4-9a61-3f483b89e076
+		summarizeBy: none
+		sourceColumn: delivery_days
+
+		annotation SummarizationSetBy = Automatic
+
+	column noding_rank_1
+		dataType: int64
+		formatString: 0
+		lineageTag: 93e31562-dd05-4d50-85bd-26f6ead60c79
+		summarizeBy: sum
+		sourceColumn: noding_rank_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column noding_category_1
+		dataType: string
+		lineageTag: fcfef9c6-bbe1-4eda-b9fa-c4f01b3a31a5
+		summarizeBy: none
+		sourceColumn: noding_category_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column noding_rank_2
+		dataType: int64
+		formatString: 0
+		lineageTag: 800a5a63-3eda-42fc-9e2f-7edfd4413946
+		summarizeBy: sum
+		sourceColumn: noding_rank_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column noding_category_2
+		dataType: string
+		lineageTag: 1b249cf4-3b16-4234-8641-bc88c35a23ef
+		summarizeBy: none
+		sourceColumn: noding_category_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column noding_rank_3
+		dataType: int64
+		formatString: 0
+		lineageTag: 6580326f-0bc6-4c8c-aba5-20d336570179
+		summarizeBy: sum
+		sourceColumn: noding_rank_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column noding_category_3
+		dataType: string
+		lineageTag: 95eb1423-5dc4-48e4-9538-7ce341ceb2f3
+		summarizeBy: none
+		sourceColumn: noding_category_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column noding_rank_4
+		dataType: int64
+		formatString: 0
+		lineageTag: 6af48fef-81a4-4f68-9226-17653fc99fc0
+		summarizeBy: sum
+		sourceColumn: noding_rank_4
+
+		annotation SummarizationSetBy = Automatic
+
+	column noding_category_4
+		dataType: string
+		lineageTag: e03fe932-a626-4903-a102-778cf05e25b7
+		summarizeBy: none
+		sourceColumn: noding_category_4
+
+		annotation SummarizationSetBy = Automatic
+
+	column hour
+		dataType: string
+		lineageTag: 3bd6e023-67eb-4f6f-855a-b15a67ff7a44
+		summarizeBy: none
+		sourceColumn: hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column account
+		dataType: string
+		lineageTag: fb3e8ef9-3294-4001-98e2-edf5070d2d95
+		summarizeBy: none
+		sourceColumn: account
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category
+		dataType: string
+		lineageTag: 53727ca9-9fad-4e6b-9c7e-64c1e6797006
+		summarizeBy: none
+		sourceColumn: sub_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category_1
+		dataType: string
+		lineageTag: da876f2b-90f3-455a-9ca5-bce81efc5755
+		summarizeBy: none
+		sourceColumn: sub_category_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category_2
+		dataType: string
+		lineageTag: b2490654-2ce5-4320-a461-2cb1fecd815f
+		summarizeBy: none
+		sourceColumn: sub_category_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column sub_category_3
+		dataType: string
+		lineageTag: 72b7dc47-69d5-4c33-9d56-369023d15a84
+		summarizeBy: none
+		sourceColumn: sub_category_3
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: d64d8e74-4493-49fa-8173-96f35ff3a669
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column No = IF('public amazon_buybox'[buy_now]="No",1,0)
+		formatString: 0
+		lineageTag: ae79a167-8f9b-420f-9cf1-343dba6eed38
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Yes = IF('public amazon_buybox'[buy_now]="Yes",1,0)
+		formatString: 0
+		lineageTag: 741077d0-9494-45a7-a430-1d72359b6f61
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column City = ```
+			
+			IF('public amazon_buybox'[pin] = "110001", "New Delhi",
+			    IF('public amazon_buybox'[pin] = "560001", "Bengaluru",
+			        IF('public amazon_buybox'[pin] = "400001", "Mumbai",
+			            IF('public amazon_buybox'[pin] = "500001", "Hyderabad",
+			                IF('public amazon_buybox'[pin] = "700001", "Kolkata",
+			                    BLANK()
+			                )
+			            )
+			        )
+			    )
+			)
+			
+			```
+		lineageTag: d030d48f-e155-4b5d-8e14-367ee9f3f760
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public amazon_buybox' = m
+		mode: import
+		source =
+				let
+				    Source = Table.SelectRows(
+				    PostgreSQL.Database("nucleus.ckojnefw0d56.us-west-1.rds.amazonaws.com", "GIF_2025"){[Schema="public", Item="amazon_buybox"]}[Data],
+				    each [account] = "Jockey"
+				),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"price", Int64.Type}}),
+				    #"Replaced Value" = Table.ReplaceValue(#"Changed Type",null,0,Replacer.ReplaceValue,{"price"}),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Replaced Value",{{"mrp", Int64.Type}, {"ratings", type number}, {"noding_rank_1", Int64.Type}, {"noding_rank_2", Int64.Type}, {"noding_rank_3", Int64.Type}, {"noding_rank_4", Int64.Type}}),
+				    #"Replaced Errors" = Table.ReplaceErrorValues(#"Changed Type1", {{"price", 0}}),
+				    #"Replaced Errors1" = Table.ReplaceErrorValues(#"Replaced Errors", {{"mrp", 0}}),
+				    #"Replaced Errors2" = Table.ReplaceErrorValues(#"Replaced Errors1", {{"noding_rank_4", null}})
+				in
+				    #"Replaced Errors2"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

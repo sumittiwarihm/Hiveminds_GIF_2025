@@ -1,0 +1,23 @@
+table calender_dates_amz_2025
+	lineageTag: 426d1e5b-6135-45ca-95ff-9a4a8c135302
+
+	column Date
+		formatString: General Date
+		lineageTag: b8a92af1-51d2-4332-beda-57e9f6d1da81
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: d643c0c4-6b3f-4b85-ad09-d18dbaf31aff
+			defaultHierarchy: LocalDateTable_e6af0bfa-767c-4d6f-8411-cf27f66ef56e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calender_dates_amz_2025 = calculated
+		mode: import
+		source = CALENDAR(MIN('public amazon_paid'[date]),MAX('public amazon_paid'[date]))
+
+	annotation PBI_Id = 1ef019a6ade847f4b0ec45457415be32
+

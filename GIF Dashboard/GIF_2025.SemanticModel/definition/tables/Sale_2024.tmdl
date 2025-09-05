@@ -1,0 +1,264 @@
+table Sale_2024
+	lineageTag: 6d7fb38c-066e-4375-86d1-91c6f97f3d14
+
+	measure amz2025_spends = CALCULATE(SUM('public amazon_paid'[Spend]),ALL('calender_dates_amz_2025'),USERELATIONSHIP( 'public amazon_paid'[date],'calender_dates_amz_2025'[Date]))
+		lineageTag: 3742eaf1-817a-43a3-9adb-8d2c5dbefeb3
+
+	measure '% change_spends' =
+			
+			VAR BaselineSpends = SUM ('Sale_2024'[Spends] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Spend] ),
+			        ALL ( 'calender_dates_amz_2025' ),
+			        USERELATIONSHIP (
+			            'public amazon_paid'[Date],
+			            'calender_dates_amz_2025'[Date]
+			        )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends - BaselineSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5b374dc0-a781-4471-b0a3-9650040b3baf
+
+	measure amz2025_clicks = CALCULATE(SUM('public amazon_paid'[Clicks]),ALL('calender_dates_amz_2025'),USERELATIONSHIP( 'public amazon_paid'[date],'calender_dates_amz_2025'[Date]))
+		formatString: 0
+		lineageTag: ba990ff4-33af-4c22-946a-35937711d6b8
+
+	measure '% change_clicks' =
+			
+			VAR BaselineSpends = SUM ('Sale_2024'[Clicks] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Clicks] ),
+			        ALL ( 'calender_dates_amz_2025' ),
+			        USERELATIONSHIP (
+			            'public amazon_paid'[Date],
+			            'calender_dates_amz_2025'[Date]
+			        )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends - BaselineSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6dc19f61-4932-4516-9bec-95dc1c9c7b5c
+
+	measure amz2025_orders = CALCULATE(SUM('public amazon_paid'[Orders]),ALL('calender_dates_amz_2025'),USERELATIONSHIP( 'public amazon_paid'[date],'calender_dates_amz_2025'[Date]))
+		formatString: 0
+		lineageTag: 18eb9c6e-ada4-492a-94d8-718d63af5c73
+
+	measure '% change_orders' =
+			
+			VAR BaselineSpends = SUM ('Sale_2024'[Orders] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Orders] ),
+			        ALL ( 'calender_dates_amz_2025' ),
+			        USERELATIONSHIP (
+			            'public amazon_paid'[Date],
+			            'calender_dates_amz_2025'[Date]
+			        )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends - BaselineSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f136f379-7ec0-4396-82a8-ae16b35d62bd
+
+	measure amz2025_impressions = CALCULATE(SUM('public amazon_paid'[Impressions]),ALL('calender_dates_amz_2025'),USERELATIONSHIP( 'public amazon_paid'[date],'calender_dates_amz_2025'[Date]))
+		formatString: 0
+		lineageTag: d0f4602f-9236-49b6-9403-aee61d3bbbfb
+
+	measure '% change_impressions' =
+			
+			VAR BaselineSpends = SUM ('Sale_2024'[Impressions] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Impressions] ),
+			        ALL ( 'calender_dates_amz_2025' ),
+			        USERELATIONSHIP (
+			            'public amazon_paid'[Date],
+			            'calender_dates_amz_2025'[Date]
+			        )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends - BaselineSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2911eed7-4401-4387-9e11-7df22b00bf63
+
+	measure amz2025_sales = CALCULATE(SUM('public amazon_paid'[Sales]),ALL('calender_dates_amz_2025'),USERELATIONSHIP( 'public amazon_paid'[date],'calender_dates_amz_2025'[Date]))
+		lineageTag: be6c5ff2-082c-4e73-b186-a5bf9ca87d01
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% change_sales' =
+			
+			VAR BaselineSpends = SUM ('Sale_2024'[Sales] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Sales] ),
+			        ALL ( 'calender_dates_amz_2025' ),
+			        USERELATIONSHIP (
+			            'public amazon_paid'[Date],
+			            'calender_dates_amz_2025'[Date]
+			        )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends - BaselineSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 619faee1-b3ad-4632-b2a6-f9ef1829b30a
+
+	column GIF
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8d10f3a1-af9c-4dc8-b818-5c9de9910c2a
+		summarizeBy: none
+		sourceColumn: GIF
+
+		variation Variation
+			isDefault
+			relationship: dce86d4d-bf51-45b8-aa2f-d522bdc98eba
+			defaultHierarchy: LocalDateTable_118b7cbb-fbf5-47ae-b051-868deb4308b6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Impressions
+		dataType: int64
+		formatString: 0
+		lineageTag: d8ccc8c5-8de6-4225-8681-16ead68b4109
+		summarizeBy: sum
+		sourceColumn: Impressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clicks
+		dataType: int64
+		formatString: 0
+		lineageTag: 35d05068-41ff-4422-bf8d-da87eff435f7
+		summarizeBy: sum
+		sourceColumn: Clicks
+
+		annotation SummarizationSetBy = Automatic
+
+	column Spends
+		dataType: int64
+		formatString: 0
+		lineageTag: 966a528c-4f4d-4e41-b3a9-ab7a2576549d
+		summarizeBy: sum
+		sourceColumn: Spends
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orders
+		dataType: int64
+		formatString: 0
+		lineageTag: abe8ade9-bdb0-4945-a662-1d5a283f7cc0
+		summarizeBy: sum
+		sourceColumn: Orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: int64
+		formatString: 0
+		lineageTag: c077ca0b-ccb4-4392-886e-11398988bb8a
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTR
+		dataType: double
+		lineageTag: 34c48c2e-727d-4e9e-b0c0-62432ccb9d14
+		summarizeBy: sum
+		sourceColumn: CTR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CPC
+		dataType: double
+		lineageTag: 49ab0d1c-e808-4daf-8cab-b01d3e0f0d79
+		summarizeBy: sum
+		sourceColumn: CPC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CVR
+		dataType: double
+		lineageTag: 9d6f8360-9825-4d6e-9ab2-d5d748062d0e
+		summarizeBy: sum
+		sourceColumn: CVR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column AOV
+		dataType: double
+		lineageTag: 8ae11465-3065-42a3-aba1-e0e6122e17de
+		summarizeBy: sum
+		sourceColumn: AOV
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ROI
+		dataType: double
+		lineageTag: 93b3c06d-4c85-4d08-ae6d-4e520aca9693
+		summarizeBy: sum
+		sourceColumn: ROI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Sale_2024 = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
+				    Sale_2024_Table = Source{[name="Sale_2024",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sale_2024_Table, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"GIF", type date}, {"Impressions", Int64.Type}, {"Clicks", Int64.Type}, {"Spends", Int64.Type}, {"Orders", Int64.Type}, {"Sales", Int64.Type}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,58 @@
+table Amazon_Campaign_Mapping
+	lineageTag: 51e4c34e-6dc2-46d5-80e6-98c92f3cb098
+
+	column 'Campaign Name'
+		dataType: string
+		lineageTag: dd08897b-9597-4168-9a61-35ae3258bbc8
+		summarizeBy: none
+		sourceColumn: Campaign Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: 5dec5a86-d35c-4f8e-b87d-28705fecc50c
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: bb547b56-5e7a-46e9-b293-e1c751ef31e3
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Category'
+		dataType: string
+		lineageTag: e675a65c-34a7-448b-bf25-78f80737a1e9
+		summarizeBy: none
+		sourceColumn: Sub Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Intent Type'
+		dataType: string
+		lineageTag: 431591ed-8746-4337-beaf-7d48cc5fe8ae
+		summarizeBy: none
+		sourceColumn: Intent Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Amazon_Campaign_Mapping = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=0#gid=0"),
+				    Amazon_Campaign_Mapping_Table = Source{[name="Amazon_Campaign_Mapping",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Amazon_Campaign_Mapping_Table, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Campaign Name", type text}, {"Type", type text}, {"Category", type text}, {"Sub Category", type text}, {"Intent Type", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

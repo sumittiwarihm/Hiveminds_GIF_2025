@@ -1,0 +1,57 @@
+table 'Amazon Parameter'
+	lineageTag: 81d9219f-dc38-427d-bf1f-cc4cb0d7aec5
+
+	column 'Amazon Parameter'
+		lineageTag: ecc3f5dc-a9ed-47ef-aba2-c0af15d93f7a
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Amazon Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Amazon Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amazon Parameter Fields'
+		isHidden
+		lineageTag: a99de5cb-5ada-45d3-ba93-aa42e07ae476
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Amazon Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amazon Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: e061de21-8a1a-47d8-b0e6-94c6792913e2
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Amazon Parameter' = calculated
+		mode: import
+		source =
+				{
+				    ("Impression", NAMEOF('public amazon_paid'[impression_measure]), 1),
+				    ("Clicks", NAMEOF('public amazon_paid'[clicks_measure]), 2),
+				    ("Orders", NAMEOF('public amazon_paid'[orders_measure]), 3),
+				    ("Spends", NAMEOF('public amazon_paid'[spends_measure]), 4),
+				    ("Sales", NAMEOF('public amazon_paid'[sales_measure]), 5),
+				    ("CTR", NAMEOF('public amazon_paid'[CTR_]), 6),
+				    ("CVR", NAMEOF('public amazon_paid'[CVR]), 7),
+				    ("CPC", NAMEOF('public amazon_paid'[CPC_]), 8),
+				    ("ACOS", NAMEOF('public amazon_paid'[ACOS_]), 9),
+				    ("AOV", NAMEOF('public amazon_paid'[AOV]), 10),
+				    ("ROAS", NAMEOF('public amazon_paid'[ROAS_]), 11)
+				}
+
+	annotation PBI_Id = 05cbe4c432da4e4f8dec393dfc321157
+

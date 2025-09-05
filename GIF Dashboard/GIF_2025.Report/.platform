@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "GIF_2025"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1af1b339-aa6b-4d05-8744-02b6a52d0496"
+  }
+}

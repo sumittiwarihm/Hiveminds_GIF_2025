@@ -1,0 +1,57 @@
+table 'Amazon Hourly Parameter'
+	lineageTag: 3def5c90-0358-479f-bb13-7a7532cfc450
+
+	column 'Amazon Hourly Parameter'
+		lineageTag: cb49db86-b3c5-41eb-aa24-3ddeb23f1a03
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Amazon Hourly Parameter Order'
+
+		relatedColumnDetails
+			groupByColumn: 'Amazon Hourly Parameter Fields'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amazon Hourly Parameter Fields'
+		isHidden
+		lineageTag: 7eff845b-d029-4b0c-8873-b0fbb7aa0c1c
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Amazon Hourly Parameter Order'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Amazon Hourly Parameter Order'
+		isHidden
+		formatString: 0
+		lineageTag: fd54bb37-234d-442f-a921-0aa1d0f9c945
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Amazon Hourly Parameter' = calculated
+		mode: import
+		source =
+				{
+				    ("Impressions", NAMEOF('public amazon_paid'[HourlyImpressionsA]), 0),
+				    ("Clicks", NAMEOF('public amazon_paid'[HourlyClicksA]), 1),
+				    ("Orders", NAMEOF('public amazon_paid'[HourlyOrdersA]), 2),
+				    ("Sales", NAMEOF('public amazon_paid'[HourlySalesA]), 3),
+				    ("Spend", NAMEOF('public amazon_paid'[HourlySpend]), 4),
+				    ("CTR", NAMEOF('public amazon_paid'[HourlyCTR_A]), 5),
+				    ("CVR", NAMEOF('public amazon_paid'[HourlyCVR_A]), 6),
+				    ("CPC", NAMEOF('public amazon_paid'[HourlyCPC_A]), 7),
+				    ("ROAS", NAMEOF('public amazon_paid'[HourlyROAS_A]), 8),
+				    ("ACOS", NAMEOF('public amazon_paid'[HourlyACOS_A]), 9),
+				    ("AOV", NAMEOF('public amazon_paid'[HourlyAOV_A]), 10)
+				}
+
+	annotation PBI_Id = a8dbe0c0faf84ac6ac8c1405698b5b7c
+

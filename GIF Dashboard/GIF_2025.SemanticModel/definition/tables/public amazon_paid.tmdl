@@ -1,0 +1,803 @@
+table 'public amazon_paid'
+	lineageTag: 66acf599-23ee-4f3b-bdac-decc554d9988
+
+	measure ACOS_ = DIVIDE((SUM('public amazon_paid'[spend])),(SUM('public amazon_paid'[sales])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2fc95d15-5f5c-4f50-aa7a-e7e64dc1467b
+
+	measure AOV = DIVIDE((SUM('public amazon_paid'[sales])),(SUM('public amazon_paid'[Orders])),0)
+		lineageTag: e98b993b-138e-4ab3-8fb1-5931986850f7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CPC_ = DIVIDE((SUM('public amazon_paid'[spend])),(SUM('public amazon_paid'[clicks])),0)
+		lineageTag: 4c8da97a-7aa3-4801-9ab5-75409f8be2a6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CTR_ = DIVIDE((SUM('public amazon_paid'[clicks])),(SUM('public amazon_paid'[impressions])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1997b08a-e71f-4bcd-aad7-20a5c4eebeaf
+
+	measure CVR = DIVIDE((SUM('public amazon_paid'[Orders])),(SUM('public amazon_paid'[clicks])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 97474081-140e-4018-9358-7af7435a5c97
+
+	measure ROAS_ = DIVIDE((SUM('public amazon_paid'[sales])),(SUM('public amazon_paid'[spend])),0)
+		lineageTag: 30dc1054-dcd0-4a73-b156-34b7051c4229
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure spends_measure =
+			
+			1 * SUM('public amazon_paid'[Spend])
+		formatString: #,0
+		lineageTag: 5097cac4-1e3b-4105-a07e-f46ab358b6c3
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure sales_measure =
+			
+			1 * SUM('public amazon_paid'[Sales])
+		formatString: #,0
+		lineageTag: f5ebb61b-3243-42f1-8e53-cebebdfca2eb
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure impression_measure =
+			
+			1 * SUM('public amazon_paid'[Impressions])
+		formatString: #,0
+		lineageTag: 18330da2-b857-448d-b381-a253ec7d4cbf
+
+	measure clicks_measure =
+			
+			1 * SUM('public amazon_paid'[Clicks])
+		formatString: #,0
+		lineageTag: df68ee85-370b-4743-97b9-e81c1d223eab
+
+	measure orders_measure =
+			
+			1 * SUM('public amazon_paid'[Orders])
+		formatString: #,0
+		lineageTag: c88aafde-f2bb-463b-9244-3cd321b75799
+
+	measure HourlySpend = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			
+			VAR SpendNow =
+			    CALCULATE(
+			        SUM('public amazon_paid'[spend]),
+			        FILTER(
+			            ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour
+			        )
+			    )
+			
+			VAR SpendPrev =
+			    CALCULATE(
+			        SUM('public amazon_paid'[spend]),
+			        FILTER(
+			            ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour - 1
+			        )
+			    )
+			
+			RETURN
+			    IF(
+			        NOT ISBLANK(CurrentHour),
+			        SpendNow - COALESCE(SpendPrev, 0)
+			    )
+			
+			```
+		formatString: #,0
+		lineageTag: 8a38b3ef-ddf2-48ce-899d-93fb3f6087cb
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure CheckSpendNow = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			RETURN
+			CALCULATE(
+			    SUM('public amazon_paid'[spend]),
+			    FILTER(
+			        ALL('public amazon_paid'),
+			        'public amazon_paid'[date] = CurrentDate &&
+			        'public amazon_paid'[hour] = CurrentHour
+			    )
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: f5d7827d-05d9-4205-84e4-aa075e87ad17
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure CheckSpendPrev = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			RETURN
+			CALCULATE(
+			    SUM('public amazon_paid'[spend]),
+			    FILTER(
+			        ALL('public amazon_paid'),
+			        'public amazon_paid'[date] = CurrentDate &&
+			        'public amazon_paid'[hour] = CurrentHour - 1
+			    )
+			)
+			
+			```
+		formatString: #,0
+		lineageTag: 682e3f5a-b1bb-4ea8-99f6-48a1ee29f315
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure HourlyClicksA = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			
+			VAR ClicksNow =
+			    CALCULATE(
+			        SUM('public amazon_paid'[clicks]),
+			        FILTER(
+			            ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour
+			        )
+			    )
+			
+			VAR ClicksPrev =
+			    CALCULATE(
+			        SUM('public amazon_paid'[clicks]),
+			        FILTER(
+			            ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour - 1
+			        )
+			    )
+			
+			RETURN IF(NOT ISBLANK(CurrentHour), ClicksNow - COALESCE(ClicksPrev, 0))
+			
+			```
+		formatString: 0
+		lineageTag: 61384a8c-3f62-4dec-8bb2-0d1eb8991c75
+
+	measure HourlyOrdersA = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			
+			VAR OrdersNow =
+			    CALCULATE(
+			        SUM('public amazon_paid'[orders]),
+			        FILTER(
+			            ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour
+			        )
+			    )
+			
+			VAR OrdersPrev =
+			    CALCULATE(
+			        SUM('public amazon_paid'[orders]),
+			        FILTER(
+			            ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour - 1
+			        )
+			    )
+			
+			RETURN IF(NOT ISBLANK(CurrentHour), OrdersNow - COALESCE(OrdersPrev, 0))
+			
+			```
+		formatString: 0
+		lineageTag: b77310b5-b474-48d2-b3b2-b6576c866214
+
+	measure HourlySalesA = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			
+			VAR SalesNow =
+			    CALCULATE(
+			        SUM('public amazon_paid'[sales]),
+			        FILTER(
+			            ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour
+			        )
+			    )
+			
+			VAR SalesPrev =
+			    CALCULATE(
+			        SUM('public amazon_paid'[sales]),
+			        FILTER(
+			            ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour - 1
+			        )
+			    )
+			
+			RETURN IF(NOT ISBLANK(CurrentHour), SalesNow - COALESCE(SalesPrev, 0))
+			
+			```
+		lineageTag: 935167bc-7c4b-4205-8ac9-4e3939025058
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure HourlyImpressionsA = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			
+			VAR ImpNow =
+			    CALCULATE(
+			        SUM('public amazon_paid'[impressions]),
+			        FILTER(
+			            ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour
+			        )
+			    )
+			
+			VAR ImpPrev =
+			    CALCULATE(
+			        SUM('public amazon_paid'[impressions]),
+			        FILTER(
+			            ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour - 1
+			        )
+			    )
+			
+			RETURN IF(NOT ISBLANK(CurrentHour), ImpNow - COALESCE(ImpPrev, 0))
+			
+			```
+		formatString: #,0
+		lineageTag: 92e14ea8-4f2d-4974-b440-1dd03749a5e0
+
+	measure HourlyCTR_A = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			
+			VAR CurrClicks =
+			    CALCULATE(SUM('public amazon_paid'[clicks]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			VAR CurrImpr =
+			    CALCULATE(SUM('public amazon_paid'[impressions]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrClicks, CurrImpr))
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d3f957cd-f270-45bf-8e8e-f0a00314d5ad
+
+	measure HourlyCPC_A = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			
+			VAR CurrSpend =
+			    CALCULATE(SUM('public amazon_paid'[spend]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			VAR CurrClicks =
+			    CALCULATE(SUM('public amazon_paid'[clicks]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrSpend, CurrClicks))
+			
+			```
+		lineageTag: 86b098a2-73c6-4dd8-9a87-ffd964bbf3b0
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure HourlyROAS_A = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			
+			VAR CurrSales =
+			    CALCULATE(SUM('public amazon_paid'[sales]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			VAR CurrSpend =
+			    CALCULATE(SUM('public amazon_paid'[spend]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrSales, CurrSpend))
+			
+			```
+		lineageTag: 05782390-8260-43c1-9452-409c8d491d4a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure HourlyCVR_A = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			
+			VAR CurrOrders =
+			    CALCULATE(SUM('public amazon_paid'[orders]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			VAR CurrClicks =
+			    CALCULATE(SUM('public amazon_paid'[clicks]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrOrders, CurrClicks))
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 93eea952-d125-4c49-b8df-9a01c20e0823
+
+	measure HourlyACOS_A = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			
+			VAR CurrSpend =
+			    CALCULATE(SUM('public amazon_paid'[spend]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			VAR CurrSales =
+			    CALCULATE(SUM('public amazon_paid'[sales]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrSpend, CurrSales))
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0916f2df-3810-49d6-833a-acb3623fdba3
+
+	measure HourlyAOV_A = ```
+			
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			
+			VAR CurrSales =
+			    CALCULATE(SUM('public amazon_paid'[sales]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			VAR CurrOrders =
+			    CALCULATE(SUM('public amazon_paid'[orders]),
+			        FILTER(ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = CurrentDate &&
+			            'public amazon_paid'[hour] = CurrentHour)
+			    )
+			
+			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrSales, CurrOrders))
+			
+			```
+		lineageTag: 49701fb3-a569-4130-b82c-cfffe01be12e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column State
+		dataType: string
+		lineageTag: 4dca6813-9517-4dcd-86a8-f7b6c64fee99
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column Campaigns
+		dataType: string
+		lineageTag: a5b1dbaf-e1b1-4840-bb2d-d4231e77ae49
+		summarizeBy: none
+		sourceColumn: Campaigns
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 9f08e01a-6323-4bdb-87ad-5145150b26e6
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: 6720e801-4bef-4c44-992e-dfd9e6a2875e
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Targeting
+		dataType: string
+		lineageTag: 87029848-0e05-41bd-ac46-a585a58db4e6
+		summarizeBy: none
+		sourceColumn: Targeting
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Campaign bidding strategy'
+		dataType: string
+		lineageTag: 596f45e3-2fb9-46b5-91cb-5098157605d0
+		summarizeBy: none
+		sourceColumn: Campaign bidding strategy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start date'
+		dataType: string
+		lineageTag: fed86674-7264-4c4b-bc44-f370f3814ecb
+		summarizeBy: none
+		sourceColumn: Start date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'End date'
+		dataType: string
+		lineageTag: 26819322-0b35-42f8-819a-ce82b4a8b1f7
+		summarizeBy: none
+		sourceColumn: End date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Portfolio
+		dataType: string
+		lineageTag: 85a05591-e737-4433-baf6-1d4eaff96529
+		summarizeBy: none
+		sourceColumn: Portfolio
+
+		annotation SummarizationSetBy = Automatic
+
+	column Budget
+		dataType: double
+		lineageTag: 4d74ed57-8aed-4ddc-8f77-ee947bc9c8a8
+		summarizeBy: sum
+		sourceColumn: Budget
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Top-of-search IS'
+		dataType: string
+		lineageTag: 91fcdad6-0db1-4e01-b61f-dfd9074740a2
+		summarizeBy: none
+		sourceColumn: Top-of-search IS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost type'
+		dataType: string
+		lineageTag: c54a8d31-7fe8-41df-8fc6-fa758a6c455f
+		summarizeBy: none
+		sourceColumn: Cost type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Impressions
+		dataType: int64
+		formatString: #,0
+		lineageTag: af65c41d-3940-4e30-b78a-a5c37cd98150
+		summarizeBy: sum
+		sourceColumn: Impressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clicks
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c1ee3d7-55cd-4c26-b30a-b9d3547b394b
+		summarizeBy: sum
+		sourceColumn: Clicks
+
+		annotation SummarizationSetBy = Automatic
+
+	column CTR
+		dataType: double
+		lineageTag: 2a6964aa-7fb8-4754-b767-2b241487ede2
+		summarizeBy: sum
+		sourceColumn: CTR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Spend
+		dataType: double
+		formatString: #,0
+		lineageTag: 6287e0f5-a5b0-49a3-8bd8-f0c29f26d504
+		summarizeBy: sum
+		sourceColumn: Spend
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column CPC
+		dataType: double
+		lineageTag: fe0c1bfe-4d83-49b4-af25-937a23c654e3
+		summarizeBy: sum
+		sourceColumn: CPC
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DPV
+		dataType: int64
+		formatString: 0
+		lineageTag: 021bff7e-7328-4fd5-aaa2-c445941a8a63
+		summarizeBy: sum
+		sourceColumn: DPV
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orders
+		dataType: int64
+		formatString: 0
+		lineageTag: a3d92e9b-9c25-48ed-83ae-003bb5185b3c
+		summarizeBy: sum
+		sourceColumn: Orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: double
+		formatString: #,0
+		lineageTag: 6222ebdb-18a6-43f6-b98e-7c4dbd08b3c0
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column ACOS
+		dataType: double
+		lineageTag: aa4c1e53-c690-4066-961c-267ab67bb9b7
+		summarizeBy: sum
+		sourceColumn: ACOS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ROAS
+		dataType: double
+		lineageTag: c7943785-e946-4e3a-80ca-fd311e1d0004
+		summarizeBy: sum
+		sourceColumn: ROAS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'NTB orders'
+		dataType: int64
+		formatString: 0
+		lineageTag: eb6270a5-f36d-432d-b7ed-c72b96e52c2c
+		summarizeBy: sum
+		sourceColumn: NTB orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column '% of orders NTB'
+		dataType: double
+		lineageTag: 3c5f3fe2-cf65-4a22-abf2-40a36f7d7843
+		summarizeBy: sum
+		sourceColumn: % of orders NTB
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'NTB sales'
+		dataType: double
+		lineageTag: b2734539-ea3b-4476-a2b0-90a09ac526e3
+		summarizeBy: sum
+		sourceColumn: NTB sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column '% of sales NTB'
+		dataType: double
+		lineageTag: db932b7a-88e5-4767-9a41-dc2289ebb88d
+		summarizeBy: sum
+		sourceColumn: % of sales NTB
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Viewable impressions'
+		dataType: int64
+		formatString: 0
+		lineageTag: fdb92789-f8e2-41f2-ae58-7403141b0ac5
+		summarizeBy: sum
+		sourceColumn: Viewable impressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column VCPM
+		dataType: double
+		lineageTag: 941ece84-f022-4201-b594-7d99f607cbf5
+		summarizeBy: sum
+		sourceColumn: VCPM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Video first quartile'
+		dataType: int64
+		formatString: 0
+		lineageTag: 758b88cd-b45d-4ec1-90de-7068467477f9
+		summarizeBy: sum
+		sourceColumn: Video first quartile
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Video midpoint'
+		dataType: int64
+		formatString: 0
+		lineageTag: 762eafb8-3774-483a-a0c4-48eaa5f713d9
+		summarizeBy: sum
+		sourceColumn: Video midpoint
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Video third quartile'
+		dataType: int64
+		formatString: 0
+		lineageTag: f5b0aca1-a96f-4498-b74c-fb978957e35a
+		summarizeBy: sum
+		sourceColumn: Video third quartile
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Video complete'
+		dataType: int64
+		formatString: 0
+		lineageTag: 849bed05-a0d6-44eb-8896-61af0025c705
+		summarizeBy: sum
+		sourceColumn: Video complete
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Video unmute'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6942ec28-2046-410d-9db6-3c05b7f90acd
+		summarizeBy: sum
+		sourceColumn: Video unmute
+
+		annotation SummarizationSetBy = Automatic
+
+	column VTR
+		dataType: double
+		lineageTag: ebb47270-d29d-4be0-aae6-146867154e39
+		summarizeBy: sum
+		sourceColumn: VTR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column vCTR
+		dataType: double
+		lineageTag: f53cbf08-2375-490e-90e0-b669cb589165
+		summarizeBy: sum
+		sourceColumn: vCTR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 98304dd8-ed10-41fc-ba5a-01762a6c20b3
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column hour
+		dataType: int64
+		formatString: 0
+		lineageTag: a40fc151-caea-4449-b16a-1de89c9eb6c9
+		summarizeBy: sum
+		sourceColumn: hour
+
+		annotation SummarizationSetBy = Automatic
+
+	column account
+		dataType: string
+		lineageTag: de238c3d-8704-474c-a570-5b2f7f40ff4d
+		summarizeBy: none
+		sourceColumn: account
+
+		annotation SummarizationSetBy = Automatic
+
+	column CPM
+		dataType: double
+		lineageTag: d14ba5da-5f19-40dc-8d4f-0fa5d9cdc5f6
+		summarizeBy: sum
+		sourceColumn: CPM
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Hour Label' = ```
+			
+			VAR h = 'public amazon_paid'[hour]
+			RETURN
+			    FORMAT(TIME(h,0,0), "h AM/PM")
+			
+			```
+		lineageTag: 9e51146a-5c38-4b4b-b481-3af71a15906b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public amazon_paid' = m
+		mode: import
+		source =
+				let
+				    Source = Table.SelectRows(
+				    PostgreSQL.Database("nucleus.ckojnefw0d56.us-west-1.rds.amazonaws.com", "GIF_2025"){[Schema="public", Item="amazon_paid"]}[Data],
+				    each [account] = "Jockey"
+				)
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
