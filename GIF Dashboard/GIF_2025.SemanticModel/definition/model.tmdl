@@ -6,7 +6,12 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI"]
+/// Errors in queries that were loaded on 08-09-2025 12:27:09.
+queryGroup 'Query Errors - 08-09-2025 12:27:09'
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Errors in public amazon_buybox","test model"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -38,8 +43,9 @@ ref table LocalDateTable_118b7cbb-fbf5-47ae-b051-868deb4308b6
 ref table 'Target VS Achieved'
 ref table calender_dates_amz_2025
 ref table LocalDateTable_e6af0bfa-767c-4d6f-8411-cf27f66ef56e
-ref table LocalDateTable_f110064c-2896-4d45-b249-42b10a2cd3e1
 ref table KPI
+ref table 'test model'
+ref table LocalDateTable_32d112e5-830e-41e4-8771-7d5aaf88ef5c
 
 ref cultureInfo en-IN
 
