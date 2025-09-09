@@ -50,14 +50,18 @@ relationship 693c7684-0ae0-137f-6988-257a87315400
 	fromColumn: 'public amazon_paid'.date
 	toColumn: calender_dates_amz_2025.Date
 
-relationship 8ac5b10a-ec97-1256-5fc7-962a1fd5bdcc
-	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: 'Target VS Achieved'.GIF
-	toColumn: calender_dates_amz_2025.Date
-
-relationship 2457a7e2-5b92-405b-be3d-a8a44c1be4cd
+relationship d4338dcf-1b86-41d1-9233-c06fb4390726
 	joinOnDateBehavior: datePartOnly
-	fromColumn: 'test model'.GIF
-	toColumn: LocalDateTable_32d112e5-830e-41e4-8771-7d5aaf88ef5c.Date
+	fromColumn: 'Target VS Achieved'.GIF
+	toColumn: LocalDateTable_e6f1ba5d-9268-443b-9112-fb0731e4f109.Date
+
+relationship ca1a9be8-6b10-4b91-a955-f45ca9af8b5b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Sale_2024-Fk.BBD
+	toColumn: LocalDateTable_f44cdcf4-37f9-4c54-bfd7-5625cf54bd8a.Date
+
+relationship 5da826de-9a60-4425-ab41-0fd1a99d311d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Target VS Achieved-Fk'.GIF
+	toColumn: LocalDateTable_4fdbebda-c6d6-494d-b6f0-b6c444ad6b05.Date
 

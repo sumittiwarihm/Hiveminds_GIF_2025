@@ -1,74 +1,70 @@
-table 'Target VS Achieved'
-	lineageTag: b5b01ec0-d9e6-4687-b0c1-a5dedc3b6da2
+table Sale_2024-Fk
+	lineageTag: c1f98490-6ab9-41ca-b208-f3b861a8efd3
 
-	column GIF
+	column BBD
 		dataType: dateTime
 		formatString: Long Date
-		lineageTag: 2ca419af-4f45-4113-ba61-ab2935c4eebc
+		lineageTag: 5a2dab28-714d-4b1f-9ccf-28d5f5ba24a6
 		summarizeBy: none
-		sourceColumn: GIF
+		sourceColumn: BBD
 
 		variation Variation
 			isDefault
-			relationship: d4338dcf-1b86-41d1-9233-c06fb4390726
-			defaultHierarchy: LocalDateTable_e6f1ba5d-9268-443b-9112-fb0731e4f109.'Date Hierarchy'
+			relationship: ca1a9be8-6b10-4b91-a955-f45ca9af8b5b
+			defaultHierarchy: LocalDateTable_f44cdcf4-37f9-4c54-bfd7-5625cf54bd8a.'Date Hierarchy'
 
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
 
 	column Impressions
-		dataType: double
-		lineageTag: dfbfc95e-ecfd-4dd7-9ec3-48a64d7afc27
+		dataType: int64
+		formatString: 0
+		lineageTag: baac993c-3783-4913-ac85-976473c42055
 		summarizeBy: sum
 		sourceColumn: Impressions
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Clicks
-		dataType: double
-		lineageTag: 6930034a-9a1b-4851-8743-c126f3b665ab
+		dataType: int64
+		formatString: 0
+		lineageTag: b5623456-4360-414e-897b-fd7b6ae8c78a
 		summarizeBy: sum
 		sourceColumn: Clicks
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Spends
 		dataType: int64
 		formatString: 0
-		lineageTag: 5db52557-6278-44e0-8172-257c76c7a559
+		lineageTag: 16f91877-60c8-4127-852e-10a98812680e
 		summarizeBy: sum
 		sourceColumn: Spends
 
 		annotation SummarizationSetBy = Automatic
 
 	column Orders
-		dataType: double
-		lineageTag: a7c3309c-76ad-40ff-94b9-5adf277391bb
+		dataType: int64
+		formatString: 0
+		lineageTag: 6d8b2dad-e66f-4d49-b4cc-3cd8a916cba3
 		summarizeBy: sum
 		sourceColumn: Orders
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Sales
-		dataType: double
-		lineageTag: 77127840-311e-4512-afb9-f98653c14ebc
+		dataType: int64
+		formatString: 0
+		lineageTag: 90436bbd-7037-4635-84fc-595d8a0b90ec
 		summarizeBy: sum
 		sourceColumn: Sales
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column CTR
 		dataType: double
-		lineageTag: 438e24a9-e61d-40f2-9100-4484e3bce596
+		lineageTag: 0c444707-501a-44eb-93c5-d65187b20ba4
 		summarizeBy: sum
 		sourceColumn: CTR
 
@@ -78,7 +74,7 @@ table 'Target VS Achieved'
 
 	column CPC
 		dataType: double
-		lineageTag: 1e4dd370-a18b-474d-a384-af9ce35e2d9e
+		lineageTag: 81206c3a-03a4-4386-b242-1a4e99b69ed6
 		summarizeBy: sum
 		sourceColumn: CPC
 
@@ -88,7 +84,7 @@ table 'Target VS Achieved'
 
 	column CVR
 		dataType: double
-		lineageTag: 4769a31c-0276-4473-a280-612c04a8baf6
+		lineageTag: 5218500c-654e-4a39-9bcc-b35976df19ac
 		summarizeBy: sum
 		sourceColumn: CVR
 
@@ -98,7 +94,7 @@ table 'Target VS Achieved'
 
 	column AOV
 		dataType: double
-		lineageTag: 1bae12fd-d8ef-422b-9480-fe8bf2360fc3
+		lineageTag: 12009bfc-55f8-4ec9-8514-faec3a15fd7f
 		summarizeBy: sum
 		sourceColumn: AOV
 
@@ -108,7 +104,7 @@ table 'Target VS Achieved'
 
 	column ROI
 		dataType: double
-		lineageTag: 01843d61-c013-4706-bfd3-c66437ad5ae8
+		lineageTag: ee667495-6851-41f5-909d-58504f171602
 		summarizeBy: sum
 		sourceColumn: ROI
 
@@ -116,14 +112,14 @@ table 'Target VS Achieved'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	partition 'Target VS Achieved' = m
+	partition Sale_2024-Fk = m
 		mode: import
 		source =
 				let
 				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
-				    #"Target VS Achieved_Table" = Source{[name="Target VS Achieved - Amazon",ItemKind="Table"]}[Data],
-				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"GIF", type date}, {"Impressions", type number}, {"Clicks", type number}, {"Spends", Int64.Type}, {"Orders", type number}, {"Sales", type number}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}})
+				    Sale_2024_Table = Source{[name="Flipkart-Sale_2024",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(Sale_2024_Table, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"BBD", type date}, {"Impressions", Int64.Type}, {"Clicks", Int64.Type}, {"Spends", Int64.Type}, {"Orders", Int64.Type}, {"Sales", Int64.Type}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}})
 				in
 				    #"Changed Type"
 
