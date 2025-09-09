@@ -1,0 +1,114 @@
+table Amz_2024_2025
+	lineageTag: c5f15f17-54b8-4b25-8c0a-de8d50b49713
+
+	column date
+		formatString: dd/mm/yyyy
+		lineageTag: f46b4b65-fc57-4e61-9832-7f0d4b137245
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: public amazon_paid[date]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column Impressions
+		formatString: 0
+		lineageTag: 7c8049d6-bb08-4113-b1a0-2c6cfbfaf770
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Impressions]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clicks
+		formatString: 0
+		lineageTag: fefea0c7-ff0f-4838-83b5-5d90235915d2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Clicks]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Spends
+		lineageTag: 3d89863b-c546-4940-8dcd-3bfd2177619c
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Spends]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orders
+		formatString: 0
+		lineageTag: 5df463b2-e4cd-4a04-a59b-b1613dc9ad88
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Orders]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		lineageTag: 95a80806-7e32-490f-b4c2-6a45627f7c62
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Amz-Year = YEAR('Amz_2024_2025'[date])
+		formatString: 0
+		lineageTag: d10718b6-fb27-4688-9a2b-f1df9688f74b
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day = RELATED('Date Mapping'[Day])
+		dataType: string
+		lineageTag: bf3d83ae-22eb-4874-a23d-4a8d553efd9f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Amz_2024_2025 = calculated
+		mode: import
+		source =
+				
+				
+				// 1. Create a daily summary of the Amazon Paid table
+				VAR AmazonSummary =
+				    ADDCOLUMNS(
+				        SUMMARIZE(
+				            'public amazon_paid',
+				            'public amazon_paid'[date] // Group by date
+				        ),
+				        "Impressions", CALCULATE(SUM('public amazon_paid'[Impressions])),
+				        "Clicks", CALCULATE(SUM('public amazon_paid'[Clicks])),
+				        "Spends", CALCULATE(SUM('public amazon_paid'[Spend])),
+				        "Orders", CALCULATE(SUM('public amazon_paid'[Orders])),
+				        "Sales", CALCULATE(SUM('public amazon_paid'[Sales]))
+				        // "Source", "Amazon Paid" // Add a source identifier
+				    )
+				
+				// 2. Select and rename columns from the Sales_2024 table to match
+				VAR Sales2024Formatted =
+				    SELECTCOLUMNS(
+				        'Sale_2024',
+				        "date", 'Sale_2024'[GIF], // Rename 'GIF(date)' to 'date'
+				        "Impressions", 'Sale_2024'[Impressions],
+				        "Clicks", 'Sale_2024'[Clicks],
+				        "Spends", 'Sale_2024'[Spends],
+				        "Orders", 'Sale_2024'[Orders],
+				        "Sales", 'Sale_2024'[Sales]
+				        // "Source", "Sales 2024" // Add a source identifier
+				    )
+				
+				// 3. Return the union of the two prepared tables
+				RETURN
+				UNION(AmazonSummary, Sales2024Formatted)
+
+	annotation PBI_Id = 29c033551eca4a6098d9cc94bd1dbb14
+

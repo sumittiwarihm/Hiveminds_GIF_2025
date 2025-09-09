@@ -1,22 +1,6 @@
 table 'Target VS Achieved-Fk'
 	lineageTag: afed3046-2f1e-4502-8bf6-8fb81068ecda
 
-	column GIF
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 0b18ec7d-e359-4056-a833-fa490b405d4e
-		summarizeBy: none
-		sourceColumn: GIF
-
-		variation Variation
-			isDefault
-			relationship: 5da826de-9a60-4425-ab41-0fd1a99d311d
-			defaultHierarchy: LocalDateTable_4fdbebda-c6d6-494d-b6f0-b6c444ad6b05.'Date Hierarchy'
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
 	column Impressions
 		dataType: double
 		lineageTag: 89c2b809-2a6a-4943-ac0c-969c43d10093
@@ -115,6 +99,22 @@ table 'Target VS Achieved-Fk'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d10b9a61-e2de-4146-b73f-e389b3058d0e
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 318ec229-eaf0-415e-9cb0-e02d18436e33
+			defaultHierarchy: LocalDateTable_770c368e-deec-412f-9332-4fe1f12d9c96.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	partition 'Target VS Achieved-Fk' = m
 		mode: import
 		source =
@@ -122,7 +122,7 @@ table 'Target VS Achieved-Fk'
 				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
 				    #"Target VS Achieved_Table" = Source{[name="Target VS Achieved - Flipkart",ItemKind="Table"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"GIF", type date}, {"Impressions", type number}, {"Clicks", type number}, {"Spends", Int64.Type}, {"Orders", Int64.Type}, {"Sales", type number}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Impressions", type number}, {"Clicks", type number}, {"Spends", Int64.Type}, {"Orders", Int64.Type}, {"Sales", type number}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}})
 				in
 				    #"Changed Type"
 

@@ -564,11 +564,6 @@ table HIVEMINDS_FLIPKART_HOURLY_VIEW
 		summarizeBy: none
 		sourceColumn: DATE
 
-		variation Variation
-			isDefault
-			relationship: 6473cdef-ea31-400a-b4e7-8cf2f8b52ad3
-			defaultHierarchy: LocalDateTable_025c5599-ebd7-4bad-8531-b3382f05021f.'Date Hierarchy'
-
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date

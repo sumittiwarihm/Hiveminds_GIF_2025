@@ -18,11 +18,6 @@ relationship 5fbe5546-7293-41e8-a374-275090e6eba2
 	fromColumn: 'public flipkart_buybox'.date
 	toColumn: LocalDateTable_b6bd5d84-0634-42c3-b28f-0d060091e32f.Date
 
-relationship 6473cdef-ea31-400a-b4e7-8cf2f8b52ad3
-	joinOnDateBehavior: datePartOnly
-	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.DATE
-	toColumn: LocalDateTable_025c5599-ebd7-4bad-8531-b3382f05021f.Date
-
 relationship 2ed8c2bd-b140-43f0-9710-722c9fa409e0
 	joinOnDateBehavior: datePartOnly
 	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.ROW_INGESTED_DATETIME_IST
@@ -50,18 +45,49 @@ relationship 693c7684-0ae0-137f-6988-257a87315400
 	fromColumn: 'public amazon_paid'.date
 	toColumn: calender_dates_amz_2025.Date
 
-relationship d4338dcf-1b86-41d1-9233-c06fb4390726
-	joinOnDateBehavior: datePartOnly
-	fromColumn: 'Target VS Achieved'.GIF
-	toColumn: LocalDateTable_e6f1ba5d-9268-443b-9112-fb0731e4f109.Date
-
 relationship ca1a9be8-6b10-4b91-a955-f45ca9af8b5b
 	joinOnDateBehavior: datePartOnly
 	fromColumn: Sale_2024-Fk.BBD
 	toColumn: LocalDateTable_f44cdcf4-37f9-4c54-bfd7-5625cf54bd8a.Date
 
-relationship 5da826de-9a60-4425-ab41-0fd1a99d311d
+relationship d0ca22a7-fb00-46c3-abb9-e49a5874aca9
 	joinOnDateBehavior: datePartOnly
-	fromColumn: 'Target VS Achieved-Fk'.GIF
-	toColumn: LocalDateTable_4fdbebda-c6d6-494d-b6f0-b6c444ad6b05.Date
+	fromColumn: 'Date Mapping'.2024_date
+	toColumn: LocalDateTable_c5d4f48f-2d2b-42b5-a222-cbb02d8f98a9.Date
+
+relationship f0fbbca7-7cd7-9ea5-1dab-8f52d88c1465
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Amz_2024_2025.date
+	toColumn: 'Date Mapping'.2024_date
+
+relationship 0d0af930-1420-4cd5-9054-a338c20505b9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: calender_dates_fk_2025.Date
+	toColumn: LocalDateTable_0e2de613-c45d-4cbc-8114-dfa1dcf89d03.Date
+
+relationship 9743f960-5347-3715-6498-2a95842d0fc9
+	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.DATE
+	toColumn: calender_dates_fk_2025.Date
+
+relationship 3370f963-d35f-4782-acb6-021a5707aa5c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Target VS Achieved'.Date
+	toColumn: LocalDateTable_964fc65a-c811-4fbe-9e61-0a181a07267a.Date
+
+relationship 318ec229-eaf0-415e-9cb0-e02d18436e33
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Target VS Achieved-Fk'.Date
+	toColumn: LocalDateTable_770c368e-deec-412f-9332-4fe1f12d9c96.Date
+
+relationship f8975090-47b1-4692-884f-1940c40e9429
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Date Mapping-Fk'.2024_date
+	toColumn: LocalDateTable_c3ac9b74-10d7-4ee9-974a-47c2c31561aa.Date
+
+relationship 646df8f4-2cf2-1168-8043-b9aac53868bf
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: Fk_2024_2025.DATE
+	toColumn: 'Date Mapping-Fk'.2024_date
 

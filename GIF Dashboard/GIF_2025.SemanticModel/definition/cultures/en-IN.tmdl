@@ -3917,7 +3917,9 @@ cultureInfo en-IN
 			      },
 			      "State": "Generated",
 			      "Terms": [
-			        {},
+			        {
+			          "": {}
+			        },
 			        {
 			          "location": {
 			            "Type": "Noun",
@@ -9209,7 +9211,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "cpc": {
+			          "CPC": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9242,7 +9244,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "ctr": {
+			          "CTR": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9275,7 +9277,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "cvr": {
+			          "CVR": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -21377,29 +21379,6 @@ cultureInfo en-IN
 			        }
 			      ]
 			    },
-			    "target_VS_achieved.gif": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Target VS Achieved",
-			          "ConceptualProperty": "GIF"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "gif": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
 			    "target_VS_achieved.gif.date_hierarchy": {
 			      "Definition": {
 			        "Binding": {
@@ -22151,10 +22130,970 @@ cultureInfo en-IN
 			          "ConceptualProperty": "date"
 			        }
 			      },
+			      "State": "Generated"
+			    },
+			    "amazon_central_campaign.cvr_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "amazon_central_campaign",
+			          "ConceptualProperty": "CVR_"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "amazon_central_campaign.column_acos_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "amazon_central_campaign",
+			          "ConceptualProperty": "_ACOS_"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "amazon_central_campaign.column_aov_": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "amazon_central_campaign",
+			          "ConceptualProperty": "_AOV_"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "sale_2024.ctr_amz2024": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "CTR_amz2024"
+			        }
+			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "Date": {
+			          "2024 CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.ctr_amz2025": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "CTR_amz2025"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.change_ctr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "% change_CTR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.cpc_amz2024": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "CPC_amz2024"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.cpc_amz2025": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "CPC_amz2025"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.change_cpc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "% change_CPC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.roi_amz2024": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "ROI_amz2024"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.roi_amz2025": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "ROI_amz2025"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.change_roi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "% change_ROI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.cvr_amz2024": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "CVR_amz2024"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.cvr_amz2025": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "CVR_amz2025"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.change_cvr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "% change_CVR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.aov_amz2024": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "AOV_amz2024"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.aov_amz2025": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "AOV_amz2025"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024.change_aov": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024",
+			          "ConceptualProperty": "% change_AOV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2024spends": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2024-spends"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 Spends": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2025_spends": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2025_spends"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 Spends": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk202changespends": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk202%change-spends"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Spends": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2024orders": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2024-orders"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 Orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2025_orders": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2025_orders"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 Orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk202changeorders": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk202%change-orders"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2024sales": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2024-sales"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 Sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2025_sales": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2025_sales"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 Sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk202changesales": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk202%change-sales"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2024clicks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2024-clicks"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 Clicks": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2025_clicks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2025_clicks"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 Clicks": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk202changeclicks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk202%change-clicks"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Clicks": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2024impressions": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2024-impressions"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 Impressions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2025_impressions": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2025_impressions"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 Impressions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk202changeimpressions": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk202%change-impressions"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Impressions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2024ctr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2024-CTR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2025ctr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2025-CTR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk202changectr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk202%change-CTR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2024cpc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2024-CPC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2025cpc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2025-CPC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk202changecpc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk202%change-CPC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2024roi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2024-ROI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2025roi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2025-ROI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk202changeroi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk202%change-ROI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2024cvr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2024-CVR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2025cvr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2025-CVR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk202changecvr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk202%change-CVR"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2024aov": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2024-AOV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2024 AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk2025aov": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk2025-AOV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "sale_2024fk.fk202changeaov": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Sale_2024-Fk",
+			          "ConceptualProperty": "fk202%change-AOV"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% AOV": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
