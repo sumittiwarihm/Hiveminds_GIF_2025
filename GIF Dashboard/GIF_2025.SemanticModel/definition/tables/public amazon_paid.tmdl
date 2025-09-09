@@ -417,6 +417,29 @@ table 'public amazon_paid'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure '% Change in Sales' = ```
+			
+			VAR CurrentSales = SUM('public amazon_paid'[Sales])
+			VAR PrevSales =
+			    CALCULATE(
+			        SUM('public amazon_paid'[Sales]),
+			        FILTER(
+			            ALL('public amazon_paid'),
+			            'public amazon_paid'[date] = MAX('public amazon_paid'[date]) &&
+			            'public amazon_paid'[hour] = MAX('public amazon_paid'[hour]) - 1
+			        )
+			    )
+			RETURN
+			IF(
+			    NOT ISBLANK(PrevSales),
+			    DIVIDE(CurrentSales - PrevSales, PrevSales),
+			    BLANK()
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e83a72ef-3674-4277-a0bd-f410e42af2d1
+
 	column State
 		dataType: string
 		lineageTag: 4dca6813-9517-4dcd-86a8-f7b6c64fee99

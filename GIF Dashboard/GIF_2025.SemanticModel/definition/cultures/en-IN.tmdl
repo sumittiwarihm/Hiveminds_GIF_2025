@@ -3917,7 +3917,9 @@ cultureInfo en-IN
 			      },
 			      "State": "Generated",
 			      "Terms": [
-			        {},
+			        {
+			          "": {}
+			        },
 			        {
 			          "location": {
 			            "Type": "Noun",
@@ -9209,7 +9211,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "cpc": {
+			          "CPC": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9242,7 +9244,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "ctr": {
+			          "CTR": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9275,7 +9277,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "cvr": {
+			          "CVR": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9836,6 +9838,16 @@ cultureInfo en-IN
 			        },
 			        {
 			          "Impression": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Impressions": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -22151,19 +22163,7 @@ cultureInfo en-IN
 			          "ConceptualProperty": "date"
 			        }
 			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "Date": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
+			      "State": "Generated"
 			    }
 			  },
 			  "Relationships": {
