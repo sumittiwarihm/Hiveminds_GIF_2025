@@ -11,7 +11,7 @@ queryGroup 'Query Errors - 08-09-2025 12:27:09'
 
 	annotation PBI_QueryGroupOrder = 0
 
-annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Errors in public amazon_buybox","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk"]
+annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Errors in public amazon_buybox","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -56,6 +56,17 @@ ref table LocalDateTable_964fc65a-c811-4fbe-9e61-0a181a07267a
 ref table LocalDateTable_770c368e-deec-412f-9332-4fe1f12d9c96
 ref table 'Date Mapping-Fk'
 ref table LocalDateTable_c3ac9b74-10d7-4ee9-974a-47c2c31561aa
+ref table HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW
+ref table LocalDateTable_5f612351-1602-40db-84f1-8949b47fdd96
+ref table LocalDateTable_86e4bd7b-ea86-446b-9b4c-30a29b37ef5f
+ref table HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW
+ref table LocalDateTable_cb3e14ee-f821-4948-82fe-7b62ceeee1c2
+ref table LocalDateTable_c1828ee5-c88e-4735-a109-e7e8089456ff
+ref table HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW
+ref table LocalDateTable_38e0873b-b733-4ee6-93a1-3678b2293a08
+ref table LocalDateTable_803151b6-4d7a-4f96-bb0b-bbd087d08827
+ref table Tercept_amazon_central_campaign
+ref table LocalDateTable_0b599b82-5a11-4781-a0ce-2f07b261ff1a
 
 ref cultureInfo en-IN
 

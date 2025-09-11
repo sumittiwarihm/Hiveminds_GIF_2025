@@ -479,6 +479,21 @@ table HIVEMINDS_FLIPKART_HOURLY_VIEW
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure FK_clicks = 1*SUM(HIVEMINDS_FLIPKART_HOURLY_VIEW[CLICKS])
+		lineageTag: 45f56178-d63f-46b5-ba1f-53cbdd9fa40a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure FK_orders = 1*SUM(HIVEMINDS_FLIPKART_HOURLY_VIEW[TOTAL_ORDERS])
+		lineageTag: c64060b9-1403-4577-a263-74006f2c87c8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure FK_sales = 1*SUM(HIVEMINDS_FLIPKART_HOURLY_VIEW[TOTAL_REVENUE])
+		lineageTag: 80c15955-4030-4d15-8b8d-114b103c035a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column ADGROUP_NAME
 		dataType: string
 		lineageTag: 9b5e2e65-2457-40b7-ac82-45cf1e444114

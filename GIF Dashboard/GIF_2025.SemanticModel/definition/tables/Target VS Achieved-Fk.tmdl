@@ -1,6 +1,29 @@
 table 'Target VS Achieved-Fk'
 	lineageTag: afed3046-2f1e-4502-8bf6-8fb81068ecda
 
+	measure CTR_tf = DIVIDE((SUM('Target VS Achieved-Fk'[Clicks])),(SUM('Target VS Achieved-Fk'[Impressions])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3b1ce186-677c-44c9-830e-5c268321fd71
+
+	measure CVR_Tf = DIVIDE((SUM('Target VS Achieved-Fk'[Orders])),(SUM('Target VS Achieved-Fk'[Clicks])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 389ecab8-7c2e-411a-9d1a-c1cd79f112f5
+
+	measure AOV_tf = DIVIDE((SUM('Target VS Achieved-Fk'[Sales])),(SUM('Target VS Achieved-Fk'[Orders])),0)
+		lineageTag: 1427cdb8-0439-4028-b8a1-afdc0fccbba3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ACOS_Tf = DIVIDE((SUM('Target VS Achieved-Fk'[Spends])),(SUM('Target VS Achieved-Fk'[Sales])),0)
+		lineageTag: 7abd067e-e1cd-4197-a97c-6bb30080c693
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ROAS_Tf = DIVIDE((SUM('Target VS Achieved-Fk'[Sales])),(SUM('Target VS Achieved-Fk'[Spends])),0)
+		lineageTag: ea50ca0b-2e59-4289-83a7-19d0b5505e65
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Impressions
 		dataType: double
 		lineageTag: 89c2b809-2a6a-4943-ac0c-969c43d10093

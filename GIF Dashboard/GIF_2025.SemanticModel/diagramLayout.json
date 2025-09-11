@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 7488.5045702212319,
+        "x": 9177.14953271028,
         "y": 0
       },
       "nodes": [
@@ -296,6 +296,57 @@
           "nodeLineageTag": "2058cb5c-b9fc-4422-b769-8ecc88c3295d",
           "size": {
             "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 8804,
+            "y": 0
+          },
+          "nodeIndex": "HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW",
+          "nodeLineageTag": "8e33c559-25b9-49f1-bc21-3d5a723721e9",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9088,
+            "y": 0
+          },
+          "nodeIndex": "HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW",
+          "nodeLineageTag": "956488fe-15ac-4f16-9a62-979868bcdc76",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9372,
+            "y": 0
+          },
+          "nodeIndex": "HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW",
+          "nodeLineageTag": "21e5b641-50ba-4655-959b-28237e6a6125",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 9656,
+            "y": 50
+          },
+          "nodeIndex": "Tercept_amazon_central_campaign",
+          "size": {
+            "height": 200,
             "width": 234
           },
           "zIndex": 0

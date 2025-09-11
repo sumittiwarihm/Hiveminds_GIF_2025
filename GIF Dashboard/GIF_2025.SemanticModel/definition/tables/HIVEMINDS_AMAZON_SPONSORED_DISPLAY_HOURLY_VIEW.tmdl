@@ -1,0 +1,174 @@
+table HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW
+	lineageTag: 956488fe-15ac-4f16-9a62-979868bcdc76
+
+	column CAMPAIGN_ID
+		dataType: string
+		lineageTag: 990fd886-ed7e-46eb-b1fb-95b43e76b3cb
+		summarizeBy: none
+		sourceColumn: CAMPAIGN_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAMPAIGN_NAME
+		dataType: string
+		lineageTag: 4ae6d914-86d3-4b26-94b5-270cc2ba7338
+		summarizeBy: none
+		sourceColumn: CAMPAIGN_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column CLICKS
+		dataType: double
+		lineageTag: 1b4ac903-72dd-4f32-b4e7-973f5133492a
+		summarizeBy: sum
+		sourceColumn: CLICKS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column COST
+		dataType: double
+		lineageTag: 5ecf9d56-6e3d-46b8-9afb-157c9afd0960
+		summarizeBy: sum
+		sourceColumn: COST
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dbdcb9c7-c85a-4884-8aec-2908fd85c2e4
+		summarizeBy: none
+		sourceColumn: DATE
+
+		variation Variation
+			isDefault
+			relationship: f3f3227d-8df3-4ce3-aeae-c67412f8690e
+			defaultHierarchy: LocalDateTable_5f612351-1602-40db-84f1-8949b47fdd96.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column HOUR
+		dataType: int64
+		formatString: 0
+		lineageTag: b7160f06-19a1-4ce0-a70c-692b79d0d668
+		summarizeBy: sum
+		sourceColumn: HOUR
+
+		annotation SummarizationSetBy = Automatic
+
+	column HOUR_MIN
+		dataType: string
+		lineageTag: 4150e4dc-671e-4864-b9d7-8756c5b54f48
+		summarizeBy: none
+		sourceColumn: HOUR_MIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column IMPRESSIONS
+		dataType: double
+		lineageTag: e4046086-e881-431d-9502-17583f30d9e1
+		summarizeBy: sum
+		sourceColumn: IMPRESSIONS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column PROFILE_ID
+		dataType: string
+		lineageTag: f80abbfd-bdbc-4f87-9686-2039cbdf2257
+		summarizeBy: none
+		sourceColumn: PROFILE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column PROFILE_NAME
+		dataType: string
+		lineageTag: 171bda82-153d-4067-b83f-0ce1801e9e91
+		summarizeBy: none
+		sourceColumn: PROFILE_NAME
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROW_INGESTED_DATETIME_IST
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 28a74e87-96b2-4b66-ac20-3e7d5d95d207
+		summarizeBy: none
+		sourceColumn: ROW_INGESTED_DATETIME_IST
+
+		variation Variation
+			isDefault
+			relationship: 3b9005b3-c646-4ebd-8ceb-6185d6ee237b
+			defaultHierarchy: LocalDateTable_86e4bd7b-ea86-446b-9b4c-30a29b37ef5f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column SALES
+		dataType: double
+		lineageTag: 65fe3378-eb75-4832-9013-2cbdb11816e0
+		summarizeBy: sum
+		sourceColumn: SALES
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TCPT_ACCOUNT_ID
+		dataType: double
+		lineageTag: 0ff069a2-2f9f-4772-a68e-2a586dad35da
+		summarizeBy: count
+		sourceColumn: TCPT_ACCOUNT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column TCPT_CUSTOMER_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: d119c859-36da-4d3d-92d8-5265b3441d75
+		summarizeBy: count
+		sourceColumn: TCPT_CUSTOMER_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column TCPT_INTEGRATION
+		dataType: string
+		lineageTag: f0b8124a-5052-4da8-a0b8-03aca918014c
+		summarizeBy: none
+		sourceColumn: TCPT_INTEGRATION
+
+		annotation SummarizationSetBy = Automatic
+
+	column UNITS_SOLD
+		dataType: double
+		lineageTag: af860bd5-5080-4f8d-b202-7af3e55e83f2
+		summarizeBy: sum
+		sourceColumn: UNITS_SOLD
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW = m
+		mode: import
+		source =
+				let
+				    Source = ClickHouse.Database("50.17.224.92", 8123, null, []),
+				    client_hiveminds_db_power_bi_Database = Source{[Name="client_hiveminds_db_power_bi",Kind="Database"]}[Data],
+				    HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW_Table = client_hiveminds_db_power_bi_Database{[Name="HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW",Kind="Table"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW_Table, each ([PROFILE_NAME] = "Jockey"))
+				in
+				    #"Filtered Rows"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

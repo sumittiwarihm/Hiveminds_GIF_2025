@@ -9211,7 +9211,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "CPC": {
+			          "cpc": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9244,7 +9244,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "CTR": {
+			          "ctr": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9277,7 +9277,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "CVR": {
+			          "cvr": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9837,7 +9837,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "Impression": {
+			          "Impressions": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9847,7 +9847,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "Impressions": {
+			          "Impression": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -13612,6 +13612,16 @@ cultureInfo en-IN
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Spend": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -13877,6 +13887,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Clicks": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -14016,6 +14036,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -14068,6 +14098,16 @@ cultureInfo en-IN
 			        },
 			        {
 			          "HourlySales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Sales": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14214,6 +14254,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Impressions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -14246,6 +14296,16 @@ cultureInfo en-IN
 			        },
 			        {
 			          "HourlyCTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "CTR": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14292,6 +14352,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -14320,6 +14390,16 @@ cultureInfo en-IN
 			          "ROAS A": {
 			            "State": "Generated",
 			            "Weight": 0.97
+			          }
+			        },
+			        {
+			          "ROAS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -14353,6 +14433,16 @@ cultureInfo en-IN
 			        },
 			        {
 			          "HourlyCVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "CVR": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14399,6 +14489,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "ACOS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -14438,6 +14538,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -14460,6 +14570,16 @@ cultureInfo en-IN
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "Spends": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -14487,6 +14607,16 @@ cultureInfo en-IN
 			        },
 			        {
 			          "Spends": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "SPEND": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14580,6 +14710,16 @@ cultureInfo en-IN
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Clicks": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -14612,6 +14752,16 @@ cultureInfo en-IN
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "Sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -14735,6 +14885,16 @@ cultureInfo en-IN
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "Orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -14888,6 +15048,16 @@ cultureInfo en-IN
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -14910,6 +15080,16 @@ cultureInfo en-IN
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -14934,6 +15114,16 @@ cultureInfo en-IN
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "ROAS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -14956,6 +15146,16 @@ cultureInfo en-IN
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -14980,6 +15180,16 @@ cultureInfo en-IN
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "ACOS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -15002,6 +15212,16 @@ cultureInfo en-IN
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -15731,6 +15951,16 @@ cultureInfo en-IN
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.492
+			          }
+			        },
+			        {
+			          "Metrics": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ],
@@ -23104,6 +23334,174 @@ cultureInfo en-IN
 			      "Terms": [
 			        {
 			          "% AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "hiveminds_flipkart_hourly_view.fk_clicks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "HIVEMINDS_FLIPKART_HOURLY_VIEW",
+			          "ConceptualProperty": "FK_clicks"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CLICKS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "hiveminds_flipkart_hourly_view.fk_sales": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "HIVEMINDS_FLIPKART_HOURLY_VIEW",
+			          "ConceptualProperty": "FK_sales"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SALES": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "hiveminds_flipkart_hourly_view.fk_orders": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "HIVEMINDS_FLIPKART_HOURLY_VIEW",
+			          "ConceptualProperty": "FK_orders"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ORDERS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tercept_amazon_central_campaign.ctr_ter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tercept_amazon_central_campaign",
+			          "ConceptualProperty": "CTR_ter"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tercept_amazon_central_campaign.roas_ter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tercept_amazon_central_campaign",
+			          "ConceptualProperty": "ROAS_Ter"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ROAS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tercept_amazon_central_campaign.cvr_ter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tercept_amazon_central_campaign",
+			          "ConceptualProperty": "CVR_Ter"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tercept_amazon_central_campaign.acos_ter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tercept_amazon_central_campaign",
+			          "ConceptualProperty": "ACOS_Ter"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ACOS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "tercept_amazon_central_campaign.aov_ter": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Tercept_amazon_central_campaign",
+			          "ConceptualProperty": "AOV_ter"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "AOV": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

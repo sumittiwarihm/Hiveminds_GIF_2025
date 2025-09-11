@@ -816,9 +816,10 @@ table 'public amazon_paid'
 				    Source = Table.SelectRows(
 				    PostgreSQL.Database("nucleus.ckojnefw0d56.us-west-1.rds.amazonaws.com", "GIF_2025"){[Schema="public", Item="amazon_paid"]}[Data],
 				    each [account] = "Jockey"
-				)
+				),
+				    #"Filtered Rows" = Table.SelectRows(Source, each true)
 				in
-				    Source
+				    #"Filtered Rows"
 
 	annotation PBI_NavigationStepName = Navigation
 

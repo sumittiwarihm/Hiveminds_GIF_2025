@@ -1,6 +1,29 @@
 table 'Target VS Achieved'
 	lineageTag: b5b01ec0-d9e6-4687-b0c1-a5dedc3b6da2
 
+	measure CVR_TA = DIVIDE((SUM('Target VS Achieved'[Orders])),(SUM('Target VS Achieved'[Clicks])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8b731f67-6f30-4f45-95d8-329a6eacbe3d
+
+	measure CTR_ta = DIVIDE((SUM('Target VS Achieved'[Clicks])),(SUM('Target VS Achieved'[Impressions])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 09bc8070-d4e2-45e2-99c5-c2dcc5e5ca27
+
+	measure AOV_ta = DIVIDE((SUM('Target VS Achieved'[Sales])),(SUM('Target VS Achieved'[Orders])),0)
+		lineageTag: c3c2a37d-15c6-438a-9802-1643ebe2dbf7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ACOS_TA = DIVIDE((SUM('Target VS Achieved'[Spends])),(SUM('Target VS Achieved'[Sales])),0)
+		lineageTag: 457957ad-8149-4a8f-9815-f058047060b5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ROAS_TA = DIVIDE((SUM('Target VS Achieved'[Sales])),(SUM('Target VS Achieved'[Spends])),0)
+		lineageTag: 192306b0-2f43-428c-a2ef-d1aa758472c4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Impressions
 		dataType: double
 		lineageTag: dfbfc95e-ecfd-4dd7-9ec3-48a64d7afc27

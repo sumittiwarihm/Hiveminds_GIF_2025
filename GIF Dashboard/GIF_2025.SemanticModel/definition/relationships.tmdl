@@ -91,3 +91,62 @@ relationship 646df8f4-2cf2-1168-8043-b9aac53868bf
 	fromColumn: Fk_2024_2025.DATE
 	toColumn: 'Date Mapping-Fk'.2024_date
 
+relationship 367c1702-f92b-64ea-9bb6-dabba15f4b5c
+	fromColumn: 'public amazon_paid'.date
+	toColumn: 'Target VS Achieved'.Date
+
+relationship 56d11555-3a16-b787-fb4f-b71839ee44e3
+	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.DATE
+	toColumn: 'Target VS Achieved-Fk'.Date
+
+relationship f3f3227d-8df3-4ce3-aeae-c67412f8690e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW.DATE
+	toColumn: LocalDateTable_5f612351-1602-40db-84f1-8949b47fdd96.Date
+
+relationship 3b9005b3-c646-4ebd-8ceb-6185d6ee237b
+	joinOnDateBehavior: datePartOnly
+	fromColumn: HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW.ROW_INGESTED_DATETIME_IST
+	toColumn: LocalDateTable_86e4bd7b-ea86-446b-9b4c-30a29b37ef5f.Date
+
+relationship b8c3c96e-5510-43cf-8661-86325032c9f5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW.DATE
+	toColumn: LocalDateTable_cb3e14ee-f821-4948-82fe-7b62ceeee1c2.Date
+
+relationship 1d765591-b136-4042-a77e-71e6259497a5
+	joinOnDateBehavior: datePartOnly
+	fromColumn: HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW.ROW_INGESTED_DATETIME_IST
+	toColumn: LocalDateTable_c1828ee5-c88e-4735-a109-e7e8089456ff.Date
+
+relationship e3926d53-fec9-4497-882d-d979474bdec3
+	joinOnDateBehavior: datePartOnly
+	fromColumn: HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW.DATE
+	toColumn: LocalDateTable_38e0873b-b733-4ee6-93a1-3678b2293a08.Date
+
+relationship 248e583e-3e36-49ab-82a6-409cdebcfe9f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW.ROW_INGESTED_DATETIME_IST
+	toColumn: LocalDateTable_803151b6-4d7a-4f96-bb0b-bbd087d08827.Date
+
+relationship AutoDetected_ce9d3fe6-2340-414a-9a02-b0a10ec36ece
+	fromColumn: HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW.CAMPAIGN_NAME
+	toColumn: Amazon_Campaign_Mapping.'Campaign Name'
+
+relationship AutoDetected_3cd08fb5-9f37-407f-9015-ee33b8154298
+	fromColumn: HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW.CAMPAIGN_NAME
+	toColumn: Amazon_Campaign_Mapping.'Campaign Name'
+
+relationship AutoDetected_8d896700-8698-46f4-a5cc-946b2aa56879
+	fromColumn: HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW.CAMPAIGN_NAME
+	toColumn: Amazon_Campaign_Mapping.'Campaign Name'
+
+relationship 3415d492-8521-428b-966c-f9775a90ca92
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Tercept_amazon_central_campaign.DATE
+	toColumn: LocalDateTable_0b599b82-5a11-4781-a0ce-2f07b261ff1a.Date
+
+relationship 5ae66657-48c4-d689-2322-fb02778a0358
+	fromColumn: Tercept_amazon_central_campaign.CAMPAIGN_NAME
+	toColumn: Amazon_Campaign_Mapping.'Campaign Name'
+

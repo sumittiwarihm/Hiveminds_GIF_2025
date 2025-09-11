@@ -1,0 +1,144 @@
+table Tercept_amazon_central_campaign
+	lineageTag: ab310913-1627-4f3b-a5bc-a933314759f3
+
+	measure CTR_ter = DIVIDE((SUM('Tercept_amazon_central_campaign'[clicks])),(SUM('Tercept_amazon_central_campaign'[impressions])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 58671b88-5ef4-469b-be1c-f6a3d0b1a6f5
+
+	measure ROAS_Ter = DIVIDE((SUM('Tercept_amazon_central_campaign'[sales])),(SUM('Tercept_amazon_central_campaign'[spends])),0)
+		lineageTag: 712b9e8f-d55f-4ef0-bc15-c396d6d226e7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CVR_Ter = DIVIDE((SUM('Tercept_amazon_central_campaign'[orders])),(SUM('Tercept_amazon_central_campaign'[clicks])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7318eaa9-999b-45be-bab9-8d57f6e19062
+
+	measure ACOS_Ter = DIVIDE((SUM('Tercept_amazon_central_campaign'[spends])),(SUM('Tercept_amazon_central_campaign'[sales])),0)
+		lineageTag: 8981f2ae-cdae-48d3-9ad3-ac6d46fb6a3f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AOV_ter = DIVIDE((SUM('Tercept_amazon_central_campaign'[sales])),(SUM('Tercept_amazon_central_campaign'[orders])),0)
+		lineageTag: ee4339c2-06fe-43d0-b735-491522190b9c
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DATE
+		formatString: dd/mm/yyyy
+		lineageTag: f1268272-9c7e-42ac-929e-781b70402867
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW[DATE]
+
+		variation Variation
+			isDefault
+			relationship: 3415d492-8521-428b-966c-f9775a90ca92
+			defaultHierarchy: LocalDateTable_0b599b82-5a11-4781-a0ce-2f07b261ff1a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column CAMPAIGN_NAME
+		lineageTag: 12270064-aa0a-418a-91c7-839643ddb558
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW[CAMPAIGN_NAME]
+
+		annotation SummarizationSetBy = Automatic
+
+	column impressions
+		lineageTag: 46515e62-7bd2-4328-ab7d-2cffe25e0df7
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [impressions]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column clicks
+		lineageTag: c520093c-07db-48d9-a81b-089957d878a5
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [clicks]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column spends
+		lineageTag: 27933b40-fd62-4595-a54e-a1a7bbace6ff
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [spends]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column orders
+		lineageTag: e4656489-d11b-4069-9721-8d0f37a83db4
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [orders]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sales
+		lineageTag: cd235a97-c9f7-4cf0-92ba-99a238b530f2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column HOUR
+		formatString: 0
+		lineageTag: 1c66ff08-615b-48d8-abcf-332a36ac89cb
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW[HOUR]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Tercept_amazon_central_campaign = calculated
+		mode: import
+		source = ```
+				UNION(SUMMARIZECOLUMNS('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[DATE],'HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[CAMPAIGN_NAME],
+				'HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[HOUR],
+				
+				 "impressions",SUM('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[IMPRESSIONS]),
+				 "clicks",SUM('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[IMPRESSIONS]),
+				 "spends",SUM('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[COST]),
+				 "orders",SUM('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[UNITS_SOLD]),
+				 "sales",SUM('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[SALES])),
+				
+				 SUMMARIZECOLUMNS('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[DATE],'HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[CAMPAIGN_NAME],
+				 'HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[HOUR],
+				 
+				 
+				 "impressions",SUM('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[IMPRESSIONS]),
+				 "clicks",SUM('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[CLICKS]),
+				 "spends",SUM('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[COST]),
+				 "orders",SUM('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[UNITS_SOLD]),
+				 "sales",SUM('HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW'[SALES])),
+				 
+				 SUMMARIZECOLUMNS('HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW'[DATE],'HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW'[CAMPAIGN_NAME],
+				 'HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW'[HOUR],
+				 "impressions",SUM('HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW'[IMPRESSIONS]),
+				 "clicks",SUM('HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW'[CLICKS]),
+				 "spends",sum('HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW'[SPEND]),
+				 "orders",SUM('HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW'[SPEND]),
+				 "sales",SUM('HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW'[COST])
+				 )
+				 )
+				```
+
+	annotation PBI_Id = bdb3515278d240c6b0bd68a895feeaac
+
