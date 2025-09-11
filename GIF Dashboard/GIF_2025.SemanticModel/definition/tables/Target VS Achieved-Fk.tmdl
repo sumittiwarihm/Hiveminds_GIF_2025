@@ -145,9 +145,10 @@ table 'Target VS Achieved-Fk'
 				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
 				    #"Target VS Achieved_Table" = Source{[name="Target VS Achieved - Flipkart",ItemKind="Table"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Impressions", type number}, {"Clicks", type number}, {"Spends", Int64.Type}, {"Orders", Int64.Type}, {"Sales", type number}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Impressions", type number}, {"Clicks", type number}, {"Spends", Int64.Type}, {"Orders", Int64.Type}, {"Sales", type number}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([Date] <> null))
 				in
-				    #"Changed Type"
+				    #"Filtered Rows"
 
 	annotation PBI_NavigationStepName = Navigation
 

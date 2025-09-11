@@ -13879,7 +13879,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "HourlyClicks": {
+			          "Clicks": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -13889,7 +13889,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "Clicks": {
+			          "HourlyClicks": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14028,7 +14028,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "HourlyOrders": {
+			          "Orders": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14038,7 +14038,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "Orders": {
+			          "HourlyOrders": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14097,7 +14097,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "HourlySales": {
+			          "Sales": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14107,7 +14107,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "Sales": {
+			          "HourlySales": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14246,7 +14246,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "HourlyImpressions": {
+			          "Impressions": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14256,7 +14256,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "Impressions": {
+			          "HourlyImpressions": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14295,7 +14295,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "HourlyCTR": {
+			          "CTR": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14305,7 +14305,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "CTR": {
+			          "HourlyCTR": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14344,7 +14344,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "HourlyCPC": {
+			          "CPC": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14354,7 +14354,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "CPC": {
+			          "HourlyCPC": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14432,7 +14432,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "HourlyCVR": {
+			          "CVR": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14442,7 +14442,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "CVR": {
+			          "HourlyCVR": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14481,7 +14481,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "HourlyACOS": {
+			          "ACOS": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14491,7 +14491,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "ACOS": {
+			          "HourlyACOS": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14530,7 +14530,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "HourlyAOV": {
+			          "AOV": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -14540,7 +14540,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "AOV": {
+			          "HourlyAOV": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
