@@ -11,11 +11,11 @@ queryGroup 'Query Errors - 08-09-2025 12:27:09'
 
 	annotation PBI_QueryGroupOrder = 0
 
-annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Errors in public amazon_buybox","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk"]
+annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Errors in public amazon_buybox","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Brand_Asin","Comp_Asin"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBIDesktopVersion = 2.146.1254.0 (25.08)+791a7518fadc83da883d79322a2658aff57c8db3
+annotation PBIDesktopVersion = 2.146.1454.0 (25.08)+901d6c338d1dea81ac3e53073ffb10469f0f37b8
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -56,6 +56,11 @@ ref table LocalDateTable_964fc65a-c811-4fbe-9e61-0a181a07267a
 ref table LocalDateTable_770c368e-deec-412f-9332-4fe1f12d9c96
 ref table 'Date Mapping-Fk'
 ref table LocalDateTable_c3ac9b74-10d7-4ee9-974a-47c2c31561aa
+ref table 'Amazon Price Tracker'
+ref table FinalPriceTable
+ref table Brand_Asin
+ref table Comp_Asin
+ref table LocalDateTable_12cf3c3a-4545-4d6d-89cc-d2d9512142a8
 
 ref cultureInfo en-IN
 

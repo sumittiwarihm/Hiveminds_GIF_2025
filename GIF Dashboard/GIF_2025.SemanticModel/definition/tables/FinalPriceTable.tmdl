@@ -1,0 +1,151 @@
+table FinalPriceTable
+	lineageTag: a027ff17-b4e9-4f08-99b9-72076eba6711
+
+	column Account
+		lineageTag: f957d387-e4c6-4240-ac5d-1c1cd9a1f9e7
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Amazon Price Tracker[Account]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Platform
+		lineageTag: a913784d-85ca-4bc2-bd04-63e4af24b20f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Amazon Price Tracker[Platform]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		lineageTag: b7fa14c6-ce3d-4fe9-8a7a-8f81529145ad
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Amazon Price Tracker[Category]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Category'
+		lineageTag: edd02088-4124-447a-85a2-c74dc0204b86
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Amazon Price Tracker[Sub Category]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Brand ASIN'
+		lineageTag: fcbfa709-284b-4d30-9dde-b48a3ed3dc76
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Amazon Price Tracker[Brand ASIN]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Comp 1 ASIN'
+		lineageTag: 5c4ae5cd-9453-4bd0-be4a-fd652d212833
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Amazon Price Tracker[Comp 1 ASIN]
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		formatString: General Date
+		lineageTag: 4b95b1cd-06d9-4c42-b8a4-85fde2627ec4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [date]
+
+		variation Variation
+			isDefault
+			relationship: 8276d8f0-6352-4b73-8d63-389ff5c6dc21
+			defaultHierarchy: LocalDateTable_12cf3c3a-4545-4d6d-89cc-d2d9512142a8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column BrandPrice
+		lineageTag: 73923209-d16d-445b-9453-4c2485d42a64
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [BrandPrice]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column CompetitorPrice
+		lineageTag: 38213f82-3c61-4a2c-ad2b-872edc826ef9
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [CompetitorPrice]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column hour
+		lineageTag: a1d0c2fa-c9a8-4786-8f6d-00a91bfe5081
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [hour]
+
+		annotation SummarizationSetBy = Automatic
+
+	column pin
+		lineageTag: f03d03f7-c718-4483-88d6-3bddb9d4845f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [pin]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FinalPriceTable = calculated
+		mode: import
+		source = ```
+				
+				GENERATE(
+				    'Amazon Price Tracker',
+				    VAR CurrentBrand = 'Amazon Price Tracker'[Brand ASIN]
+				    VAR CurrentComp = 'Amazon Price Tracker'[Comp 1 ASIN]
+				    VAR CurrentDateHourPinList =
+				        SELECTCOLUMNS(
+				            FILTER(
+				                'public amazon_buybox',
+				                'public amazon_buybox'[asin] = CurrentBrand || 'public amazon_buybox'[asin] = CurrentComp
+				            ),
+				            "date", 'public amazon_buybox'[date],
+				            "hour", 'public amazon_buybox'[hour],
+				            "pin",  'public amazon_buybox'[pin]     -- 👈 include pin
+				        )
+				    RETURN
+				        ADDCOLUMNS(
+				            CurrentDateHourPinList,
+				            "BrandPrice",
+				                CALCULATE(
+				                    MAX('public amazon_buybox'[price]),
+				                    FILTER(
+				                        'public amazon_buybox',
+				                        'public amazon_buybox'[asin] = CurrentBrand &&
+				                        'public amazon_buybox'[date] = EARLIER([date]) &&
+				                        'public amazon_buybox'[hour] = EARLIER([hour]) &&
+				                        'public amazon_buybox'[pin]  = EARLIER([pin])   -- 👈 match pin
+				                    )
+				                ),
+				            "CompetitorPrice",
+				                CALCULATE(
+				                    MAX('public amazon_buybox'[price]),
+				                    FILTER(
+				                        'public amazon_buybox',
+				                        'public amazon_buybox'[asin] = CurrentComp &&
+				                        'public amazon_buybox'[date] = EARLIER([date]) && 
+				                        'public amazon_buybox'[hour] = EARLIER([hour]) &&
+				                        'public amazon_buybox'[pin]  = EARLIER([pin])   -- 👈 match pin
+				                    )
+				                )
+				        )
+				)
+				
+				```
+
+	annotation PBI_Id = b837bb67f9344468a9a73f0ac9a94c2a
+

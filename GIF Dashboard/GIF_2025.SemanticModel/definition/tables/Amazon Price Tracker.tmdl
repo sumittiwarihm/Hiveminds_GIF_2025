@@ -1,0 +1,66 @@
+table 'Amazon Price Tracker'
+	lineageTag: f2e1c244-2359-4b7d-b34b-608caba07135
+
+	column Account
+		dataType: string
+		lineageTag: e3b20bd6-29d6-44f7-9d8f-c0ba7128d8a3
+		summarizeBy: none
+		sourceColumn: Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column Platform
+		dataType: string
+		lineageTag: 0e0f6227-cc3f-4927-a502-0f6ca51d1ab3
+		summarizeBy: none
+		sourceColumn: Platform
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 820914da-6e22-45fe-9014-ed054d020ca2
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Category'
+		dataType: string
+		lineageTag: f1dd4aa0-40c9-4795-95dc-9dbaaa10518d
+		summarizeBy: none
+		sourceColumn: Sub Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Brand ASIN'
+		dataType: string
+		lineageTag: ff07af08-bb15-4b92-b87a-ff04496c1cf2
+		summarizeBy: none
+		sourceColumn: Brand ASIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Comp 1 ASIN'
+		dataType: string
+		lineageTag: 58029a4e-ae61-4314-8000-abb00688fcfd
+		summarizeBy: none
+		sourceColumn: Comp 1 ASIN
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Amazon Price Tracker' = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
+				    #"Target VS Achieved_Table" = Source{[name="Amazon Price Tracker",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
+				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Brand Price", "Comp 1 Price"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

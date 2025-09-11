@@ -51,9 +51,10 @@ table 'Date Mapping'
 				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
 				    #"Target VS Achieved_Table" = Source{[name="GID_BBD_Dates_Mapping",ItemKind="Table"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"GIF/BBD", type text}, {"2024_date", type date}, {"Year", Int64.Type}, {"Day", Int64.Type}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"GIF/BBD", type text}, {"2024_date", type date}, {"Year", Int64.Type}, {"Day", Int64.Type}}),
+				    #"Removed Blank Rows" = Table.SelectRows(#"Changed Type", each not List.IsEmpty(List.RemoveMatchingItems(Record.FieldValues(_), {"", null})))
 				in
-				    #"Changed Type"
+				    #"Removed Blank Rows"
 
 	annotation PBI_NavigationStepName = Navigation
 

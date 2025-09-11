@@ -23103,6 +23103,48 @@ cultureInfo en-IN
 			          }
 			        }
 			      ]
+			    },
+			    "comp_asin.comp_1_asin": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Comp_Asin",
+			          "ConceptualProperty": "Comp 1 ASIN"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Comp ASIN": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "finalpricetable.date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FinalPriceTable",
+			          "ConceptualProperty": "date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "DATE": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {

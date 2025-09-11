@@ -1,0 +1,26 @@
+table Comp_Asin
+	lineageTag: ebcd29c4-eb76-4a59-a587-7ae313cf9519
+
+	column 'Comp 1 ASIN'
+		dataType: string
+		lineageTag: c86d1f49-7dc8-4614-9aee-4b867db1f45e
+		summarizeBy: none
+		sourceColumn: Comp 1 ASIN
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Comp_Asin = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
+				    #"Target VS Achieved_Table" = Source{[name="Amazon Price Tracker",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
+				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Account", "Platform", "Category", "Sub Category", "Brand ASIN", "Brand Price", "Comp 1 Price"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
