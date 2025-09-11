@@ -136,6 +136,90 @@ table Sale_2024
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 619faee1-b3ad-4632-b2a6-f9ef1829b30a
 
+	measure CTR_amz2025 = DIVIDE([amz2025_clicks], [amz2025_impressions], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d9ae83b5-0f8a-4261-ba54-b76bd829ba52
+
+	measure amz2024_clicks = SUM(Sale_2024[Clicks])
+		formatString: 0
+		lineageTag: d0297c61-664b-4a01-96d2-e842da7e0c71
+
+	measure amz2024_impressions = SUM(Sale_2024[Impressions])
+		formatString: 0
+		lineageTag: e07cc621-c355-4a31-8a47-988b05d79505
+
+	measure amz2024_orders = SUM(Sale_2024[Orders])
+		formatString: 0
+		lineageTag: c47a7985-5331-4bd2-9c9f-3588d0b6d090
+
+	measure amz2024_sales = SUM(Sale_2024[Sales])
+		formatString: 0
+		lineageTag: 38d61ea4-2c83-4cf5-a3f6-11753ba2b8ef
+
+	measure amz2024_spends = SUM(Sale_2024[Spends])
+		formatString: 0
+		lineageTag: 1cc5cb1d-e373-4192-b09f-4a1bb79ea78a
+
+	measure CTR_amz2024 = DIVIDE([amz2024_clicks], [amz2024_impressions], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7c72df9c-859b-4ca8-8f09-1a84bd18f3ad
+
+	measure AOV_amz2025 = DIVIDE([amz2025_sales], [amz2025_orders], 0 )
+		lineageTag: 7c62ceac-baae-4589-b335-d41fd4ce0480
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure AOV_amz2024 = DIVIDE([amz2024_sales], [amz2024_orders], 0 )
+		lineageTag: 68399343-25c1-42fb-a873-0cb139538848
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CPC_amz2025 = DIVIDE([amz2025_spends], [amz2025_clicks], 0)
+		lineageTag: 38b799d2-ec66-45a6-8670-16260824d4aa
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure CPC_amz2024 = DIVIDE([amz2024_spends], [amz2024_clicks], 0)
+		lineageTag: e568bdae-6788-40bb-ad1f-ec18b64b069e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure ROI_amz2025 = DIVIDE([amz2025_sales],[amz2025_spends],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7d911687-9052-444d-8524-adae2821c289
+
+	measure ROI_amz2024 = DIVIDE([amz2024_sales],[amz2024_spends],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 17521202-8b1b-4d04-9080-ae18f495c7f7
+
+	measure CVR_amz2025 = DIVIDE([amz2025_orders],[amz2025_clicks],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e37409c0-3269-45ad-84c1-0810badb63df
+
+	measure CVR_amz2024 = DIVIDE([amz2024_orders],[amz2024_clicks],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 1e6d2d61-7035-4248-a25e-ed447392c6fd
+
+	measure '% change_CTR' = DIVIDE(([CTR_amz2025]-[CTR_amz2024]), [CTR_amz2024] ,0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c57cc452-05e9-4932-bba3-01e4e9363507
+
+	measure '% change_CPC' = DIVIDE(([CPC_amz2025]-[CPC_amz2024]),[CPC_amz2024],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 4108fa60-9770-4b91-ba7d-ba62cdccd35c
+
+	measure '% change_ROI' = DIVIDE(([ROI_amz2025]-[ROI_amz2024]), [ROI_amz2024], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 97b92c2f-6411-4bd7-b46f-a7bb2ea6f826
+
+	measure '% change_CVR' = divide(([CVR_amz2025]-[CVR_amz2024]), [CVR_amz2024], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 8e5aea1d-ee73-4c5a-944f-decd0510ecff
+
+	measure '% change_AOV' = DIVIDE(([AOV_amz2025]-[AOV_amz2024]), [AOV_amz2024], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2bd512ad-230e-4bc8-98b0-72dd206c6fa1
+
 	column GIF
 		dataType: dateTime
 		formatString: Long Date

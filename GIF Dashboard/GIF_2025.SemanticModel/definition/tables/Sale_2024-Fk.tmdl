@@ -1,6 +1,140 @@
 table Sale_2024-Fk
 	lineageTag: c1f98490-6ab9-41ca-b208-f3b861a8efd3
 
+	measure fk2025_clicks = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),ALL('calender_dates_fk_2025'),USERELATIONSHIP( 'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE],'calender_dates_fk_2025'[Date]))
+		lineageTag: e0e1da9e-5982-462a-9db0-3452ed6cb74a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure fk2025_impressions = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[VIEWS]),ALL('calender_dates_fk_2025'),USERELATIONSHIP( 'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE],'calender_dates_fk_2025'[Date]))
+		lineageTag: 5992fb1b-7de5-4bb1-a18a-e00403cb2407
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure fk2025_sales = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]),ALL('calender_dates_fk_2025'),USERELATIONSHIP( 'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE],'calender_dates_fk_2025'[Date]))
+		lineageTag: fb9c540a-febe-49c6-94a8-9dba2e37e58b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure fk2025_orders = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS]),ALL('calender_dates_fk_2025'),USERELATIONSHIP( 'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE],'calender_dates_fk_2025'[Date]))
+		lineageTag: fd12f093-aa87-4cda-96a9-f0e6a99fa610
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure fk2025_spends = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),ALL('calender_dates_fk_2025'),USERELATIONSHIP( 'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE],'calender_dates_fk_2025'[Date]))
+		lineageTag: f1e804a0-7509-445e-aadc-e315123486a2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure fk2024-clicks = SUM('Sale_2024-Fk'[Clicks])
+		formatString: 0
+		lineageTag: 702bc3fa-be5c-4f7c-b503-9185a56a8290
+
+	measure fk2024-impressions = SUM('Sale_2024-Fk'[Impressions])
+		formatString: 0
+		lineageTag: 022a0444-58bd-403b-88a6-5b8de5cf489b
+
+	measure fk2024-orders = SUM('Sale_2024-Fk'[Orders])
+		formatString: 0
+		lineageTag: db6c21a5-dca3-43ec-9e7e-c150cc2c778d
+
+	measure fk2024-spends = SUM('Sale_2024-Fk'[Spends])
+		formatString: 0
+		lineageTag: 6a4aa272-fdf5-427b-80eb-183330614d5a
+
+	measure fk2024-sales = SUM('Sale_2024-Fk'[Sales])
+		formatString: 0
+		lineageTag: ba6a7a32-213f-42b1-a78b-feb2f6162a98
+
+	measure fk202%change-spends = DIVIDE([fk2025_spends]-[fk2024-spends], [fk2024-spends], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: fb0bd8b1-9bd2-487d-b83e-37929d852378
+
+	measure fk202%change-orders = DIVIDE([fk2025_orders]-[fk2024-orders], [fk2024-orders], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9e52c901-4b0a-41e2-8c06-7bc0714becf3
+
+	measure fk202%change-sales = DIVIDE([fk2025_sales]-[fk2024-sales], [fk2024-sales], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6d8442de-51ab-40dc-ae5b-ccbca740fc12
+
+	measure fk202%change-clicks = DIVIDE([fk2025_clicks]-[fk2024-clicks], [fk2024-clicks], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 94b6a396-08e5-4ef4-b8ae-11cf185283e2
+
+	measure fk202%change-impressions = DIVIDE([fk2025_impressions]-[fk2024-impressions], [fk2024-impressions], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c367f325-18d8-4900-b4ac-961af364c19f
+
+	measure fk2024-CTR = DIVIDE('Sale_2024-Fk'[fk2024-clicks], 'Sale_2024-Fk'[fk2024-impressions], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b0655871-3f2c-41e8-a503-5ec88e7365f8
+
+	measure fk2025-CTR = DIVIDE('Sale_2024-Fk'[fk2025_clicks], 'Sale_2024-Fk'[fk2025_impressions], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ef3b0097-7310-4372-9801-7990807206aa
+
+	measure fk202%change-CTR = DIVIDE([fk2025-CTR]-[fk2024-CTR], [fk2024-CTR], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5b1b66b0-a24c-42fe-877c-23beebd66c88
+
+	measure fk2024-CPC = DIVIDE('Sale_2024-Fk'[fk2024-spends], 'Sale_2024-Fk'[fk2024-clicks], 0)
+		lineageTag: 5070c9de-0f04-4eaf-8969-7d42da2d135e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure fk2025-CPC = DIVIDE('Sale_2024-Fk'[fk2025_spends], 'Sale_2024-Fk'[fk2024-clicks], 0)
+		lineageTag: 916614db-6c7a-4b9b-8cbe-e7d3f6354a97
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure fk202%change-CPC = DIVIDE([fk2025-CPC]-[fk2024-CPC], [fk2024-CPC], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: fa06b5f5-9667-4dfc-b7a7-099c3eaee828
+
+	measure Measure
+		lineageTag: 0e471539-8ce4-43fb-855c-4c0d1e6ae703
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure fk2024-ROI = DIVIDE('Sale_2024-Fk'[fk2024-sales], 'Sale_2024-Fk'[fk2024-spends], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d2fffe48-029e-41d6-92e7-9082f967eb47
+
+	measure fk2025-ROI = DIVIDE('Sale_2024-Fk'[fk2025_sales], 'Sale_2024-Fk'[fk2025_spends], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: dd6fb4d1-441d-4ddd-bde7-1de60d50ea38
+
+	measure fk202%change-ROI = DIVIDE([fk2025-ROI]-[fk2024-ROI], [fk2024-ROI], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 03c53a46-fba9-4c48-9435-9a69d835d45f
+
+	measure fk2024-CVR = DIVIDE('Sale_2024-Fk'[fk2024-orders], 'Sale_2024-Fk'[fk2024-clicks], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e1b39906-91d1-4a78-930c-2199c9f0038a
+
+	measure fk2025-CVR = DIVIDE('Sale_2024-Fk'[fk2025_orders], 'Sale_2024-Fk'[fk2025_clicks], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 431813c5-2c6a-4790-b7f7-80887a137257
+
+	measure fk202%change-CVR = DIVIDE([fk2025-CVR]-[fk2024-CVR], [fk2024-CVR], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: cf88b57a-9442-4588-bcde-f14161dbd304
+
+	measure fk2024-AOV = DIVIDE('Sale_2024-Fk'[fk2024-sales], 'Sale_2024-Fk'[fk2024-orders], 0)
+		lineageTag: d082ba9b-b3b3-4197-abc4-7ff6029a5237
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure fk2025-AOV = DIVIDE('Sale_2024-Fk'[fk2025_sales], 'Sale_2024-Fk'[fk2025_orders], 0)
+		lineageTag: 8dd38f1b-54ea-49b6-a140-5d29198bfd6e
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure fk202%change-AOV = DIVIDE([fk2025-AOV]-[fk2024-AOV], [fk2024-AOV], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c3b09bc1-70b9-4818-9321-3c8272446c91
+
 	column BBD
 		dataType: dateTime
 		formatString: Long Date

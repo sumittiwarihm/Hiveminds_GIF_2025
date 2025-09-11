@@ -1,22 +1,6 @@
 table 'Target VS Achieved'
 	lineageTag: b5b01ec0-d9e6-4687-b0c1-a5dedc3b6da2
 
-	column GIF
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 2ca419af-4f45-4113-ba61-ab2935c4eebc
-		summarizeBy: none
-		sourceColumn: GIF
-
-		variation Variation
-			isDefault
-			relationship: d4338dcf-1b86-41d1-9233-c06fb4390726
-			defaultHierarchy: LocalDateTable_e6f1ba5d-9268-443b-9112-fb0731e4f109.'Date Hierarchy'
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
 	column Impressions
 		dataType: double
 		lineageTag: dfbfc95e-ecfd-4dd7-9ec3-48a64d7afc27
@@ -116,6 +100,22 @@ table 'Target VS Achieved'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 85e4b27c-ba67-4764-bb21-66acc73288ec
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 3370f963-d35f-4782-acb6-021a5707aa5c
+			defaultHierarchy: LocalDateTable_964fc65a-c811-4fbe-9e61-0a181a07267a.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
 	partition 'Target VS Achieved' = m
 		mode: import
 		source =
@@ -123,7 +123,7 @@ table 'Target VS Achieved'
 				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
 				    #"Target VS Achieved_Table" = Source{[name="Target VS Achieved - Amazon",ItemKind="Table"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"GIF", type date}, {"Impressions", type number}, {"Clicks", type number}, {"Spends", Int64.Type}, {"Orders", type number}, {"Sales", type number}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Impressions", type number}, {"Clicks", type number}, {"Spends", Int64.Type}, {"Orders", type number}, {"Sales", type number}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}})
 				in
 				    #"Changed Type"
 

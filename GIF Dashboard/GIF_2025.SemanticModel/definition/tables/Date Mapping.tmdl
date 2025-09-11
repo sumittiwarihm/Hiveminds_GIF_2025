@@ -1,0 +1,61 @@
+table 'Date Mapping'
+	lineageTag: 773849ae-a5fd-4e1f-8002-a3eab92d3bf8
+
+	column GIF/BBD
+		dataType: string
+		lineageTag: 019a7d03-697b-4110-8097-ab04a4edca44
+		summarizeBy: none
+		sourceColumn: GIF/BBD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 2024_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 77eff9c7-7900-410a-88b6-76aa02c55963
+		summarizeBy: none
+		sourceColumn: 2024_date
+
+		variation Variation
+			isDefault
+			relationship: d0ca22a7-fb00-46c3-abb9-e49a5874aca9
+			defaultHierarchy: LocalDateTable_c5d4f48f-2d2b-42b5-a222-cbb02d8f98a9.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 9117c825-081b-441a-bb35-2ac0a54dce53
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day
+		dataType: string
+		lineageTag: 1c3a3eb8-1e4f-4733-989f-79bee6caf95a
+		summarizeBy: none
+		sourceColumn: Day
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Date Mapping' = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
+				    #"Target VS Achieved_Table" = Source{[name="GID_BBD_Dates_Mapping",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"GIF/BBD", type text}, {"2024_date", type date}, {"Year", Int64.Type}, {"Day", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

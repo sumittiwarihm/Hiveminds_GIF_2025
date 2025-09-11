@@ -1,0 +1,107 @@
+table Fk_2024_2025
+	lineageTag: 82dc1753-2e2c-4d2f-97b9-1ab6637a77df
+
+	column DATE
+		formatString: General Date
+		lineageTag: df5e8cfb-4eef-4193-b43d-c0c054999e4b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW[DATE]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Impressions
+		lineageTag: 4e5e4c6e-62ae-4a9a-8948-33038f61a7fc
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Impressions]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Clicks
+		lineageTag: 3bc690a6-bf2a-481b-a047-39e91acaadc2
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Clicks]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Spends
+		lineageTag: 3937a92c-ff63-4582-870c-a87d18f93948
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Spends]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orders
+		lineageTag: 4ebfc8ba-1523-497c-8ae7-45a3fdce081e
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Orders]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Sales
+		lineageTag: 5e26d892-a8f5-43f4-94a8-8dc43151e742
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Sales]
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Day = RELATED('Date Mapping-Fk'[Day])
+		lineageTag: e81926f8-79c0-4bd9-ab91-1bdc9c37e776
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fk_2024_2025 = calculated
+		mode: import
+		source =
+				
+				
+				// 1. Create a daily summary of the Amazon Paid table
+				VAR AmazonSummary =
+				    ADDCOLUMNS(
+				        SUMMARIZE(
+				            'HIVEMINDS_FLIPKART_HOURLY_VIEW',
+				            'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE] // Group by date
+				        ),
+				        "Impressions", CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[VIEWS])),
+				        "Clicks", CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS])),
+				        "Spends", CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND])),
+				        "Orders", CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS])),
+				        "Sales", CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]))
+				        // "Source", "Amazon Paid" // Add a source identifier
+				    )
+				
+				// 2. Select and rename columns from the Sales_2024 table to match
+				VAR Sales2024Formatted =
+				    SELECTCOLUMNS(
+				        'Sale_2024-Fk',
+				        "date", 'Sale_2024-Fk'[BBD], // Rename 'GIF(date)' to 'date'
+				        "Impressions", 'Sale_2024-Fk'[Impressions],
+				        "Clicks", 'Sale_2024-Fk'[Clicks],
+				        "Spends", 'Sale_2024-Fk'[Spends],
+				        "Orders", 'Sale_2024-Fk'[Orders],
+				        "Sales", 'Sale_2024-Fk'[Sales]
+				        // "Source", "Sales 2024" // Add a source identifier
+				    )
+				
+				// 3. Return the union of the two prepared tables
+				RETURN
+				UNION(AmazonSummary, Sales2024Formatted)
+
+	annotation PBI_Id = 849e31a4b18446839014739ac4a34212
+

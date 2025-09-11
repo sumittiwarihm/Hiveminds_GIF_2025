@@ -1,0 +1,23 @@
+table calender_dates_fk_2025
+	lineageTag: bd99d4d8-c85e-4276-bd07-98710c7b642e
+
+	column Date
+		formatString: General Date
+		lineageTag: d2bc26c4-099f-439f-bce2-00b0104dd3a8
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 0d0af930-1420-4cd5-9054-a338c20505b9
+			defaultHierarchy: LocalDateTable_0e2de613-c45d-4cbc-8114-dfa1dcf89d03.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition calender_dates_fk_2025 = calculated
+		mode: import
+		source = CALENDAR(MIN('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE]),MAX('HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE]))
+
+	annotation PBI_Id = ef49193685aa485ba9e029226a579742
+
