@@ -1,20 +1,17 @@
 table Sale_2024
 	lineageTag: 6d7fb38c-066e-4375-86d1-91c6f97f3d14
 
-	measure amz2025_spends = CALCULATE(SUM('public amazon_paid'[Spend]),ALL('calender_dates_amz_2025'),USERELATIONSHIP( 'public amazon_paid'[date],'calender_dates_amz_2025'[Date]))
+	measure amz2025_spends = CALCULATE(SUM('public amazon_paid'[Spend]))
 		lineageTag: 3742eaf1-817a-43a3-9adb-8d2c5dbefeb3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure '% change_spends' =
 			
 			VAR BaselineSpends = SUM ('Sale_2024'[Spends] )
 			VAR ComparisonSpends =
 			    CALCULATE (
-			        SUM ( 'public amazon_paid'[Spend] ),
-			        ALL ( 'calender_dates_amz_2025' ),
-			        USERELATIONSHIP (
-			            'public amazon_paid'[Date],
-			            'calender_dates_amz_2025'[Date]
-			        )
+			        SUM ( 'public amazon_paid'[Spend] )
 			    )
 			VAR Result =
 			    DIVIDE (
@@ -27,7 +24,7 @@ table Sale_2024
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 5b374dc0-a781-4471-b0a3-9650040b3baf
 
-	measure amz2025_clicks = CALCULATE(SUM('public amazon_paid'[Clicks]),ALL('calender_dates_amz_2025'),USERELATIONSHIP( 'public amazon_paid'[date],'calender_dates_amz_2025'[Date]))
+	measure amz2025_clicks = CALCULATE(SUM('public amazon_paid'[Clicks]))
 		formatString: 0
 		lineageTag: ba990ff4-33af-4c22-946a-35937711d6b8
 
@@ -36,12 +33,7 @@ table Sale_2024
 			VAR BaselineSpends = SUM ('Sale_2024'[Clicks] )
 			VAR ComparisonSpends =
 			    CALCULATE (
-			        SUM ( 'public amazon_paid'[Clicks] ),
-			        ALL ( 'calender_dates_amz_2025' ),
-			        USERELATIONSHIP (
-			            'public amazon_paid'[Date],
-			            'calender_dates_amz_2025'[Date]
-			        )
+			        SUM ( 'public amazon_paid'[Clicks] )
 			    )
 			VAR Result =
 			    DIVIDE (
@@ -51,10 +43,11 @@ table Sale_2024
 			    )
 			RETURN
 			    Result
-		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 6dc19f61-4932-4516-9bec-95dc1c9c7b5c
 
-	measure amz2025_orders = CALCULATE(SUM('public amazon_paid'[Orders]),ALL('calender_dates_amz_2025'),USERELATIONSHIP( 'public amazon_paid'[date],'calender_dates_amz_2025'[Date]))
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure amz2025_orders = CALCULATE(SUM('public amazon_paid'[Orders]))
 		formatString: 0
 		lineageTag: 18eb9c6e-ada4-492a-94d8-718d63af5c73
 
@@ -63,12 +56,7 @@ table Sale_2024
 			VAR BaselineSpends = SUM ('Sale_2024'[Orders] )
 			VAR ComparisonSpends =
 			    CALCULATE (
-			        SUM ( 'public amazon_paid'[Orders] ),
-			        ALL ( 'calender_dates_amz_2025' ),
-			        USERELATIONSHIP (
-			            'public amazon_paid'[Date],
-			            'calender_dates_amz_2025'[Date]
-			        )
+			        SUM ( 'public amazon_paid'[Orders] )
 			    )
 			VAR Result =
 			    DIVIDE (
@@ -81,7 +69,7 @@ table Sale_2024
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: f136f379-7ec0-4396-82a8-ae16b35d62bd
 
-	measure amz2025_impressions = CALCULATE(SUM('public amazon_paid'[Impressions]),ALL('calender_dates_amz_2025'),USERELATIONSHIP( 'public amazon_paid'[date],'calender_dates_amz_2025'[Date]))
+	measure amz2025_impressions = CALCULATE(SUM('public amazon_paid'[Impressions]))
 		formatString: 0
 		lineageTag: d0f4602f-9236-49b6-9403-aee61d3bbbfb
 
@@ -90,12 +78,7 @@ table Sale_2024
 			VAR BaselineSpends = SUM ('Sale_2024'[Impressions] )
 			VAR ComparisonSpends =
 			    CALCULATE (
-			        SUM ( 'public amazon_paid'[Impressions] ),
-			        ALL ( 'calender_dates_amz_2025' ),
-			        USERELATIONSHIP (
-			            'public amazon_paid'[Date],
-			            'calender_dates_amz_2025'[Date]
-			        )
+			        SUM ( 'public amazon_paid'[Impressions] )
 			    )
 			VAR Result =
 			    DIVIDE (
@@ -108,7 +91,7 @@ table Sale_2024
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 2911eed7-4401-4387-9e11-7df22b00bf63
 
-	measure amz2025_sales = CALCULATE(SUM('public amazon_paid'[Sales]),ALL('calender_dates_amz_2025'),USERELATIONSHIP( 'public amazon_paid'[date],'calender_dates_amz_2025'[Date]))
+	measure amz2025_sales = CALCULATE(SUM('public amazon_paid'[Sales]))
 		lineageTag: be6c5ff2-082c-4e73-b186-a5bf9ca87d01
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -118,12 +101,7 @@ table Sale_2024
 			VAR BaselineSpends = SUM ('Sale_2024'[Sales] )
 			VAR ComparisonSpends =
 			    CALCULATE (
-			        SUM ( 'public amazon_paid'[Sales] ),
-			        ALL ( 'calender_dates_amz_2025' ),
-			        USERELATIONSHIP (
-			            'public amazon_paid'[Date],
-			            'calender_dates_amz_2025'[Date]
-			        )
+			        SUM ( 'public amazon_paid'[Sales] )
 			    )
 			VAR Result =
 			    DIVIDE (

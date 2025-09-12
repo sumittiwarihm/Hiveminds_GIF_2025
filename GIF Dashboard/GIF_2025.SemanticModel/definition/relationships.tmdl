@@ -42,6 +42,7 @@ relationship d643c0c4-6b3f-4b85-ad09-d18dbaf31aff
 	toColumn: LocalDateTable_e6af0bfa-767c-4d6f-8411-cf27f66ef56e.Date
 
 relationship 693c7684-0ae0-137f-6988-257a87315400
+	crossFilteringBehavior: bothDirections
 	fromColumn: 'public amazon_paid'.date
 	toColumn: calender_dates_amz_2025.Date
 
@@ -67,6 +68,7 @@ relationship 0d0af930-1420-4cd5-9054-a338c20505b9
 	toColumn: LocalDateTable_0e2de613-c45d-4cbc-8114-dfa1dcf89d03.Date
 
 relationship 9743f960-5347-3715-6498-2a95842d0fc9
+	crossFilteringBehavior: bothDirections
 	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.DATE
 	toColumn: calender_dates_fk_2025.Date
 
@@ -92,10 +94,12 @@ relationship 646df8f4-2cf2-1168-8043-b9aac53868bf
 	toColumn: 'Date Mapping-Fk'.2024_date
 
 relationship 367c1702-f92b-64ea-9bb6-dabba15f4b5c
+	crossFilteringBehavior: bothDirections
 	fromColumn: 'public amazon_paid'.date
 	toColumn: 'Target VS Achieved'.Date
 
 relationship 56d11555-3a16-b787-fb4f-b71839ee44e3
+	crossFilteringBehavior: bothDirections
 	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.DATE
 	toColumn: 'Target VS Achieved-Fk'.Date
 
@@ -147,6 +151,7 @@ relationship 3415d492-8521-428b-966c-f9775a90ca92
 	toColumn: LocalDateTable_0b599b82-5a11-4781-a0ce-2f07b261ff1a.Date
 
 relationship 5ae66657-48c4-d689-2322-fb02778a0358
+	crossFilteringBehavior: bothDirections
 	fromColumn: Tercept_amazon_central_campaign.CAMPAIGN_NAME
 	toColumn: Amazon_Campaign_Mapping.'Campaign Name'
 

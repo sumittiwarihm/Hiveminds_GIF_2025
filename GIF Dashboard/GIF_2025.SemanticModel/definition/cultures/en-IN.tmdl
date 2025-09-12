@@ -9567,6 +9567,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Actual Spends": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -23502,6 +23512,57 @@ cultureInfo en-IN
 			      "Terms": [
 			        {
 			          "AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.actual_spends": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "actual_spends"
+			        }
+			      },
+			      "State": "Generated"
+			    },
+			    "target_vs_achieved.change_spends_tva": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "% change_spends_tva"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Spends": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.change_impressions_tva": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "% change_impressions_tva"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Impressions": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

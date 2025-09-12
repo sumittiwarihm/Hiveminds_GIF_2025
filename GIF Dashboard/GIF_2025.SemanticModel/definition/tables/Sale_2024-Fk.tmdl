@@ -1,27 +1,27 @@
 table Sale_2024-Fk
 	lineageTag: c1f98490-6ab9-41ca-b208-f3b861a8efd3
 
-	measure fk2025_clicks = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]),ALL('calender_dates_fk_2025'),USERELATIONSHIP( 'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE],'calender_dates_fk_2025'[Date]))
+	measure fk2025_clicks = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[CLICKS]))
 		lineageTag: e0e1da9e-5982-462a-9db0-3452ed6cb74a
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure fk2025_impressions = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[VIEWS]),ALL('calender_dates_fk_2025'),USERELATIONSHIP( 'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE],'calender_dates_fk_2025'[Date]))
+	measure fk2025_impressions = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[VIEWS]))
 		lineageTag: 5992fb1b-7de5-4bb1-a18a-e00403cb2407
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure fk2025_sales = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]),ALL('calender_dates_fk_2025'),USERELATIONSHIP( 'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE],'calender_dates_fk_2025'[Date]))
+	measure fk2025_sales = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_REVENUE]))
 		lineageTag: fb9c540a-febe-49c6-94a8-9dba2e37e58b
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure fk2025_orders = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS]),ALL('calender_dates_fk_2025'),USERELATIONSHIP( 'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE],'calender_dates_fk_2025'[Date]))
+	measure fk2025_orders = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[TOTAL_ORDERS]))
 		lineageTag: fd12f093-aa87-4cda-96a9-f0e6a99fa610
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure fk2025_spends = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]),ALL('calender_dates_fk_2025'),USERELATIONSHIP( 'HIVEMINDS_FLIPKART_HOURLY_VIEW'[DATE],'calender_dates_fk_2025'[Date]))
+	measure fk2025_spends = CALCULATE(SUM('HIVEMINDS_FLIPKART_HOURLY_VIEW'[AD_SPEND]))
 		lineageTag: f1e804a0-7509-445e-aadc-e315123486a2
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}

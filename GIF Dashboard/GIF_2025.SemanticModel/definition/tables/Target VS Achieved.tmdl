@@ -24,6 +24,121 @@ table 'Target VS Achieved'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure actual_spends = ```
+			CALCULATE(SUM('public amazon_paid'[Spend]),ALL('Target VS Achieved'),USERELATIONSHIP( 'public amazon_paid'[date],'Target VS Achieved'[Date])) 
+			
+			```
+		lineageTag: 773d8067-8031-49ef-8689-07da848249c5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% change_spends_tva' =
+			
+			VAR BaselineSpends = SUM ('Target VS Achieved'[Spends] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Spend] )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 89493c04-690c-401e-818b-fc2939673f75
+
+	measure actual_orders = CALCULATE(SUM('public amazon_paid'[Orders]))
+		formatString: 0
+		lineageTag: 0b753955-2593-4cf0-97a0-e69c4a629778
+
+	measure actual_sales = CALCULATE(SUM('public amazon_paid'[Sales]))
+		lineageTag: e0934d9d-51a6-442f-b708-6ffe3b9a41c4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure actual_clicks = CALCULATE(SUM('public amazon_paid'[Clicks]))
+		formatString: 0
+		lineageTag: a03f68ea-745a-4bd8-8430-e80374e7d787
+
+	measure actual_impressions = CALCULATE(SUM('public amazon_paid'[Impressions]))
+		formatString: 0
+		lineageTag: ec43e604-1164-40cc-a5bc-377acf205fc7
+
+	measure '% change_clicks_tva' =
+			
+			VAR BaselineSpends = SUM ('Target VS Achieved'[Clicks] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Clicks] )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 316fcd8c-24f5-455b-b255-da89a41754e8
+
+	measure '% change_orders_tva' =
+			
+			VAR BaselineSpends = SUM ('Target VS Achieved'[Orders] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Orders] )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: df54f8fa-6aee-4921-992c-96bec6bf82d4
+
+	measure '% change_sales_tva' =
+			
+			VAR BaselineSpends = SUM ('Target VS Achieved'[Sales] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Sales] )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 88136455-73f1-4636-9697-33f7afd23361
+
+	measure '% change_impressions_tva' =
+			
+			VAR BaselineSpends = SUM ('Target VS Achieved'[Impressions] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Impressions] )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5261d76d-ba7e-43d1-bc40-c8e1f4179d21
+
 	column Impressions
 		dataType: double
 		lineageTag: dfbfc95e-ecfd-4dd7-9ec3-48a64d7afc27

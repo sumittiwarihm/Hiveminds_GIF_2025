@@ -28,9 +28,7 @@ table 'public amazon_paid'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure spends_measure =
-			
-			1 * SUM('public amazon_paid'[Spend])
+	measure spends_measure = SUM('public amazon_paid'[Spend])
 		formatString: #,0
 		lineageTag: 5097cac4-1e3b-4105-a07e-f46ab358b6c3
 
