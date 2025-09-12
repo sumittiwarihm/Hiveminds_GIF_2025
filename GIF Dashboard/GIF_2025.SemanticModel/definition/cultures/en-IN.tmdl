@@ -9219,6 +9219,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Actual CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -9245,6 +9255,16 @@ cultureInfo en-IN
 			        },
 			        {
 			          "ctr": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Actual CTR": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9285,6 +9305,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Actual CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -9311,6 +9341,16 @@ cultureInfo en-IN
 			        },
 			        {
 			          "ROAS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Actual ROI": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9360,6 +9400,16 @@ cultureInfo en-IN
 			          "aov": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Actual AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -9379,6 +9429,16 @@ cultureInfo en-IN
 			        },
 			        {
 			          "CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Actual CPC": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9412,6 +9472,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Actual CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -9427,6 +9497,16 @@ cultureInfo en-IN
 			        {
 			          "cvr": {
 			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Actual CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -14634,6 +14714,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Actual Spends": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -19195,6 +19285,16 @@ cultureInfo en-IN
 			            "State": "Generated",
 			            "Weight": 0.99
 			          }
+			        },
+			        {
+			          "Actual AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -23393,6 +23493,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.9
 			          }
+			        },
+			        {
+			          "Actual Sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -23407,6 +23517,16 @@ cultureInfo en-IN
 			      "Terms": [
 			        {
 			          "ORDERS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Actual Orders": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -23522,15 +23642,6 @@ cultureInfo en-IN
 			        }
 			      ]
 			    },
-			    "target_vs_achieved.actual_spends": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Target VS Achieved",
-			          "ConceptualProperty": "actual_spends"
-			        }
-			      },
-			      "State": "Generated"
-			    },
 			    "target_vs_achieved.change_spends_tva": {
 			      "Definition": {
 			        "Binding": {
@@ -23563,6 +23674,552 @@ cultureInfo en-IN
 			      "Terms": [
 			        {
 			          "% Impressions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.change_clicks_tva": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "% change_clicks_tva"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Clicks": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.change_orders_tva": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "% change_orders_tva"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.change_sales_tva": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "% change_sales_tva"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.cvr_ta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "CVR_TA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.cvr": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "CVR%"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.ctr_ta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "CTR_ta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.cpc_ta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "CPC_TA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.cpc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "%-CPC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.aov_ta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "AOV_ta"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.roi_ta": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "ROI_TA"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "public_amazon_paid.actual_roi": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "public amazon_paid",
+			          "ConceptualProperty": "actual_ROI"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Actual ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.spendsfk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "%Spends-FK"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Spends": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.impressionsfk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "%Impressions-Fk"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Impressions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.clicksfk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "%Clicks-FK"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Clicks": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.ordersfk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "%Orders-FK"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Orders": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.salesfk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "%Sales-Fk"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% Sales": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.cvr_tf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "CVR_Tf"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.cvrfk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "%CVR-Fk"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% CVR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.ctr_tf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "CTR_tf"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.ctrfk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "%CTR-Fk"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% CTR": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.fkcpc": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "FK-CPC"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.cpcfk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "%CPC-Fk"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% CPC": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.aov_tf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "AOV_tf"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.aovfk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "%AOV-Fk"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% AOV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.roas_tf": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "ROAS_Tf"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achievedfk.roifk": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved-Fk",
+			          "ConceptualProperty": "%ROI-Fk"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "% ROI": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

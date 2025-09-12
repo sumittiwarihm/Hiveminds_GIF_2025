@@ -24,14 +24,6 @@ table 'Target VS Achieved'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure actual_spends = ```
-			CALCULATE(SUM('public amazon_paid'[Spend]),ALL('Target VS Achieved'),USERELATIONSHIP( 'public amazon_paid'[date],'Target VS Achieved'[Date])) 
-			
-			```
-		lineageTag: 773d8067-8031-49ef-8689-07da848249c5
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	measure '% change_spends_tva' =
 			
 			VAR BaselineSpends = SUM ('Target VS Achieved'[Spends] )
@@ -49,15 +41,6 @@ table 'Target VS Achieved'
 			    Result
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 89493c04-690c-401e-818b-fc2939673f75
-
-	measure actual_orders = CALCULATE(SUM('public amazon_paid'[Orders]))
-		formatString: 0
-		lineageTag: 0b753955-2593-4cf0-97a0-e69c4a629778
-
-	measure actual_sales = CALCULATE(SUM('public amazon_paid'[Sales]))
-		lineageTag: e0934d9d-51a6-442f-b708-6ffe3b9a41c4
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure actual_clicks = CALCULATE(SUM('public amazon_paid'[Clicks]))
 		formatString: 0
@@ -138,6 +121,39 @@ table 'Target VS Achieved'
 			    Result
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 5261d76d-ba7e-43d1-bc40-c8e1f4179d21
+
+	measure CVR% = DIVIDE('public amazon_paid'[CVR], 'Target VS Achieved'[CVR_TA])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e0be2ad0-def3-4033-8ff6-c1be76d5552a
+
+	measure CPC_TA = DIVIDE((SUM('Target VS Achieved'[Spends])),(SUM('Target VS Achieved'[Clicks])),0)
+		lineageTag: f2c7f6c9-45c6-49f2-8327-ec5d22fccc80
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %-CPC = DIVIDE('public amazon_paid'[CPC_], 'Target VS Achieved'[CPC_TA],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7caf67ca-6894-45ef-b829-c1afb608b8f2
+
+	measure '% AOV' = ```
+			DIVIDE('public amazon_paid'[AOV], 'Target VS Achieved'[AOV_ta], 0) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f960ef8b-b5fd-4a10-b331-3bbd1c898264
+
+	measure ROI_TA = DIVIDE((SUM('Target VS Achieved'[Sales])),(SUM('Target VS Achieved'[Spends])),0)
+		lineageTag: ae5a0292-100f-4133-8c8f-ecd66f56ace5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% ROI' = DIVIDE('public amazon_paid'[actual_ROI], 'Target VS Achieved'[ROI_TA], 0 )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ea049aa6-11fb-4065-9d6c-32007a4447aa
+
+	measure '% CTR' = DIVIDE('public amazon_paid'[CTR_], 'Target VS Achieved'[CTR_ta], 0)
+		lineageTag: 1d8f3894-2e0c-45c9-a46f-5de0049df884
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	column Impressions
 		dataType: double

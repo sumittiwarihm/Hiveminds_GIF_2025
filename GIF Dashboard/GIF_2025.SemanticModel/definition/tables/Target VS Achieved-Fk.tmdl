@@ -24,6 +24,51 @@ table 'Target VS Achieved-Fk'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	measure FK-CPC = DIVIDE(SUM('Target VS Achieved-Fk'[Spends]), HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_clicks], 0)
+		lineageTag: 0df4fef9-e536-4d5a-ba61-a11e4feeb0a6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure %Spends-FK = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_Spends], SUM('Target VS Achieved-Fk'[Spends]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2ecbc35c-2666-40b0-ae08-304e8825e9e4
+
+	measure %Clicks-FK = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_clicks], sum('Target VS Achieved-Fk'[Clicks]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 645f8b51-2c00-4560-b2c2-016f96f51bbc
+
+	measure %Orders-FK = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_orders], sum('Target VS Achieved-Fk'[Orders]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 32632488-4595-426f-b04d-1d3327377826
+
+	measure %Sales-Fk = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_sales], sum('Target VS Achieved-Fk'[Sales]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b6ccf600-1e6e-48ff-b383-a5565505f823
+
+	measure %CVR-Fk = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[fk_cvr], 'Target VS Achieved-Fk'[CVR_Tf])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: eaf409e6-1888-4680-b493-1621e0067a98
+
+	measure %CPC-Fk = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[fk_cpc], 'Target VS Achieved-Fk'[FK-CPC])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9e6082a5-bd70-445d-b07c-10a3dd37894b
+
+	measure %AOV-Fk = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[fk_AOV], 'Target VS Achieved-Fk'[AOV_tf])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 2ea72388-4330-4aca-8187-c5bb004bb14a
+
+	measure %ROI-Fk = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[fk_roas], 'Target VS Achieved-Fk'[ROAS_Tf])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7d692fab-60eb-45c7-9f8e-4a39b4ee5703
+
+	measure %Impressions-Fk = DIVIDE(sum(HIVEMINDS_FLIPKART_HOURLY_VIEW[VIEWS]), sum('Target VS Achieved-Fk'[Impressions]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 34603fac-0af9-4a70-b2c7-76f12a80a284
+
+	measure %CTR-Fk = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[fk_ctr], 'Target VS Achieved-Fk'[CTR_tf], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a131f5c8-5e03-4f33-96a6-64e7962bac77
+
 	column Impressions
 		dataType: double
 		lineageTag: 89c2b809-2a6a-4943-ac0c-969c43d10093
