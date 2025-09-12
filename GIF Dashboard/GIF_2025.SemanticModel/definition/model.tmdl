@@ -6,12 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-/// Errors in queries that were loaded on 08-09-2025 12:27:09.
-queryGroup 'Query Errors - 08-09-2025 12:27:09'
-
-	annotation PBI_QueryGroupOrder = 0
-
-annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Errors in public amazon_buybox","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Brand_Asin","Comp_Asin"]
+annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Amazon Price Tracker_brand_asins","amazon_price_tracker_master"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -57,10 +52,8 @@ ref table LocalDateTable_770c368e-deec-412f-9332-4fe1f12d9c96
 ref table 'Date Mapping-Fk'
 ref table LocalDateTable_c3ac9b74-10d7-4ee9-974a-47c2c31561aa
 ref table 'Amazon Price Tracker'
-ref table FinalPriceTable
-ref table Brand_Asin
-ref table Comp_Asin
-ref table LocalDateTable_12cf3c3a-4545-4d6d-89cc-d2d9512142a8
+ref table 'Amazon Price Tracker_brand_asins'
+ref table amazon_price_tracker_master
 
 ref cultureInfo en-IN
 

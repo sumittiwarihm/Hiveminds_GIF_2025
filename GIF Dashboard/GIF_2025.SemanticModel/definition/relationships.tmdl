@@ -91,25 +91,8 @@ relationship 646df8f4-2cf2-1168-8043-b9aac53868bf
 	fromColumn: Fk_2024_2025.DATE
 	toColumn: 'Date Mapping-Fk'.2024_date
 
-relationship AutoDetected_bb4487ab-4ae0-4e3c-b084-365103502198
+relationship 07a1c361-c06d-2453-0c26-812bca377f29
 	crossFilteringBehavior: bothDirections
-	fromCardinality: one
-	fromColumn: Comp_Asin.'Comp 1 ASIN'
-	toColumn: 'Amazon Price Tracker'.'Comp 1 ASIN'
-
-relationship ba278f46-d820-0be9-1d41-6d844ca9e5ac
-	crossFilteringBehavior: bothDirections
-	securityFilteringBehavior: bothDirections
-	fromColumn: FinalPriceTable.'Brand ASIN'
-	toColumn: Brand_Asin.'Brand ASIN'
-
-relationship 5e1fe2a9-0a80-468e-1ac1-68229a5f9005
-	crossFilteringBehavior: bothDirections
-	fromColumn: FinalPriceTable.'Comp 1 ASIN'
-	toColumn: Comp_Asin.'Comp 1 ASIN'
-
-relationship 8276d8f0-6352-4b73-8d63-389ff5c6dc21
-	joinOnDateBehavior: datePartOnly
-	fromColumn: FinalPriceTable.date
-	toColumn: LocalDateTable_12cf3c3a-4545-4d6d-89cc-d2d9512142a8.Date
+	fromColumn: 'public amazon_buybox'.asin
+	toColumn: amazon_price_tracker_master.'Comp 1 ASIN'
 

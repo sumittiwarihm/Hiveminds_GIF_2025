@@ -1,0 +1,73 @@
+table amazon_price_tracker_master
+	lineageTag: f0ef7b05-c821-4105-a144-f27ccdc92707
+
+	column Account
+		dataType: string
+		lineageTag: ddcddd42-2cc0-41e2-ad8e-4db493ae6454
+		summarizeBy: none
+		sourceColumn: Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column Platform
+		dataType: string
+		lineageTag: 06b13dc0-089d-45cd-b2f1-a08a5e8b2463
+		summarizeBy: none
+		sourceColumn: Platform
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 8e75b77b-b180-4956-bb17-4d8170eb6a7b
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub Category'
+		dataType: string
+		lineageTag: bc631abc-3575-4657-bf9a-e944e8717204
+		summarizeBy: none
+		sourceColumn: Sub Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Brand ASIN'
+		dataType: string
+		lineageTag: a3e38c4f-77ae-4452-916a-442e70c7bbf7
+		summarizeBy: none
+		sourceColumn: Brand ASIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Comp 1 ASIN'
+		dataType: string
+		lineageTag: a85948fe-9d45-40d8-bb40-7ffb4f2e5d86
+		summarizeBy: none
+		sourceColumn: Comp 1 ASIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column sort_order
+		dataType: string
+		lineageTag: b4c08d84-301d-4666-99ad-da2d7ac51530
+		summarizeBy: none
+		sourceColumn: sort_order
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition amazon_price_tracker_master = m
+		mode: import
+		source =
+				let
+				    Source = Table.Combine({#"Amazon Price Tracker_brand_asins", #"Amazon Price Tracker"})
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

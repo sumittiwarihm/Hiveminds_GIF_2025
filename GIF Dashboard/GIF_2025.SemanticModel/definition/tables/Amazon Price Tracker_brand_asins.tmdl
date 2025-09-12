@@ -1,9 +1,9 @@
-table 'Amazon Price Tracker'
-	lineageTag: f2e1c244-2359-4b7d-b34b-608caba07135
+table 'Amazon Price Tracker_brand_asins'
+	lineageTag: f09ca0c2-588b-4d9b-8343-8745ee079d34
 
 	column Account
 		dataType: string
-		lineageTag: e3b20bd6-29d6-44f7-9d8f-c0ba7128d8a3
+		lineageTag: 075728aa-f389-4fa5-bdcb-598d0d305f44
 		summarizeBy: none
 		sourceColumn: Account
 
@@ -11,7 +11,7 @@ table 'Amazon Price Tracker'
 
 	column Platform
 		dataType: string
-		lineageTag: 0e0f6227-cc3f-4927-a502-0f6ca51d1ab3
+		lineageTag: 6d494171-cd8a-44e4-8ce5-98dc73ede1af
 		summarizeBy: none
 		sourceColumn: Platform
 
@@ -19,7 +19,7 @@ table 'Amazon Price Tracker'
 
 	column Category
 		dataType: string
-		lineageTag: 820914da-6e22-45fe-9014-ed054d020ca2
+		lineageTag: 4ba46ee6-a33e-4252-8c8c-0d3d68579260
 		summarizeBy: none
 		sourceColumn: Category
 
@@ -27,7 +27,7 @@ table 'Amazon Price Tracker'
 
 	column 'Sub Category'
 		dataType: string
-		lineageTag: f1dd4aa0-40c9-4795-95dc-9dbaaa10518d
+		lineageTag: aa234e26-89ce-4793-91e9-0116acaa66d0
 		summarizeBy: none
 		sourceColumn: Sub Category
 
@@ -35,7 +35,7 @@ table 'Amazon Price Tracker'
 
 	column 'Brand ASIN'
 		dataType: string
-		lineageTag: ff07af08-bb15-4b92-b87a-ff04496c1cf2
+		lineageTag: d84300f2-a328-4dde-b1fe-a61dfd7480ca
 		summarizeBy: none
 		sourceColumn: Brand ASIN
 
@@ -43,7 +43,7 @@ table 'Amazon Price Tracker'
 
 	column 'Comp 1 ASIN'
 		dataType: string
-		lineageTag: 58029a4e-ae61-4314-8000-abb00688fcfd
+		lineageTag: 14ecac5a-ae3d-4830-ac17-679676b2e334
 		summarizeBy: none
 		sourceColumn: Comp 1 ASIN
 
@@ -51,23 +51,25 @@ table 'Amazon Price Tracker'
 
 	column sort_order
 		dataType: string
-		lineageTag: 27d5e5e7-9fb4-44d0-97c1-1e4207c60050
+		lineageTag: 7c75f60a-d377-4f3b-85f5-f00cbc98668d
 		summarizeBy: none
 		sourceColumn: sort_order
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'Amazon Price Tracker' = m
+	partition 'Amazon Price Tracker_brand_asins' = m
 		mode: import
 		source =
 				let
 				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
 				    #"Target VS Achieved_Table" = Source{[name="Amazon Price Tracker",ItemKind="Table"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
-				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Brand Price", "Comp 1 Price"}),
-				    #"Added Custom" = Table.AddColumn(#"Removed Columns", "sort_order", each 2)
+				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Brand Price", "Comp 1 Price", "Comp 1 ASIN"}),
+				    #"Removed Duplicates" = Table.Distinct(#"Removed Columns"),
+				    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "Comp 1 ASIN", each [Brand ASIN]),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "sort_order", each 1)
 				in
-				    #"Added Custom"
+				    #"Added Custom1"
 
 	annotation PBI_NavigationStepName = Navigation
 
