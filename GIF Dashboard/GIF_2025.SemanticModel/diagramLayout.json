@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 6351.3082058630253,
+        "x": 6351.8693300051109,
         "y": 0
       },
       "nodes": [
@@ -347,6 +347,36 @@
           "nodeIndex": "Tercept_amazon_central_campaign",
           "size": {
             "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Amazon Price Tracker",
+          "nodeLineageTag": "f2e1c244-2359-4b7d-b34b-608caba07135",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "Amazon Price Tracker_brand_asins",
+          "nodeLineageTag": "f09ca0c2-588b-4d9b-8343-8745ee079d34",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "amazon_price_tracker_master",
+          "nodeLineageTag": "f0ef7b05-c821-4105-a144-f27ccdc92707",
+          "size": {
+            "height": 248,
             "width": 234
           },
           "zIndex": 0

@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Amazon Price Tracker_brand_asins","amazon_price_tracker_master"]
+annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Amazon Price Tracker_brand_asins","amazon_price_tracker_master","HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 

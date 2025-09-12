@@ -154,6 +154,7 @@ relationship 5ae66657-48c4-d689-2322-fb02778a0358
 	crossFilteringBehavior: bothDirections
 	fromColumn: Tercept_amazon_central_campaign.CAMPAIGN_NAME
 	toColumn: Amazon_Campaign_Mapping.'Campaign Name'
+
 relationship 07a1c361-c06d-2453-0c26-812bca377f29
 	crossFilteringBehavior: bothDirections
 	fromColumn: 'public amazon_buybox'.asin
