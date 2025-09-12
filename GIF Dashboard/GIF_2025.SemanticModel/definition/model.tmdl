@@ -6,12 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-/// Errors in queries that were loaded on 08-09-2025 12:27:09.
-queryGroup 'Query Errors - 08-09-2025 12:27:09'
-
-	annotation PBI_QueryGroupOrder = 0
-
-annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Errors in public amazon_buybox","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW"]
+annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Amazon Price Tracker_brand_asins","amazon_price_tracker_master"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -67,6 +62,9 @@ ref table LocalDateTable_38e0873b-b733-4ee6-93a1-3678b2293a08
 ref table LocalDateTable_803151b6-4d7a-4f96-bb0b-bbd087d08827
 ref table Tercept_amazon_central_campaign
 ref table LocalDateTable_0b599b82-5a11-4781-a0ce-2f07b261ff1a
+ref table 'Amazon Price Tracker'
+ref table 'Amazon Price Tracker_brand_asins'
+ref table amazon_price_tracker_master
 
 ref cultureInfo en-IN
 

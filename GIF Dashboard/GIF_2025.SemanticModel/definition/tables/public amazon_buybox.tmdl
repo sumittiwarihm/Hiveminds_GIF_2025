@@ -351,9 +351,13 @@ table 'public amazon_buybox'
 				    #"Changed Type1" = Table.TransformColumnTypes(#"Replaced Value",{{"mrp", Int64.Type}, {"ratings", type number}, {"noding_rank_1", Int64.Type}, {"noding_rank_2", Int64.Type}, {"noding_rank_3", Int64.Type}, {"noding_rank_4", Int64.Type}}),
 				    #"Replaced Errors" = Table.ReplaceErrorValues(#"Changed Type1", {{"price", 0}}),
 				    #"Replaced Errors1" = Table.ReplaceErrorValues(#"Replaced Errors", {{"mrp", 0}}),
-				    #"Replaced Errors2" = Table.ReplaceErrorValues(#"Replaced Errors1", {{"noding_rank_4", null}})
+				    #"Replaced Errors2" = Table.ReplaceErrorValues(#"Replaced Errors1", {{"noding_rank_4", null}}),
+				    #"Replaced Errors3" = Table.ReplaceErrorValues(#"Replaced Errors2", {{"noding_rank_3", null}}),
+				    #"Changed Type2" = Table.TransformColumnTypes(#"Replaced Errors3",{{"ratings", type number}}),
+				    #"Replaced Errors4" = Table.ReplaceErrorValues(#"Changed Type2", {{"noding_rank_2", null}}),
+				    #"Replaced Errors5" = Table.ReplaceErrorValues(#"Replaced Errors4", {{"ratings", null}})
 				in
-				    #"Replaced Errors2"
+				    #"Replaced Errors5"
 
 	annotation PBI_NavigationStepName = Navigation
 
