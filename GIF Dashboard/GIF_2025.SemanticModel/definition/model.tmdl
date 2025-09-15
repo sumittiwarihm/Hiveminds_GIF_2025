@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Amazon Price Tracker_brand_asins","amazon_price_tracker_master","HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW"]
+annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Amazon Price Tracker_brand_asins","amazon_price_tracker_master","HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW","public bsr_helium","public amazon_pi_gv","public amazon_pi_offset"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -65,6 +65,13 @@ ref table LocalDateTable_0b599b82-5a11-4781-a0ce-2f07b261ff1a
 ref table 'Amazon Price Tracker'
 ref table 'Amazon Price Tracker_brand_asins'
 ref table amazon_price_tracker_master
+ref table 'public bsr_helium'
+ref table LocalDateTable_ecdb63b8-707d-4494-b8c6-864cd94a6237
+ref table LocalDateTable_51c1708c-68a7-4c4b-a7b8-31afd41081b7
+ref table 'public amazon_pi_gv'
+ref table LocalDateTable_5ce3e971-2828-45a7-9a35-9005b52fcc45
+ref table 'public amazon_pi_offset'
+ref table LocalDateTable_01f6bbb5-7214-4d55-8a17-8d4f57cb75b6
 
 ref cultureInfo en-IN
 

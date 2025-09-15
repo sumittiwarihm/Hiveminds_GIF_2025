@@ -160,3 +160,23 @@ relationship 07a1c361-c06d-2453-0c26-812bca377f29
 	fromColumn: 'public amazon_buybox'.asin
 	toColumn: amazon_price_tracker_master.'Comp 1 ASIN'
 
+relationship c3aa9115-76ac-435d-8f72-f0ebb12e6344
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public bsr_helium'.'Creation Date'
+	toColumn: LocalDateTable_ecdb63b8-707d-4494-b8c6-864cd94a6237.Date
+
+relationship a7e818cb-2285-4706-a9ee-61e5f333fbf7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public bsr_helium'.Date
+	toColumn: LocalDateTable_51c1708c-68a7-4c4b-a7b8-31afd41081b7.Date
+
+relationship 26e958bd-eeb6-491b-839f-7f31553e4b59
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public amazon_pi_gv'.date
+	toColumn: LocalDateTable_5ce3e971-2828-45a7-9a35-9005b52fcc45.Date
+
+relationship d7f48fa1-6d11-4421-8687-a7d6f5717a69
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public amazon_pi_offset'.date
+	toColumn: LocalDateTable_01f6bbb5-7214-4d55-8a17-8d4f57cb75b6.Date
+
