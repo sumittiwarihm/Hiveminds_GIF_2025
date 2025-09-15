@@ -155,26 +155,6 @@ table 'Target VS Achieved'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column Impressions
-		dataType: double
-		lineageTag: dfbfc95e-ecfd-4dd7-9ec3-48a64d7afc27
-		summarizeBy: sum
-		sourceColumn: Impressions
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column Clicks
-		dataType: double
-		lineageTag: 6930034a-9a1b-4851-8743-c126f3b665ab
-		summarizeBy: sum
-		sourceColumn: Clicks
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Spends
 		dataType: int64
 		formatString: 0
@@ -184,18 +164,8 @@ table 'Target VS Achieved'
 
 		annotation SummarizationSetBy = Automatic
 
-	column Orders
-		dataType: double
-		lineageTag: a7c3309c-76ad-40ff-94b9-5adf277391bb
-		summarizeBy: sum
-		sourceColumn: Orders
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Sales
-		dataType: double
+		dataType: int64
 		lineageTag: 77127840-311e-4512-afb9-f98653c14ebc
 		summarizeBy: sum
 		sourceColumn: Sales
@@ -204,82 +174,114 @@ table 'Target VS Achieved'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column CTR
-		dataType: double
-		lineageTag: 438e24a9-e61d-40f2-9100-4484e3bce596
-		summarizeBy: sum
-		sourceColumn: CTR
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column CPC
-		dataType: double
-		lineageTag: 1e4dd370-a18b-474d-a384-af9ce35e2d9e
-		summarizeBy: sum
-		sourceColumn: CPC
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column CVR
-		dataType: double
-		lineageTag: 4769a31c-0276-4473-a280-612c04a8baf6
-		summarizeBy: sum
-		sourceColumn: CVR
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column AOV
-		dataType: double
-		lineageTag: 1bae12fd-d8ef-422b-9480-fe8bf2360fc3
-		summarizeBy: sum
-		sourceColumn: AOV
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column ROI
-		dataType: double
-		lineageTag: 01843d61-c013-4706-bfd3-c66437ad5ae8
-		summarizeBy: sum
-		sourceColumn: ROI
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column Date
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 85e4b27c-ba67-4764-bb21-66acc73288ec
+	column Account
+		dataType: string
+		lineageTag: cf08fc5c-76fb-45fa-9aab-1233ab352745
 		summarizeBy: none
-		sourceColumn: Date
-
-		variation Variation
-			isDefault
-			relationship: 3370f963-d35f-4782-acb6-021a5707aa5c
-			defaultHierarchy: LocalDateTable_964fc65a-c811-4fbe-9e61-0a181a07267a.'Date Hierarchy'
+		sourceColumn: Account
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation UnderlyingDateTimeDataType = Date
+	column Platform
+		dataType: string
+		lineageTag: 376c2a32-d20f-464d-abe0-08dbce3a1fc8
+		summarizeBy: none
+		sourceColumn: Platform
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sale Type'
+		dataType: string
+		lineageTag: e9a108b3-682a-41f4-88b5-401352ecb074
+		summarizeBy: none
+		sourceColumn: Sale Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: cca941a2-6240-4e3e-8008-d0237c65db2a
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Overall Sales'
+		dataType: int64
+		formatString: 0
+		lineageTag: 13670bbc-9830-47ad-a5d8-45c992222f43
+		summarizeBy: sum
+		sourceColumn: Overall Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Paid ROI'
+		dataType: double
+		lineageTag: fd32f587-742f-46cd-9608-f21e0ab58b74
+		summarizeBy: sum
+		sourceColumn: Paid ROI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total ROI'
+		dataType: double
+		lineageTag: 70f27891-fb9a-4788-b0a6-7ac788d98f75
+		summarizeBy: sum
+		sourceColumn: Total ROI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ffceee1-e335-4f8a-a296-983f58d722f2
+		summarizeBy: sum
+		sourceColumn: Orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales_1
+		dataType: int64
+		formatString: 0
+		lineageTag: 51fb9aca-c884-4f59-9127-12ae8aec9d55
+		summarizeBy: sum
+		sourceColumn: Sales_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Impressions
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fb97096-b46e-4bd3-b4e0-a1ea11b4e302
+		summarizeBy: sum
+		sourceColumn: Impressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clicks
+		dataType: int64
+		formatString: 0
+		lineageTag: 8eee9206-6fb4-47ad-bdec-8fcd0e59f306
+		summarizeBy: sum
+		sourceColumn: Clicks
+
+		annotation SummarizationSetBy = Automatic
 
 	partition 'Target VS Achieved' = m
 		mode: import
 		source =
 				let
-				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
-				    #"Target VS Achieved_Table" = Source{[name="Target VS Achieved - Amazon",ItemKind="Table"]}[Data],
-				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Impressions", type number}, {"Clicks", type number}, {"Spends", Int64.Type}, {"Orders", type number}, {"Sales", type number}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}})
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1kC_MKRIbnrqCfHjvYNUP6URIJDGr_yUmTvB8x0B2wHM/edit?gid=773646717#gid=773646717"),
+				    #"Amazon - Targets vs Achievement_Table" = Source{[name="Amazon - Targets vs Achievement",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Amazon - Targets vs Achievement_Table", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Account", type text}, {"Platform", type text}, {"Sale Type", type text}, {"Type", type text}, {"Sales", Int64.Type}, {"Orders", Int64.Type}, {"Overall Sales", Int64.Type}, {"Paid ROI", type number}, {"Sales_1", Int64.Type}, {"Spends", Int64.Type}, {"Total ROI", type number}, {"Impressions", Int64.Type}, {"Clicks", Int64.Type}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([Account] = "Jockey"))
 				in
-				    #"Changed Type"
+				    #"Filtered Rows"
 
 	annotation PBI_NavigationStepName = Navigation
 

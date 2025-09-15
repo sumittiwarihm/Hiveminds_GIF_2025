@@ -10,8 +10,6 @@ annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public 
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
-annotation PBIDesktopVersion = 2.146.1454.0 (25.08)+901d6c338d1dea81ac3e53073ffb10469f0f37b8
-
 annotation PBI_ProTooling = ["DevMode"]
 
 ref table DateTableTemplate_27e9ce9d-915c-430d-b9d2-89f75440e43b
@@ -47,8 +45,6 @@ ref table Amz_2024_2025
 ref table calender_dates_fk_2025
 ref table LocalDateTable_0e2de613-c45d-4cbc-8114-dfa1dcf89d03
 ref table Fk_2024_2025
-ref table LocalDateTable_964fc65a-c811-4fbe-9e61-0a181a07267a
-ref table LocalDateTable_770c368e-deec-412f-9332-4fe1f12d9c96
 ref table 'Date Mapping-Fk'
 ref table LocalDateTable_c3ac9b74-10d7-4ee9-974a-47c2c31561aa
 ref table HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW

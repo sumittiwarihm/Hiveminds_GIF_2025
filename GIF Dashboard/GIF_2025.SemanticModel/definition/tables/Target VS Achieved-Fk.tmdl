@@ -9,17 +9,17 @@ table 'Target VS Achieved-Fk'
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 389ecab8-7c2e-411a-9d1a-c1cd79f112f5
 
-	measure AOV_tf = DIVIDE((SUM('Target VS Achieved-Fk'[Sales])),(SUM('Target VS Achieved-Fk'[Orders])),0)
+	measure AOV_tf = DIVIDE((SUM('Target VS Achieved-Fk'[Ad Sales])),(SUM('Target VS Achieved-Fk'[Orders])),0)
 		lineageTag: 1427cdb8-0439-4028-b8a1-afdc0fccbba3
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure ACOS_Tf = DIVIDE((SUM('Target VS Achieved-Fk'[Spends])),(SUM('Target VS Achieved-Fk'[Sales])),0)
+	measure ACOS_Tf = DIVIDE((SUM('Target VS Achieved-Fk'[Spends])),(SUM('Target VS Achieved-Fk'[Ad Sales])),0)
 		lineageTag: 7abd067e-e1cd-4197-a97c-6bb30080c693
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	measure ROAS_Tf = DIVIDE((SUM('Target VS Achieved-Fk'[Sales])),(SUM('Target VS Achieved-Fk'[Spends])),0)
+	measure ROAS_Tf = DIVIDE((SUM('Target VS Achieved-Fk'[Ad Sales])),(SUM('Target VS Achieved-Fk'[Spends])),0)
 		lineageTag: ea50ca0b-2e59-4289-83a7-19d0b5505e65
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
@@ -41,7 +41,7 @@ table 'Target VS Achieved-Fk'
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 32632488-4595-426f-b04d-1d3327377826
 
-	measure %Sales-Fk = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_sales], sum('Target VS Achieved-Fk'[Sales]))
+	measure %Sales-Fk = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_sales], sum('Target VS Achieved-Fk'[Ad Sales]))
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: b6ccf600-1e6e-48ff-b383-a5565505f823
 
@@ -69,26 +69,6 @@ table 'Target VS Achieved-Fk'
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: a131f5c8-5e03-4f33-96a6-64e7962bac77
 
-	column Impressions
-		dataType: double
-		lineageTag: 89c2b809-2a6a-4943-ac0c-969c43d10093
-		summarizeBy: sum
-		sourceColumn: Impressions
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column Clicks
-		dataType: double
-		lineageTag: 5e15e05e-0b25-497c-8ee3-90ac4d8eb057
-		summarizeBy: sum
-		sourceColumn: Clicks
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
 	column Spends
 		dataType: int64
 		formatString: 0
@@ -98,100 +78,113 @@ table 'Target VS Achieved-Fk'
 
 		annotation SummarizationSetBy = Automatic
 
+	column Account
+		dataType: string
+		lineageTag: 55b1ba87-61e0-4231-93fa-5df940257bce
+		summarizeBy: none
+		sourceColumn: Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column Platform
+		dataType: string
+		lineageTag: a21944b3-96c9-406b-8f92-77bf194f2423
+		summarizeBy: none
+		sourceColumn: Platform
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sale Type'
+		dataType: string
+		lineageTag: 211c2758-9f2e-43ac-a8e0-dc843b9a7779
+		summarizeBy: none
+		sourceColumn: Sale Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column Type
+		dataType: string
+		lineageTag: d88f85e6-f1e6-40d7-9db1-6afea580c85d
+		summarizeBy: none
+		sourceColumn: Type
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ad Sales'
+		dataType: double
+		lineageTag: 81374a3d-6ae2-4dfe-ae4b-89ec898a2a05
+		summarizeBy: sum
+		sourceColumn: Ad Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Overall Sales'
+		dataType: int64
+		formatString: 0
+		lineageTag: f26b4a1f-2f7e-4cdf-9ef6-20991fdf520b
+		summarizeBy: sum
+		sourceColumn: Overall Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Paid ROI'
+		dataType: double
+		lineageTag: d44e238d-4546-4c9a-9236-ea96c3489be7
+		summarizeBy: sum
+		sourceColumn: Paid ROI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Total ROI'
+		dataType: double
+		lineageTag: e0bc681b-8ce1-4865-95b2-ba79dea34cc9
+		summarizeBy: sum
+		sourceColumn: Total ROI
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
 	column Orders
 		dataType: int64
 		formatString: 0
-		lineageTag: 91e4a87b-dbd0-48fb-bb5a-02a28e4779f6
+		lineageTag: ef345d39-1798-4d6d-ae31-0fce4e59fbf8
 		summarizeBy: sum
 		sourceColumn: Orders
 
 		annotation SummarizationSetBy = Automatic
 
-	column Sales
-		dataType: double
-		lineageTag: cb50b1bc-66e3-4ffd-abdb-4e392415ea6f
+	column Impressions
+		dataType: int64
+		formatString: 0
+		lineageTag: f29bb625-8310-4043-b0f6-95119ff11e1b
 		summarizeBy: sum
-		sourceColumn: Sales
+		sourceColumn: Impressions
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column CTR
-		dataType: double
-		lineageTag: aaee7bde-ebdb-4bb7-9183-07ef258522cf
+	column Clicks
+		dataType: int64
+		formatString: 0
+		lineageTag: 4452088c-baa9-417d-be9d-4f516a735df7
 		summarizeBy: sum
-		sourceColumn: CTR
+		sourceColumn: Clicks
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column CPC
-		dataType: double
-		lineageTag: 4938a8b7-0a2e-4697-aa68-348767ba7d27
-		summarizeBy: sum
-		sourceColumn: CPC
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column CVR
-		dataType: double
-		lineageTag: 36deffb7-9729-48f0-ad3e-a73bac59bc4f
-		summarizeBy: sum
-		sourceColumn: CVR
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column AOV
-		dataType: double
-		lineageTag: 447343e8-9031-4a19-b9c1-c7c451f71792
-		summarizeBy: sum
-		sourceColumn: AOV
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column ROI
-		dataType: double
-		lineageTag: 5234bbc3-473b-4324-86d2-5e7c0389c9de
-		summarizeBy: sum
-		sourceColumn: ROI
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column Date
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: d10b9a61-e2de-4146-b73f-e389b3058d0e
-		summarizeBy: none
-		sourceColumn: Date
-
-		variation Variation
-			isDefault
-			relationship: 318ec229-eaf0-415e-9cb0-e02d18436e33
-			defaultHierarchy: LocalDateTable_770c368e-deec-412f-9332-4fe1f12d9c96.'Date Hierarchy'
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
 
 	partition 'Target VS Achieved-Fk' = m
 		mode: import
 		source =
 				let
-				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
-				    #"Target VS Achieved_Table" = Source{[name="Target VS Achieved - Flipkart",ItemKind="Table"]}[Data],
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1kC_MKRIbnrqCfHjvYNUP6URIJDGr_yUmTvB8x0B2wHM/edit?gid=2082728106#gid=2082728106"),
+				    #"Target VS Achieved_Table" = Source{[name="Flipkart - Targets vs Achievement",ItemKind="Table"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Impressions", type number}, {"Clicks", type number}, {"Spends", Int64.Type}, {"Orders", Int64.Type}, {"Sales", type number}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}}),
-				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([Date] <> null))
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Account", type text}, {"Platform", type text}, {"Sale Type", type text}, {"Type", type text}, {"Ad Sales", type number}, {"Overall Sales", Int64.Type}, {"Paid ROI", type number}, {"Spends", Int64.Type}, {"Total ROI", type number}, {"Orders", Int64.Type}, {"Impressions", Int64.Type}, {"Clicks", Int64.Type}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([Account] = "Jockey"))
 				in
 				    #"Filtered Rows"
 

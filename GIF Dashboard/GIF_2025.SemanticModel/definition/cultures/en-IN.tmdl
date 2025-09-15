@@ -21914,178 +21914,6 @@ cultureInfo en-IN
 			      ],
 			      "SemanticType": "Time"
 			    },
-			    "target_VS_achieved.impression": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Target VS Achieved",
-			          "ConceptualProperty": "Impressions"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "impression": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "depression": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "imprint": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "impress": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "dint": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "hollow": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "dip": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "dimple": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "ding": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "dent": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "mark": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        }
-			      ]
-			    },
-			    "target_VS_achieved.click": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Target VS Achieved",
-			          "ConceptualProperty": "Clicks"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "click": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "clack": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "tick": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "snap": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "clunk": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        }
-			      ]
-			    },
 			    "target_VS_achieved.spends": {
 			      "Definition": {
 			        "Binding": {
@@ -22098,122 +21926,6 @@ cultureInfo en-IN
 			        {
 			          "spends": {
 			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "target_VS_achieved.order": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Target VS Achieved",
-			          "ConceptualProperty": "Orders"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "order": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "instruction": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "direction": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "edict": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "command": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "directive": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "demand": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "mandate": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "imperative": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "stability": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.466
-			          }
-			        },
-			        {
-			          "harmony": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.466
 			          }
 			        }
 			      ]
@@ -22300,86 +22012,6 @@ cultureInfo en-IN
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.452
-			          }
-			        }
-			      ]
-			    },
-			    "target_VS_achieved.ctr": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Target VS Achieved",
-			          "ConceptualProperty": "CTR"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ctr": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "target_VS_achieved.cpc": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Target VS Achieved",
-			          "ConceptualProperty": "CPC"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cpc": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "target_VS_achieved.cvr": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Target VS Achieved",
-			          "ConceptualProperty": "CVR"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cvr": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "target_VS_achieved.aov": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Target VS Achieved",
-			          "ConceptualProperty": "AOV"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "aov": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "target_VS_achieved.roi": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Target VS Achieved",
-			          "ConceptualProperty": "ROI"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "roi": {
-			            "State": "Generated"
 			          }
 			        }
 			      ]
@@ -24220,6 +23852,90 @@ cultureInfo en-IN
 			      "Terms": [
 			        {
 			          "% ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "comp_asin.comp_1_asin": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Comp_Asin",
+			          "ConceptualProperty": "Comp 1 ASIN"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Comp ASIN": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "finalpricetable.date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FinalPriceTable",
+			          "ConceptualProperty": "date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "DATE": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.impressions": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "Impressions"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target Impressions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.clicks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "Clicks"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target Clicks": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
