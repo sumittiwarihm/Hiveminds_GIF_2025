@@ -160,3 +160,9 @@ relationship 07a1c361-c06d-2453-0c26-812bca377f29
 	fromColumn: 'public amazon_buybox'.asin
 	toColumn: amazon_price_tracker_master.'Comp 1 ASIN'
 
+relationship 67bd14f2-25f3-c658-b22b-c3384bd81511
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: flipkart_price_tracker_master.'Comp 1 FSN'
+	toColumn: 'public flipkart_buybox'.fsn
+

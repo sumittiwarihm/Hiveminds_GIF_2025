@@ -104,10 +104,13 @@ table 'public flipkart_buybox'
 		annotation SummarizationSetBy = Automatic
 
 	column selling_price
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: ba8f2667-9022-4fbe-a761-a81380031081
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: selling_price
+
+		changedProperty = DataType
 
 		annotation SummarizationSetBy = Automatic
 
@@ -229,7 +232,7 @@ table 'public flipkart_buybox'
 				let
 				    Source = Table.SelectRows(
 				    PostgreSQL.Database("nucleus.ckojnefw0d56.us-west-1.rds.amazonaws.com", "GIF_2025"){[Schema="public", Item="flipkart_buybox"]}[Data],
-				    each [account] = "Jockey"
+				    each [account] = "oneTouch"
 				)
 				in
 				    Source

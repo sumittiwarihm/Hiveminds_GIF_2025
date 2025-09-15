@@ -1,9 +1,9 @@
-table 'Amazon Price Tracker_brand_asins'
-	lineageTag: f09ca0c2-588b-4d9b-8343-8745ee079d34
+table 'Flipkart Price Tracker_brand_fsn'
+	lineageTag: 1f564192-ed73-4557-b340-a2a86615e187
 
 	column Account
 		dataType: string
-		lineageTag: 075728aa-f389-4fa5-bdcb-598d0d305f44
+		lineageTag: eac9317f-7247-4cb2-8a30-5e5c493123f3
 		summarizeBy: none
 		sourceColumn: Account
 
@@ -11,7 +11,7 @@ table 'Amazon Price Tracker_brand_asins'
 
 	column Platform
 		dataType: string
-		lineageTag: 6d494171-cd8a-44e4-8ce5-98dc73ede1af
+		lineageTag: e5f669fb-cbc3-4b39-80ce-d2b2e137c2eb
 		summarizeBy: none
 		sourceColumn: Platform
 
@@ -19,7 +19,7 @@ table 'Amazon Price Tracker_brand_asins'
 
 	column Category
 		dataType: string
-		lineageTag: 4ba46ee6-a33e-4252-8c8c-0d3d68579260
+		lineageTag: 5a60aa00-288a-423b-a21f-ccbc2f94e9ce
 		summarizeBy: none
 		sourceColumn: Category
 
@@ -27,46 +27,46 @@ table 'Amazon Price Tracker_brand_asins'
 
 	column 'Sub Category'
 		dataType: string
-		lineageTag: aa234e26-89ce-4793-91e9-0116acaa66d0
+		lineageTag: 9104bb54-d4cd-42ad-bb7d-535a1ff6fba5
 		summarizeBy: none
 		sourceColumn: Sub Category
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Brand ASIN'
+	column 'Brand FSN'
 		dataType: string
-		lineageTag: d84300f2-a328-4dde-b1fe-a61dfd7480ca
+		lineageTag: 0753d221-356f-44e1-bca8-128a35405020
 		summarizeBy: none
-		sourceColumn: Brand ASIN
+		sourceColumn: Brand FSN
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Comp 1 ASIN'
+	column 'Comp 1 FSN'
 		dataType: string
-		lineageTag: 14ecac5a-ae3d-4830-ac17-679676b2e334
+		lineageTag: fca73aa3-4fc1-46ea-ac44-b8d66443a42c
 		summarizeBy: none
-		sourceColumn: Comp 1 ASIN
+		sourceColumn: Comp 1 FSN
 
 		annotation SummarizationSetBy = Automatic
 
 	column sort_order
 		dataType: string
-		lineageTag: 7c75f60a-d377-4f3b-85f5-f00cbc98668d
+		lineageTag: c36a2852-e728-4cb8-8447-9fc388555c63
 		summarizeBy: none
 		sourceColumn: sort_order
 
 		annotation SummarizationSetBy = Automatic
 
-	partition 'Amazon Price Tracker_brand_asins' = m
+	partition 'Flipkart Price Tracker_brand_fsn' = m
 		mode: import
 		source =
 				let
-				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1kC_MKRIbnrqCfHjvYNUP6URIJDGr_yUmTvB8x0B2wHM/edit?gid=905270041#gid=905270041"),
-				    #"Target VS Achieved_Table" = Source{[name="Amazon - Price Tracker",ItemKind="Table"]}[Data],
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1kC_MKRIbnrqCfHjvYNUP6URIJDGr_yUmTvB8x0B2wHM/edit?gid=401136123#gid=401136123"),
+				    #"Target VS Achieved_Table" = Source{[name="Flipkart - Price Tracker",ItemKind="Table"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
-				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Brand Price", "Comp 1 Price", "Comp 1 ASIN"}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Brand Price", "Comp 1 Price", "Comp 1 FSN"}),
 				    #"Removed Duplicates" = Table.Distinct(#"Removed Columns"),
-				    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "Comp 1 ASIN", each [Brand ASIN]),
+				    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "Comp 1 FSN", each [Brand FSN]),
 				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "sort_order", each 1)
 				in
 				    #"Added Custom1"

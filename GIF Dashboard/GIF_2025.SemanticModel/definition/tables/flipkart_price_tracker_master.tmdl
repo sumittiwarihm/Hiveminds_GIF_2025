@@ -1,9 +1,9 @@
-table amazon_price_tracker_master
-	lineageTag: f0ef7b05-c821-4105-a144-f27ccdc92707
+table flipkart_price_tracker_master
+	lineageTag: 3e624db2-2b96-46ee-a346-ac7e309f4210
 
 	column Account
 		dataType: string
-		lineageTag: ddcddd42-2cc0-41e2-ad8e-4db493ae6454
+		lineageTag: 8d1b7ba4-f88a-4918-90a1-630370583f36
 		summarizeBy: none
 		sourceColumn: Account
 
@@ -11,7 +11,7 @@ table amazon_price_tracker_master
 
 	column Platform
 		dataType: string
-		lineageTag: 06b13dc0-089d-45cd-b2f1-a08a5e8b2463
+		lineageTag: c4ae5360-4aba-4f62-b112-c022b718f735
 		summarizeBy: none
 		sourceColumn: Platform
 
@@ -19,7 +19,7 @@ table amazon_price_tracker_master
 
 	column Category
 		dataType: string
-		lineageTag: 8e75b77b-b180-4956-bb17-4d8170eb6a7b
+		lineageTag: 8934359e-9b77-4184-a630-7292eca7dcc6
 		summarizeBy: none
 		sourceColumn: Category
 
@@ -27,44 +27,42 @@ table amazon_price_tracker_master
 
 	column 'Sub Category'
 		dataType: string
-		lineageTag: bc631abc-3575-4657-bf9a-e944e8717204
+		lineageTag: d055d21b-0342-4729-957e-da03067f689d
 		summarizeBy: none
 		sourceColumn: Sub Category
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Brand ASIN'
+	column 'Brand FSN'
 		dataType: string
-		lineageTag: a3e38c4f-77ae-4452-916a-442e70c7bbf7
+		lineageTag: 9f999878-68a9-47db-89d3-e4a1422bd273
 		summarizeBy: none
-		sourceColumn: Brand ASIN
+		sourceColumn: Brand FSN
 
 		annotation SummarizationSetBy = Automatic
 
-	column 'Comp 1 ASIN'
+	column 'Comp 1 FSN'
 		dataType: string
-		lineageTag: a85948fe-9d45-40d8-bb40-7ffb4f2e5d86
+		lineageTag: 0e064de9-4860-494d-ba42-db56ea0e9bdf
 		summarizeBy: none
-		sourceColumn: Comp 1 ASIN
+		sourceColumn: Comp 1 FSN
 
 		annotation SummarizationSetBy = Automatic
 
 	column sort_order
 		dataType: string
-		lineageTag: b4c08d84-301d-4666-99ad-da2d7ac51530
+		lineageTag: 047e7896-3567-4161-a9e0-c6b2c629f648
 		summarizeBy: none
 		sourceColumn: sort_order
 
-		changedProperty = SortByColumn
-
 		annotation SummarizationSetBy = Automatic
 
-	partition amazon_price_tracker_master = m
+	partition flipkart_price_tracker_master = m
 		mode: import
 		source =
 				let
-				    Source = Table.Combine({#"Amazon Price Tracker_brand_asins", #"Amazon Price Tracker"}),
-				    #"Filtered Rows" = Table.SelectRows(Source, each ([Account] = "Jockey"))
+				    Source = Table.Combine({#"Flipkart Price Tracker_brand_fsn", #"Flipkart Price Tracker"}),
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Account] = "OneTouch"))
 				in
 				    #"Filtered Rows"
 

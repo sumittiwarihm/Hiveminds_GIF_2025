@@ -352,7 +352,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 9940,
+            "y": 26
+          },
           "nodeIndex": "Amazon Price Tracker",
           "nodeLineageTag": "f2e1c244-2359-4b7d-b34b-608caba07135",
           "size": {
@@ -362,7 +365,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 10224,
+            "y": 26
+          },
           "nodeIndex": "Amazon Price Tracker_brand_asins",
           "nodeLineageTag": "f09ca0c2-588b-4d9b-8343-8745ee079d34",
           "size": {
@@ -372,9 +378,50 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 10508,
+            "y": 26
+          },
           "nodeIndex": "amazon_price_tracker_master",
           "nodeLineageTag": "f0ef7b05-c821-4105-a144-f27ccdc92707",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 10792,
+            "y": 26
+          },
+          "nodeIndex": "Flipkart Price Tracker",
+          "nodeLineageTag": "98f32c5c-996f-4fd6-9278-5dee4fd6ee8b",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11360,
+            "y": 26
+          },
+          "nodeIndex": "flipkart_price_tracker_master",
+          "nodeLineageTag": "3e624db2-2b96-46ee-a346-ac7e309f4210",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11076,
+            "y": 26
+          },
+          "nodeIndex": "Flipkart Price Tracker_brand_fsn",
           "size": {
             "height": 248,
             "width": 234
