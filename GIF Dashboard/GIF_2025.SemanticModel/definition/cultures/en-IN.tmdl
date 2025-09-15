@@ -24271,6 +24271,153 @@ cultureInfo en-IN
 			          }
 			        }
 			      ]
+			    },
+			    "public_amazon_pi_gv.asin": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "public amazon_pi_gv",
+			          "ConceptualProperty": "asin"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "ASIN": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "public_amazon_pi_gv.glanceviews": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "public amazon_pi_gv",
+			          "ConceptualProperty": "glanceviews"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "GV": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "public_amazon_pi_gv.subcategory": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "public amazon_pi_gv",
+			          "ConceptualProperty": "subcategory"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SubCategory": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "public_amazon_pi_gv.category": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "public amazon_pi_gv",
+			          "ConceptualProperty": "category"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Category": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "public_amazon_pi_gv.lbrbrandname": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "public amazon_pi_gv",
+			          "ConceptualProperty": "lbrbrandname"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Brand": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "public_amazon_pi_gv.account": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "public amazon_pi_gv",
+			          "ConceptualProperty": "account"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Account": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "public_amazon_pi_gv.date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "public amazon_pi_gv",
+			          "ConceptualProperty": "date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Date": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
