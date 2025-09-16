@@ -1,0 +1,314 @@
+table 'public bsr_helium'
+	lineageTag: 0a1149ea-29ad-4ded-9007-58fbdc649720
+
+	column 'ASIN Rank'
+		dataType: string
+		lineageTag: ad972f0d-4bc9-4638-afd0-1a93fb205851
+		summarizeBy: none
+		sourceColumn: ASIN Rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Details'
+		dataType: string
+		lineageTag: 28ec8215-2451-4cba-85ad-640fc6687653
+		summarizeBy: none
+		sourceColumn: Product Details
+
+		annotation SummarizationSetBy = Automatic
+
+	column ASIN
+		dataType: string
+		lineageTag: f0229c3b-4b42-4b9a-a2c5-8e2b6fb3ca1b
+		summarizeBy: none
+		sourceColumn: ASIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column URL
+		dataType: string
+		lineageTag: 066ad033-38a0-48b1-9358-d58ff6b9bfb9
+		summarizeBy: none
+		sourceColumn: URL
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Image URL'
+		dataType: string
+		lineageTag: c6f8b1ac-7976-4d7a-924c-0b3a401d9fe7
+		summarizeBy: none
+		sourceColumn: Image URL
+
+		annotation SummarizationSetBy = Automatic
+
+	column Brand
+		dataType: string
+		lineageTag: 1d54c3ad-6ae2-40bd-bfba-aaf513fd674b
+		summarizeBy: none
+		sourceColumn: Brand
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Price ₹'
+		dataType: string
+		lineageTag: 9a718b8b-a15e-4110-b1f5-48a9445f9f45
+		summarizeBy: none
+		sourceColumn: Price ₹
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: string
+		lineageTag: ccce21b4-6aed-45d9-a9b1-4fa3d5e84350
+		summarizeBy: none
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Variation Sales Strength (1 - 10)'
+		dataType: string
+		lineageTag: 64f2f030-61dc-40e6-a95f-2c1ba4e1d9da
+		summarizeBy: none
+		sourceColumn: Variation Sales Strength (1 - 10)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Recent Purchases'
+		dataType: string
+		lineageTag: f38366ea-49ac-4ec3-87ef-e0b48c776f28
+		summarizeBy: none
+		sourceColumn: Recent Purchases
+
+		annotation SummarizationSetBy = Automatic
+
+	column Revenue
+		dataType: string
+		lineageTag: 08518c54-1a4d-49e2-8932-b380102b13b0
+		summarizeBy: none
+		sourceColumn: Revenue
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Title Char.Count'
+		dataType: string
+		lineageTag: 4e183211-41fa-4aa1-abe6-063670bd4285
+		summarizeBy: none
+		sourceColumn: Title Char.Count
+
+		annotation SummarizationSetBy = Automatic
+
+	column BSR
+		dataType: string
+		lineageTag: 6a0fbd76-4469-4a4c-82b6-28e67ac2ce44
+		summarizeBy: none
+		sourceColumn: BSR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seller Country/Region'
+		dataType: string
+		lineageTag: 42638354-a9fc-4048-8421-5de42d927705
+		summarizeBy: none
+		sourceColumn: Seller Country/Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fees ₹'
+		dataType: string
+		lineageTag: 58a44a86-f8a3-41c2-8e81-190f2d63bf80
+		summarizeBy: none
+		sourceColumn: Fees ₹
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Active Sellers'
+		dataType: string
+		lineageTag: 91271081-bfd2-4b10-a76c-9333c842a560
+		summarizeBy: none
+		sourceColumn: Active Sellers
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ratings
+		dataType: string
+		lineageTag: 0b0922e5-a1e4-4b82-a709-ab91fe3ed456
+		summarizeBy: none
+		sourceColumn: Ratings
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Review Count'
+		dataType: string
+		lineageTag: 8c4546a4-811c-4472-810a-7f7c8f609a7d
+		summarizeBy: none
+		sourceColumn: Review Count
+
+		annotation SummarizationSetBy = Automatic
+
+	column Images
+		dataType: string
+		lineageTag: 83e9c296-319c-4f6d-8875-f36e3a256a17
+		summarizeBy: none
+		sourceColumn: Images
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Review velocity'
+		dataType: string
+		lineageTag: 9761e7b0-0cc5-405e-af95-7e1020482f72
+		summarizeBy: none
+		sourceColumn: Review velocity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Buy Box'
+		dataType: string
+		lineageTag: ae957d4c-1614-47c5-ba57-56a3da35eead
+		summarizeBy: none
+		sourceColumn: Buy Box
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 421ce347-cb18-469d-85d6-490000e65f46
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Size Tier'
+		dataType: string
+		lineageTag: 86d2d7df-8e58-4d13-b602-7daba533c965
+		summarizeBy: none
+		sourceColumn: Size Tier
+
+		annotation SummarizationSetBy = Automatic
+
+	column Fulfillment
+		dataType: string
+		lineageTag: b8a75b86-ef5f-45e5-a70d-4333efa086e5
+		summarizeBy: none
+		sourceColumn: Fulfillment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dimensions
+		dataType: string
+		lineageTag: 8f453d34-c8bc-457b-8f3c-4e17ec3c9574
+		summarizeBy: none
+		sourceColumn: Dimensions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Weight
+		dataType: string
+		lineageTag: 45589f98-38a1-452a-b105-4cdaf67600e6
+		summarizeBy: none
+		sourceColumn: Weight
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABA Most Clicked'
+		dataType: string
+		lineageTag: 0b118691-dba8-4b7e-8ab7-56ebfe3d0ae1
+		summarizeBy: none
+		sourceColumn: ABA Most Clicked
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Creation Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bcfccf09-4ceb-45ee-ae13-690bfad882f3
+		summarizeBy: none
+		sourceColumn: Creation Date
+
+		variation Variation
+			isDefault
+			relationship: c3aa9115-76ac-435d-8f72-f0ebb12e6344
+			defaultHierarchy: LocalDateTable_ecdb63b8-707d-4494-b8c6-864cd94a6237.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Sponsored
+		dataType: string
+		lineageTag: 13045127-e9f8-4d01-b51b-86bde61760d6
+		summarizeBy: none
+		sourceColumn: Sponsored
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Best Seller'
+		dataType: string
+		lineageTag: 5086e067-3260-4d5d-994d-77efee2d8142
+		summarizeBy: none
+		sourceColumn: Best Seller
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Seller Age (mo)'
+		dataType: string
+		lineageTag: 6895ee38-8364-4060-be25-21d485757d46
+		summarizeBy: none
+		sourceColumn: Seller Age (mo)
+
+		annotation SummarizationSetBy = Automatic
+
+	column Seller
+		dataType: string
+		lineageTag: 7fbe54d9-0920-4d16-88de-0e831b225f0a
+		summarizeBy: none
+		sourceColumn: Seller
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'BSR Category'
+		dataType: string
+		lineageTag: 7c29868e-b6fa-4162-bc66-c731df4ed4c7
+		summarizeBy: none
+		sourceColumn: BSR Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Account
+		dataType: string
+		lineageTag: e8dd86a1-981c-4cdb-9e4d-917a64d91b1e
+		summarizeBy: none
+		sourceColumn: Account
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bb6a3018-c4f1-4459-aaf8-0c6e5649cf9f
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: a7e818cb-2285-4706-a9ee-61e5f333fbf7
+			defaultHierarchy: LocalDateTable_51c1708c-68a7-4c4b-a7b8-31afd41081b7.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'public bsr_helium' = m
+		mode: import
+		source =
+				let
+				    Source = Table.SelectRows(
+				    PostgreSQL.Database("nucleus.ckojnefw0d56.us-west-1.rds.amazonaws.com", "GIF_2025"){[Schema="public", Item="bsr_helium"]}[Data],
+				    each [Account] = "Jockey"
+				)
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

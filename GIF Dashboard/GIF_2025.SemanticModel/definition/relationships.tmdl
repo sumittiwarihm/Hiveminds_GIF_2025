@@ -130,40 +130,23 @@ relationship 07a1c361-c06d-2453-0c26-812bca377f29
 	fromColumn: 'public amazon_buybox'.asin
 	toColumn: amazon_price_tracker_master.'Comp 1 ASIN'
 
-relationship AutoDetected_6cb00244-4e80-471c-9b48-9e7bf0fefbac
-	fromColumn: 'public amazon_buybox'.account
-	toColumn: 'Target VS Achieved-Fk'.Account
+relationship c3aa9115-76ac-435d-8f72-f0ebb12e6344
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public bsr_helium'.'Creation Date'
+	toColumn: LocalDateTable_ecdb63b8-707d-4494-b8c6-864cd94a6237.Date
 
-relationship AutoDetected_1111d991-b994-45f6-bc71-15df280ef518
-	fromColumn: 'public amazon_sov'.account
-	toColumn: 'Target VS Achieved-Fk'.Account
+relationship a7e818cb-2285-4706-a9ee-61e5f333fbf7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public bsr_helium'.Date
+	toColumn: LocalDateTable_51c1708c-68a7-4c4b-a7b8-31afd41081b7.Date
 
-relationship AutoDetected_486bd316-390b-423d-bc12-a5856cc315c9
-	fromColumn: 'public amazon_paid'.account
-	toColumn: 'Target VS Achieved-Fk'.Account
+relationship 26e958bd-eeb6-491b-839f-7f31553e4b59
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public amazon_pi_gv'.date
+	toColumn: LocalDateTable_5ce3e971-2828-45a7-9a35-9005b52fcc45.Date
 
-relationship AutoDetected_11109b5a-5265-4f27-bd74-a70f69fd1fd4
-	fromColumn: 'public flipkart_buybox'.account
-	toColumn: 'Target VS Achieved-Fk'.Account
-
-relationship AutoDetected_c40890d1-6548-4dde-9ab5-1992a51d2bb6
-	fromColumn: 'public flipkart_sov'.account
-	toColumn: 'Target VS Achieved-Fk'.Account
-
-relationship AutoDetected_8600863b-0567-4294-9939-c6edc029dd35
-	fromColumn: 'Target VS Achieved'.Account
-	toColumn: 'Target VS Achieved-Fk'.Account
-
-relationship AutoDetected_d35d6a55-99a4-40a4-ac47-4f399c268ad0
-	fromColumn: 'Amazon Price Tracker'.Account
-	toColumn: 'Target VS Achieved-Fk'.Account
-
-relationship AutoDetected_0690d180-737a-4701-a8e5-28af1cd38b45
-	fromColumn: 'Amazon Price Tracker_brand_asins'.Account
-	toColumn: 'Target VS Achieved-Fk'.Account
-
-relationship AutoDetected_6588c0f2-ebc7-4ff3-ba8a-5fdca58bc10c
-	isActive: false
-	fromColumn: amazon_price_tracker_master.Account
-	toColumn: 'Target VS Achieved-Fk'.Account
+relationship d7f48fa1-6d11-4421-8687-a7d6f5717a69
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public amazon_pi_offset'.date
+	toColumn: LocalDateTable_01f6bbb5-7214-4d55-8a17-8d4f57cb75b6.Date
 

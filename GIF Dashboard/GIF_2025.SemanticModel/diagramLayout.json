@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 6351.3082058630253,
+        "x": 567.75700934579436,
         "y": 0
       },
       "nodes": [
@@ -352,7 +352,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 9940,
+            "y": 26
+          },
           "nodeIndex": "Amazon Price Tracker",
           "nodeLineageTag": "f2e1c244-2359-4b7d-b34b-608caba07135",
           "size": {
@@ -362,7 +365,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 10224,
+            "y": 26
+          },
           "nodeIndex": "Amazon Price Tracker_brand_asins",
           "nodeLineageTag": "f09ca0c2-588b-4d9b-8343-8745ee079d34",
           "size": {
@@ -372,7 +378,10 @@
           "zIndex": 0
         },
         {
-          "location": {},
+          "location": {
+            "x": 10508,
+            "y": 26
+          },
           "nodeIndex": "amazon_price_tracker_master",
           "nodeLineageTag": "f0ef7b05-c821-4105-a144-f27ccdc92707",
           "size": {

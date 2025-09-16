@@ -258,8 +258,10 @@ table 'public amazon_paid'
 			
 			RETURN IF(NOT ISBLANK(CurrentHour), ImpNow - COALESCE(ImpPrev, 0))
 			
+			
+			
 			```
-		formatString: #,0
+		formatString: 0
 		lineageTag: 92e14ea8-4f2d-4974-b440-1dd03749a5e0
 
 	measure HourlyCTR_A = ```
@@ -440,6 +442,78 @@ table 'public amazon_paid'
 
 	measure actual_ROI = DIVIDE((SUM('public amazon_paid'[Sales])),(SUM('public amazon_paid'[Spend])),0)
 		lineageTag: e9d50412-0f5d-4b07-ad8f-8ae398f0edc4
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Status Flag' = ```
+			
+			SWITCH(
+			    TRUE(),
+			    SELECTEDVALUE('public amazon_paid'[Status]) = "CAMPAIGN_STATUS_ENABLED", "🟢",   -- Green circle
+			    SELECTEDVALUE('public amazon_paid'[Status]) = "OUT_OF_BUDGET", "🔴",             -- Red circle
+			    SELECTEDVALUE('public amazon_paid'[Status]) = "PORTFOLIO_ENDED", "🔵",           -- Blue circle
+			    SELECTEDVALUE('public amazon_paid'[Status]) = "PORTFOLIO_OUT_OF_BUDGET", "🟡",   -- Yellow circle
+			    BLANK()
+			)
+			
+			```
+		lineageTag: 4cc56796-79a4-4bfe-9b29-18739081158f
+
+	measure '% OutOfBudget' = ```
+			
+			DIVIDE(
+			    CALCULATE(
+			        COUNTROWS('public amazon_paid'),
+			        'public amazon_paid'[Status] = "OUT_OF_BUDGET"
+			    ),
+			    COUNTROWS('public amazon_paid')
+			)
+			
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7fb8e0bf-78cf-441b-beb4-63edf6e58abc
+
+	measure 'Status Legend' = ```
+			
+			DATATABLE(
+			    "Legend", STRING,
+			    {
+			        {"🟢 Enabled"},
+			        {"🔴 Out of Budget"},
+			        {"⚪ Portfolio Ended"},
+			        {"🟠 Portfolio Out of Budget"}
+			    }
+			)
+			
+			```
+		lineageTag: f1aa5e69-f08c-42e0-b8b3-2a2790074236
+
+	measure HourlySpendByCategoryDateHour = ```
+			
+			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
+			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
+			
+			-- Spend for current hour, date, and category (filter comes from the visual via relationship)
+			VAR SpendNow =
+			    CALCULATE(
+			        SUM('public amazon_paid'[spend]),
+			        'public amazon_paid'[date] = CurrentDate,
+			        'public amazon_paid'[hour] = CurrentHour
+			    )
+			
+			-- Spend for previous hour
+			VAR SpendPrev =
+			    CALCULATE(
+			        SUM('public amazon_paid'[spend]),
+			        'public amazon_paid'[date] = CurrentDate,
+			        'public amazon_paid'[hour] = CurrentHour - 1
+			    )
+			
+			RETURN
+			    SpendNow - COALESCE(SpendPrev, 0)
+			
+			```
+		lineageTag: b7f763cc-31c3-43bc-bb0a-7303ffeb6b27
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
@@ -808,6 +882,23 @@ table 'public amazon_paid'
 			
 			```
 		lineageTag: 9e51146a-5c38-4b4b-b481-3af71a15906b
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Legend Column' = ```
+			
+			SWITCH (
+			    TRUE(),
+			    'public amazon_paid'[Status] = "CAMPAIGN_STATUS_ENABLED", "🟢 Enabled",
+			    'public amazon_paid'[Status] = "OUT_OF_BUDGET", "🔴 Out of Budget",
+			    'public amazon_paid'[Status] = "PORTFOLIO_ENDED", "🔵 Portfolio Ended",
+			    'public amazon_paid'[Status] = "PORTFOLIO_OUT_OF_BUDGET", "🟡 Portfolio Out of Budget",
+			    BLANK()
+			)
+			
+			```
+		lineageTag: c58f7a1d-b299-4c75-8e7b-96fc5c107ae6
 		summarizeBy: none
 
 		annotation SummarizationSetBy = Automatic

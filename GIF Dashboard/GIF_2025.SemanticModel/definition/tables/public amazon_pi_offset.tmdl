@@ -1,0 +1,141 @@
+table 'public amazon_pi_offset'
+	lineageTag: 5e82c8df-778e-479a-8c74-931d773f1783
+
+	column asin
+		dataType: string
+		lineageTag: 6f4ccc1e-915d-4883-922d-82b751a17394
+		summarizeBy: none
+		sourceColumn: asin
+
+		annotation SummarizationSetBy = Automatic
+
+	column itemname
+		dataType: string
+		lineageTag: 7f7c40bc-a042-4243-83aa-085eb7c46790
+		summarizeBy: none
+		sourceColumn: itemname
+
+		annotation SummarizationSetBy = Automatic
+
+	column lbrbrandname
+		dataType: string
+		lineageTag: ac6c39ce-aa05-434e-a2d1-a9302f0c4752
+		summarizeBy: none
+		sourceColumn: lbrbrandname
+
+		annotation SummarizationSetBy = Automatic
+
+	column ordermonth
+		dataType: string
+		lineageTag: 2dcd2235-71f8-4c93-8951-869fc01588f2
+		summarizeBy: none
+		sourceColumn: ordermonth
+
+		annotation SummarizationSetBy = Automatic
+
+	column orderday
+		dataType: string
+		lineageTag: 9537e3f6-b15b-4b78-a6f2-b1c99c0f5957
+		summarizeBy: none
+		sourceColumn: orderday
+
+		annotation SummarizationSetBy = Automatic
+
+	column orderyear
+		dataType: string
+		lineageTag: 2eca9ca4-46c4-430c-9c6b-da3fc4c9fa92
+		summarizeBy: none
+		sourceColumn: orderyear
+
+		annotation SummarizationSetBy = Automatic
+
+	column orderamt
+		dataType: double
+		formatString: 0
+		lineageTag: bdb2bc7a-6465-4e73-8695-581d64ecc36d
+		summarizeBy: sum
+		sourceColumn: orderamt
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column orderquantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 2446858f-718e-4216-9b60-e485858d0db2
+		summarizeBy: sum
+		sourceColumn: orderquantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 04743eef-ffab-4721-953f-355ddb4f778e
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column subcategory
+		dataType: string
+		lineageTag: 7dd851d9-18c5-4223-87e9-af2bc33574ae
+		summarizeBy: none
+		sourceColumn: subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column statename
+		dataType: string
+		lineageTag: 51340f5f-37d0-4a72-99dd-ee0719965ad9
+		summarizeBy: none
+		sourceColumn: statename
+
+		annotation SummarizationSetBy = Automatic
+
+	column postalcode
+		dataType: string
+		lineageTag: 2ef77bfb-815f-4213-8a6d-dafafabd4a34
+		summarizeBy: none
+		sourceColumn: postalcode
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 785f0f8d-0d3e-47c9-b62f-9827db5809da
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: d7f48fa1-6d11-4421-8687-a7d6f5717a69
+			defaultHierarchy: LocalDateTable_01f6bbb5-7214-4d55-8a17-8d4f57cb75b6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column account
+		dataType: string
+		lineageTag: e17572d0-fc1a-411e-9ec9-9973fd316c1d
+		summarizeBy: none
+		sourceColumn: account
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public amazon_pi_offset' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("nucleus.ckojnefw0d56.us-west-1.rds.amazonaws.com", "GIF_2025"),
+				    public_amazon_pi_offset = Source{[Schema="public",Item="amazon_pi_offset"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(public_amazon_pi_offset,{{"orderquantity", Int64.Type}, {"orderamt", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
