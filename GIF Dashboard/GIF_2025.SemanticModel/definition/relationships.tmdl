@@ -31,11 +31,6 @@ relationship 9feedcd1-3c63-d065-e285-89e55e9eeb1b
 	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.CAMPAIGN_NAME
 	toColumn: Flipkart_Campaign_Mapping.'Campaign Names'
 
-relationship dce86d4d-bf51-45b8-aa2f-d522bdc98eba
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Sale_2024.GIF
-	toColumn: LocalDateTable_118b7cbb-fbf5-47ae-b051-868deb4308b6.Date
-
 relationship d643c0c4-6b3f-4b85-ad09-d18dbaf31aff
 	joinOnDateBehavior: datePartOnly
 	fromColumn: calender_dates_amz_2025.Date
@@ -45,11 +40,6 @@ relationship 693c7684-0ae0-137f-6988-257a87315400
 	crossFilteringBehavior: bothDirections
 	fromColumn: 'public amazon_paid'.date
 	toColumn: calender_dates_amz_2025.Date
-
-relationship ca1a9be8-6b10-4b91-a955-f45ca9af8b5b
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Sale_2024-Fk.BBD
-	toColumn: LocalDateTable_f44cdcf4-37f9-4c54-bfd7-5625cf54bd8a.Date
 
 relationship d0ca22a7-fb00-46c3-abb9-e49a5874aca9
 	joinOnDateBehavior: datePartOnly
@@ -72,16 +62,6 @@ relationship 9743f960-5347-3715-6498-2a95842d0fc9
 	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.DATE
 	toColumn: calender_dates_fk_2025.Date
 
-relationship 3370f963-d35f-4782-acb6-021a5707aa5c
-	joinOnDateBehavior: datePartOnly
-	fromColumn: 'Target VS Achieved'.Date
-	toColumn: LocalDateTable_964fc65a-c811-4fbe-9e61-0a181a07267a.Date
-
-relationship 318ec229-eaf0-415e-9cb0-e02d18436e33
-	joinOnDateBehavior: datePartOnly
-	fromColumn: 'Target VS Achieved-Fk'.Date
-	toColumn: LocalDateTable_770c368e-deec-412f-9332-4fe1f12d9c96.Date
-
 relationship f8975090-47b1-4692-884f-1940c40e9429
 	joinOnDateBehavior: datePartOnly
 	fromColumn: 'Date Mapping-Fk'.2024_date
@@ -92,16 +72,6 @@ relationship 646df8f4-2cf2-1168-8043-b9aac53868bf
 	fromCardinality: one
 	fromColumn: Fk_2024_2025.DATE
 	toColumn: 'Date Mapping-Fk'.2024_date
-
-relationship 367c1702-f92b-64ea-9bb6-dabba15f4b5c
-	crossFilteringBehavior: bothDirections
-	fromColumn: 'public amazon_paid'.date
-	toColumn: 'Target VS Achieved'.Date
-
-relationship 56d11555-3a16-b787-fb4f-b71839ee44e3
-	crossFilteringBehavior: bothDirections
-	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.DATE
-	toColumn: 'Target VS Achieved-Fk'.Date
 
 relationship f3f3227d-8df3-4ce3-aeae-c67412f8690e
 	joinOnDateBehavior: datePartOnly
@@ -165,4 +135,23 @@ relationship 67bd14f2-25f3-c658-b22b-c3384bd81511
 	toCardinality: many
 	fromColumn: flipkart_price_tracker_master.'Comp 1 FSN'
 	toColumn: 'public flipkart_buybox'.fsn
+relationship c3aa9115-76ac-435d-8f72-f0ebb12e6344
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public bsr_helium'.'Creation Date'
+	toColumn: LocalDateTable_ecdb63b8-707d-4494-b8c6-864cd94a6237.Date
+
+relationship a7e818cb-2285-4706-a9ee-61e5f333fbf7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public bsr_helium'.Date
+	toColumn: LocalDateTable_51c1708c-68a7-4c4b-a7b8-31afd41081b7.Date
+
+relationship 26e958bd-eeb6-491b-839f-7f31553e4b59
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public amazon_pi_gv'.date
+	toColumn: LocalDateTable_5ce3e971-2828-45a7-9a35-9005b52fcc45.Date
+
+relationship d7f48fa1-6d11-4421-8687-a7d6f5717a69
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'public amazon_pi_offset'.date
+	toColumn: LocalDateTable_01f6bbb5-7214-4d55-8a17-8d4f57cb75b6.Date
 

@@ -6,11 +6,9 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Amazon Price Tracker_brand_asins","amazon_price_tracker_master","HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW","Flipkart Price Tracker","Flipkart Price Tracker_brand_fsn","flipkart_price_tracker_master"]
+annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Amazon Price Tracker_brand_asins","amazon_price_tracker_master","HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW","Flipkart Price Tracker","Flipkart Price Tracker_brand_fsn","flipkart_price_tracker_master","public bsr_helium","public amazon_pi_gv","public amazon_pi_offset"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
-
-annotation PBIDesktopVersion = 2.146.1454.0 (25.08)+901d6c338d1dea81ac3e53073ffb10469f0f37b8
 
 annotation PBI_ProTooling = ["DevMode"]
 
@@ -33,13 +31,11 @@ ref table Amazon_Campaign_Mapping
 ref table Flipkart_Campaign_Mapping
 ref table 'flipkart Parameter'
 ref table Sale_2024
-ref table LocalDateTable_118b7cbb-fbf5-47ae-b051-868deb4308b6
 ref table 'Target VS Achieved'
 ref table calender_dates_amz_2025
 ref table LocalDateTable_e6af0bfa-767c-4d6f-8411-cf27f66ef56e
 ref table KPI
 ref table Sale_2024-Fk
-ref table LocalDateTable_f44cdcf4-37f9-4c54-bfd7-5625cf54bd8a
 ref table 'Target VS Achieved-Fk'
 ref table 'Date Mapping'
 ref table LocalDateTable_c5d4f48f-2d2b-42b5-a222-cbb02d8f98a9
@@ -47,8 +43,6 @@ ref table Amz_2024_2025
 ref table calender_dates_fk_2025
 ref table LocalDateTable_0e2de613-c45d-4cbc-8114-dfa1dcf89d03
 ref table Fk_2024_2025
-ref table LocalDateTable_964fc65a-c811-4fbe-9e61-0a181a07267a
-ref table LocalDateTable_770c368e-deec-412f-9332-4fe1f12d9c96
 ref table 'Date Mapping-Fk'
 ref table LocalDateTable_c3ac9b74-10d7-4ee9-974a-47c2c31561aa
 ref table HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW
@@ -68,6 +62,13 @@ ref table amazon_price_tracker_master
 ref table 'Flipkart Price Tracker'
 ref table 'Flipkart Price Tracker_brand_fsn'
 ref table flipkart_price_tracker_master
+ref table 'public bsr_helium'
+ref table LocalDateTable_ecdb63b8-707d-4494-b8c6-864cd94a6237
+ref table LocalDateTable_51c1708c-68a7-4c4b-a7b8-31afd41081b7
+ref table 'public amazon_pi_gv'
+ref table LocalDateTable_5ce3e971-2828-45a7-9a35-9005b52fcc45
+ref table 'public amazon_pi_offset'
+ref table LocalDateTable_01f6bbb5-7214-4d55-8a17-8d4f57cb75b6
 
 ref cultureInfo en-IN
 

@@ -1,0 +1,108 @@
+table 'public amazon_pi_gv'
+	lineageTag: c568b311-648c-4e51-b7c8-3282216d5410
+
+	column lbrbrandname
+		dataType: string
+		lineageTag: 67689a02-fdef-4db1-a5fc-65eb3ef5d436
+		summarizeBy: none
+		sourceColumn: lbrbrandname
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshotday
+		dataType: string
+		lineageTag: a609aea4-9241-4736-9453-c1f8d955af26
+		summarizeBy: none
+		sourceColumn: snapshotday
+
+		annotation SummarizationSetBy = Automatic
+
+	column monthname
+		dataType: string
+		lineageTag: 47d169e4-81a6-4bdb-a66e-314978223222
+		summarizeBy: none
+		sourceColumn: monthname
+
+		annotation SummarizationSetBy = Automatic
+
+	column snapshotyear
+		dataType: string
+		lineageTag: b065f5f4-a856-4cab-816e-fa6b461ef475
+		summarizeBy: none
+		sourceColumn: snapshotyear
+
+		annotation SummarizationSetBy = Automatic
+
+	column asin
+		dataType: string
+		lineageTag: 980b2d20-40e1-433d-a2a3-721132062a01
+		summarizeBy: none
+		sourceColumn: asin
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: d70d0e16-300d-418d-ac49-63e34f41c8bb
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column subcategory
+		dataType: string
+		lineageTag: 7d5e2f52-71ce-4747-a762-365336113f31
+		summarizeBy: none
+		sourceColumn: subcategory
+
+		annotation SummarizationSetBy = Automatic
+
+	column glanceviews
+		dataType: double
+		formatString: 0
+		lineageTag: e401b5e2-55d0-4d84-9a8f-fa7f17b567c3
+		summarizeBy: sum
+		sourceColumn: glanceviews
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: dd36230e-2746-49b4-9e19-bb08f5c9f425
+		summarizeBy: none
+		sourceColumn: date
+
+		variation Variation
+			isDefault
+			relationship: 26e958bd-eeb6-491b-839f-7f31553e4b59
+			defaultHierarchy: LocalDateTable_5ce3e971-2828-45a7-9a35-9005b52fcc45.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column account
+		dataType: string
+		lineageTag: 84a55205-473d-4fa7-9ac4-5fa9378c1231
+		summarizeBy: none
+		sourceColumn: account
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'public amazon_pi_gv' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("nucleus.ckojnefw0d56.us-west-1.rds.amazonaws.com", "GIF_2025"),
+				    public_amazon_pi_gv = Source{[Schema="public",Item="amazon_pi_gv"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(public_amazon_pi_gv,{{"glanceviews", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
