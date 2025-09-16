@@ -31,13 +31,11 @@ ref table Amazon_Campaign_Mapping
 ref table Flipkart_Campaign_Mapping
 ref table 'flipkart Parameter'
 ref table Sale_2024
-ref table LocalDateTable_118b7cbb-fbf5-47ae-b051-868deb4308b6
 ref table 'Target VS Achieved'
 ref table calender_dates_amz_2025
 ref table LocalDateTable_e6af0bfa-767c-4d6f-8411-cf27f66ef56e
 ref table KPI
 ref table Sale_2024-Fk
-ref table LocalDateTable_f44cdcf4-37f9-4c54-bfd7-5625cf54bd8a
 ref table 'Target VS Achieved-Fk'
 ref table 'Date Mapping'
 ref table LocalDateTable_c5d4f48f-2d2b-42b5-a222-cbb02d8f98a9

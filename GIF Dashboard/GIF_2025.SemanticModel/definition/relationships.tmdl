@@ -31,11 +31,6 @@ relationship 9feedcd1-3c63-d065-e285-89e55e9eeb1b
 	fromColumn: HIVEMINDS_FLIPKART_HOURLY_VIEW.CAMPAIGN_NAME
 	toColumn: Flipkart_Campaign_Mapping.'Campaign Names'
 
-relationship dce86d4d-bf51-45b8-aa2f-d522bdc98eba
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Sale_2024.GIF
-	toColumn: LocalDateTable_118b7cbb-fbf5-47ae-b051-868deb4308b6.Date
-
 relationship d643c0c4-6b3f-4b85-ad09-d18dbaf31aff
 	joinOnDateBehavior: datePartOnly
 	fromColumn: calender_dates_amz_2025.Date
@@ -45,11 +40,6 @@ relationship 693c7684-0ae0-137f-6988-257a87315400
 	crossFilteringBehavior: bothDirections
 	fromColumn: 'public amazon_paid'.date
 	toColumn: calender_dates_amz_2025.Date
-
-relationship ca1a9be8-6b10-4b91-a955-f45ca9af8b5b
-	joinOnDateBehavior: datePartOnly
-	fromColumn: Sale_2024-Fk.BBD
-	toColumn: LocalDateTable_f44cdcf4-37f9-4c54-bfd7-5625cf54bd8a.Date
 
 relationship d0ca22a7-fb00-46c3-abb9-e49a5874aca9
 	joinOnDateBehavior: datePartOnly

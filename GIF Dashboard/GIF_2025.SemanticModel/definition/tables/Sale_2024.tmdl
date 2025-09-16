@@ -198,22 +198,6 @@ table Sale_2024
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: 2bd512ad-230e-4bc8-98b0-72dd206c6fa1
 
-	column GIF
-		dataType: dateTime
-		formatString: Long Date
-		lineageTag: 8d10f3a1-af9c-4dc8-b818-5c9de9910c2a
-		summarizeBy: none
-		sourceColumn: GIF
-
-		variation Variation
-			isDefault
-			relationship: dce86d4d-bf51-45b8-aa2f-d522bdc98eba
-			defaultHierarchy: LocalDateTable_118b7cbb-fbf5-47ae-b051-868deb4308b6.'Date Hierarchy'
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation UnderlyingDateTimeDataType = Date
-
 	column Impressions
 		dataType: int64
 		formatString: 0
@@ -233,7 +217,7 @@ table Sale_2024
 		annotation SummarizationSetBy = Automatic
 
 	column Spends
-		dataType: int64
+		dataType: double
 		formatString: 0
 		lineageTag: 966a528c-4f4d-4e41-b3a9-ab7a2576549d
 		summarizeBy: sum
@@ -251,7 +235,7 @@ table Sale_2024
 		annotation SummarizationSetBy = Automatic
 
 	column Sales
-		dataType: int64
+		dataType: double
 		formatString: 0
 		lineageTag: c077ca0b-ccb4-4392-886e-11398988bb8a
 		summarizeBy: sum
@@ -259,66 +243,33 @@ table Sale_2024
 
 		annotation SummarizationSetBy = Automatic
 
-	column CTR
-		dataType: double
-		lineageTag: 34c48c2e-727d-4e9e-b0c0-62432ccb9d14
-		summarizeBy: sum
-		sourceColumn: CTR
+	column Account
+		dataType: string
+		lineageTag: 9b3222bb-d05b-44bc-a5e0-a0ca6bfd546a
+		summarizeBy: none
+		sourceColumn: Account
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column CPC
-		dataType: double
-		lineageTag: 49ab0d1c-e808-4daf-8cab-b01d3e0f0d79
-		summarizeBy: sum
-		sourceColumn: CPC
+	column Type
+		dataType: string
+		lineageTag: f6a8c6a7-1560-4697-a8af-9bbb28da6317
+		summarizeBy: none
+		sourceColumn: Type
 
 		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column CVR
-		dataType: double
-		lineageTag: 9d6f8360-9825-4d6e-9ab2-d5d748062d0e
-		summarizeBy: sum
-		sourceColumn: CVR
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column AOV
-		dataType: double
-		lineageTag: 8ae11465-3065-42a3-aba1-e0e6122e17de
-		summarizeBy: sum
-		sourceColumn: AOV
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column ROI
-		dataType: double
-		lineageTag: 93b3c06d-4c85-4d08-ae6d-4e520aca9693
-		summarizeBy: sum
-		sourceColumn: ROI
-
-		annotation SummarizationSetBy = Automatic
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	partition Sale_2024 = m
 		mode: import
 		source =
 				let
-				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=1273214790#gid=1273214790"),
-				    Sale_2024_Table = Source{[name="Amazon-Sale_2024",ItemKind="Table"]}[Data],
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1kC_MKRIbnrqCfHjvYNUP6URIJDGr_yUmTvB8x0B2wHM/edit?gid=106892709#gid=106892709"),
+				    Sale_2024_Table = Source{[name="Amazon - 2024 vs 2025",ItemKind="Table"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(Sale_2024_Table, [PromoteAllScalars=true]),
-				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"GIF", type date}, {"Impressions", Int64.Type}, {"Clicks", Int64.Type}, {"Spends", Int64.Type}, {"Orders", Int64.Type}, {"Sales", Int64.Type}, {"CTR", type number}, {"CPC", type number}, {"CVR", type number}, {"AOV", type number}, {"ROI", type number}})
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Account", type text}, {"Type", type text}, {"Impressions", Int64.Type}, {"Clicks", Int64.Type}, {"Spends", type number}, {"Orders", Int64.Type}, {"Sales", type number}}),
+				    #"Filtered Rows" = Table.SelectRows(#"Changed Type", each ([Account] = "Jockey"))
 				in
-				    #"Changed Type"
+				    #"Filtered Rows"
 
 	annotation PBI_NavigationStepName = Navigation
 

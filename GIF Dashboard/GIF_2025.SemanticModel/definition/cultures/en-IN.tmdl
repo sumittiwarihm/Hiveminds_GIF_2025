@@ -6370,29 +6370,6 @@ cultureInfo en-IN
 			      ],
 			      "SemanticType": "Time"
 			    },
-			    "sale_2024.gif": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Sale_2024",
-			          "ConceptualProperty": "GIF"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "gif": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
 			    "sale_2024": {
 			      "Definition": {
 			        "Binding": {
@@ -20758,86 +20735,6 @@ cultureInfo en-IN
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.452
-			          }
-			        }
-			      ]
-			    },
-			    "sale_2024.ctr": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Sale_2024",
-			          "ConceptualProperty": "CTR"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ctr": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "sale_2024.cpc": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Sale_2024",
-			          "ConceptualProperty": "CPC"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cpc": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "sale_2024.cvr": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Sale_2024",
-			          "ConceptualProperty": "CVR"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "cvr": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "sale_2024.aov": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Sale_2024",
-			          "ConceptualProperty": "AOV"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "aov": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "sale_2024.roi": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "Sale_2024",
-			          "ConceptualProperty": "ROI"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "roi": {
-			            "State": "Generated"
 			          }
 			        }
 			      ]
