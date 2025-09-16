@@ -226,6 +226,14 @@ table 'public flipkart_buybox'
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'fsn type'
+		dataType: string
+		lineageTag: 28063c8d-7a3a-44a5-8103-069dc9c34c66
+		summarizeBy: none
+		sourceColumn: fsn type
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'public flipkart_buybox' = m
 		mode: import
 		source =

@@ -69,12 +69,39 @@ table 'Target VS Achieved-Fk'
 		formatString: 0.00%;-0.00%;0.00%
 		lineageTag: a131f5c8-5e03-4f33-96a6-64e7962bac77
 
+	column Impressions
+		dataType: int64
+		formatString: 0
+		lineageTag: f29bb625-8310-4043-b0f6-95119ff11e1b
+		summarizeBy: sum
+		sourceColumn: Impressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clicks
+		dataType: int64
+		formatString: 0
+		lineageTag: 4452088c-baa9-417d-be9d-4f516a735df7
+		summarizeBy: sum
+		sourceColumn: Clicks
+
+		annotation SummarizationSetBy = Automatic
+
 	column Spends
 		dataType: int64
 		formatString: 0
 		lineageTag: ab5045f4-753d-4790-9138-69b46b63bfcc
 		summarizeBy: sum
 		sourceColumn: Spends
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orders
+		dataType: int64
+		formatString: 0
+		lineageTag: ef345d39-1798-4d6d-ae31-0fce4e59fbf8
+		summarizeBy: sum
+		sourceColumn: Orders
 
 		annotation SummarizationSetBy = Automatic
 
@@ -148,33 +175,6 @@ table 'Target VS Achieved-Fk'
 		annotation SummarizationSetBy = Automatic
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
-
-	column Orders
-		dataType: int64
-		formatString: 0
-		lineageTag: ef345d39-1798-4d6d-ae31-0fce4e59fbf8
-		summarizeBy: sum
-		sourceColumn: Orders
-
-		annotation SummarizationSetBy = Automatic
-
-	column Impressions
-		dataType: int64
-		formatString: 0
-		lineageTag: f29bb625-8310-4043-b0f6-95119ff11e1b
-		summarizeBy: sum
-		sourceColumn: Impressions
-
-		annotation SummarizationSetBy = Automatic
-
-	column Clicks
-		dataType: int64
-		formatString: 0
-		lineageTag: 4452088c-baa9-417d-be9d-4f516a735df7
-		summarizeBy: sum
-		sourceColumn: Clicks
-
-		annotation SummarizationSetBy = Automatic
 
 	partition 'Target VS Achieved-Fk' = m
 		mode: import

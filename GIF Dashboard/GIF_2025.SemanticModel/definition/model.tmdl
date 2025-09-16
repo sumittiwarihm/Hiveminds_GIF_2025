@@ -12,6 +12,8 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
+annotation PBIDesktopVersion = 2.146.1454.0 (25.08)+901d6c338d1dea81ac3e53073ffb10469f0f37b8
+
 ref table DateTableTemplate_27e9ce9d-915c-430d-b9d2-89f75440e43b
 ref table 'public amazon_buybox'
 ref table LocalDateTable_6581351a-bd8b-46d4-8b1c-b59eb7966829
@@ -59,9 +61,6 @@ ref table LocalDateTable_0b599b82-5a11-4781-a0ce-2f07b261ff1a
 ref table 'Amazon Price Tracker'
 ref table 'Amazon Price Tracker_brand_asins'
 ref table amazon_price_tracker_master
-ref table 'Flipkart Price Tracker'
-ref table 'Flipkart Price Tracker_brand_fsn'
-ref table flipkart_price_tracker_master
 ref table 'public bsr_helium'
 ref table LocalDateTable_ecdb63b8-707d-4494-b8c6-864cd94a6237
 ref table LocalDateTable_51c1708c-68a7-4c4b-a7b8-31afd41081b7
@@ -69,6 +68,9 @@ ref table 'public amazon_pi_gv'
 ref table LocalDateTable_5ce3e971-2828-45a7-9a35-9005b52fcc45
 ref table 'public amazon_pi_offset'
 ref table LocalDateTable_01f6bbb5-7214-4d55-8a17-8d4f57cb75b6
+ref table 'Flipkart Price Tracker'
+ref table 'Flipkart Price Tracker_brand_fsn'
+ref table flipkart_price_tracker_master
 
 ref cultureInfo en-IN
 

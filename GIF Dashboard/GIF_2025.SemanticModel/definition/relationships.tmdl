@@ -130,11 +130,6 @@ relationship 07a1c361-c06d-2453-0c26-812bca377f29
 	fromColumn: 'public amazon_buybox'.asin
 	toColumn: amazon_price_tracker_master.'Comp 1 ASIN'
 
-relationship 67bd14f2-25f3-c658-b22b-c3384bd81511
-	crossFilteringBehavior: bothDirections
-	toCardinality: many
-	fromColumn: flipkart_price_tracker_master.'Comp 1 FSN'
-	toColumn: 'public flipkart_buybox'.fsn
 relationship c3aa9115-76ac-435d-8f72-f0ebb12e6344
 	joinOnDateBehavior: datePartOnly
 	fromColumn: 'public bsr_helium'.'Creation Date'
@@ -154,4 +149,10 @@ relationship d7f48fa1-6d11-4421-8687-a7d6f5717a69
 	joinOnDateBehavior: datePartOnly
 	fromColumn: 'public amazon_pi_offset'.date
 	toColumn: LocalDateTable_01f6bbb5-7214-4d55-8a17-8d4f57cb75b6.Date
+
+relationship 67bd14f2-25f3-c658-b22b-c3384bd81511
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: flipkart_price_tracker_master.'Comp 1 FSN'
+	toColumn: 'public flipkart_buybox'.fsn
 

@@ -24027,6 +24027,111 @@ cultureInfo en-IN
 			          }
 			        }
 			      ]
+			    },
+			    "flipkart_price_tracker_master.brand_fsn": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "flipkart_price_tracker_master",
+			          "ConceptualProperty": "Brand FSN"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "brandFSN": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "flipkart_price_tracker_master.brand_comp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "flipkart_price_tracker_master",
+			          "ConceptualProperty": "brand_comp"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "brandComp": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "flipkart_price_tracker_master.comp_1_fsn": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "flipkart_price_tracker_master",
+			          "ConceptualProperty": "Comp 1 FSN"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "compFSN": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.impressions": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "Impressions"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target Impressions": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "target_vs_achieved.clicks": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Target VS Achieved",
+			          "ConceptualProperty": "Clicks"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Target Clicks": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
