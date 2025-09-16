@@ -57,6 +57,14 @@ table 'Amazon Price Tracker'
 
 		annotation SummarizationSetBy = Automatic
 
+	column brand_comp
+		dataType: string
+		lineageTag: 61f89de0-18aa-44a0-9199-6fa031818ce9
+		summarizeBy: none
+		sourceColumn: brand_comp
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Amazon Price Tracker' = m
 		mode: import
 		source =
@@ -65,9 +73,10 @@ table 'Amazon Price Tracker'
 				    #"Target VS Achieved_Table" = Source{[name="Amazon - Price Tracker",ItemKind="Table"]}[Data],
 				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
 				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Brand Price", "Comp 1 Price"}),
-				    #"Added Custom" = Table.AddColumn(#"Removed Columns", "sort_order", each 2)
+				    #"Added Custom" = Table.AddColumn(#"Removed Columns", "sort_order", each 2),
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "brand_comp", each "Comp")
 				in
-				    #"Added Custom"
+				    #"Added Custom1"
 
 	annotation PBI_NavigationStepName = Navigation
 

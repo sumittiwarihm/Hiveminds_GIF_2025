@@ -57,6 +57,14 @@ table 'Amazon Price Tracker_brand_asins'
 
 		annotation SummarizationSetBy = Automatic
 
+	column brand_comp
+		dataType: string
+		lineageTag: 286c5260-a460-416c-8971-0757ae740bcd
+		summarizeBy: none
+		sourceColumn: brand_comp
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Amazon Price Tracker_brand_asins' = m
 		mode: import
 		source =
@@ -67,9 +75,10 @@ table 'Amazon Price Tracker_brand_asins'
 				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Brand Price", "Comp 1 Price", "Comp 1 ASIN"}),
 				    #"Removed Duplicates" = Table.Distinct(#"Removed Columns"),
 				    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "Comp 1 ASIN", each [Brand ASIN]),
-				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "sort_order", each 1)
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "sort_order", each 1),
+				    #"Added Custom2" = Table.AddColumn(#"Added Custom1", "brand_comp", each "Brand")
 				in
-				    #"Added Custom1"
+				    #"Added Custom2"
 
 	annotation PBI_NavigationStepName = Navigation
 

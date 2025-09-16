@@ -50,10 +50,21 @@ table flipkart_price_tracker_master
 		annotation SummarizationSetBy = Automatic
 
 	column sort_order
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: 047e7896-3567-4161-a9e0-c6b2c629f648
 		summarizeBy: none
 		sourceColumn: sort_order
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = User
+
+	column brand_comp
+		dataType: string
+		lineageTag: 29847ca9-f08b-46b9-9b7b-6d15bf6230e5
+		summarizeBy: none
+		sourceColumn: brand_comp
 
 		annotation SummarizationSetBy = Automatic
 
@@ -62,9 +73,10 @@ table flipkart_price_tracker_master
 		source =
 				let
 				    Source = Table.Combine({#"Flipkart Price Tracker_brand_fsn", #"Flipkart Price Tracker"}),
-				    #"Filtered Rows" = Table.SelectRows(Source, each ([Account] = "OneTouch"))
+				    #"Filtered Rows" = Table.SelectRows(Source, each ([Account] = "OneTouch")),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Filtered Rows",{{"sort_order", Int64.Type}})
 				in
-				    #"Filtered Rows"
+				    #"Changed Type"
 
 	annotation PBI_NavigationStepName = Navigation
 

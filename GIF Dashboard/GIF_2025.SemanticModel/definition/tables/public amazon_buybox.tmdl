@@ -73,13 +73,14 @@ table 'public amazon_buybox'
 
 	column price
 		dataType: double
+		formatString: 0
 		lineageTag: ee223e1c-ea0c-47f3-97d0-93f36b25d6cd
 		summarizeBy: sum
 		sourceColumn: price
 
 		annotation SummarizationSetBy = Automatic
 
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
+		annotation PBI_FormatHint = {"isDecimal":true}
 
 	column mrp
 		dataType: int64

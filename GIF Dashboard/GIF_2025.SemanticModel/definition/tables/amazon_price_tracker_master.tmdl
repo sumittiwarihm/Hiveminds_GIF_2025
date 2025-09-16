@@ -50,12 +50,23 @@ table amazon_price_tracker_master
 		annotation SummarizationSetBy = Automatic
 
 	column sort_order
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: b4c08d84-301d-4666-99ad-da2d7ac51530
 		summarizeBy: none
 		sourceColumn: sort_order
 
 		changedProperty = SortByColumn
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand_comp
+		dataType: string
+		lineageTag: 0dfff6f4-373b-4a27-87fd-cd39cfe5f2e6
+		summarizeBy: none
+		sourceColumn: brand_comp
 
 		annotation SummarizationSetBy = Automatic
 

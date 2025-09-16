@@ -1346,6 +1346,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.727
 			          }
+			        },
+			        {
+			          "subCategory": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -2288,7 +2298,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "Node Category 1": {
+			          "nodeCategory_1": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2401,6 +2411,16 @@ cultureInfo en-IN
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.591
+			          }
+			        },
+			        {
+			          "nodingCategory_2": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -2824,7 +2844,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "instock %": {
+			          "inStock %": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -2880,7 +2900,7 @@ cultureInfo en-IN
 			          }
 			        },
 			        {
-			          "out of stock %": {
+			          "outOfStock %": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -3294,6 +3314,16 @@ cultureInfo en-IN
 			            "Type": "Noun",
 			            "State": "Generated",
 			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "isSponsored": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        },
 			        {
@@ -8129,6 +8159,16 @@ cultureInfo en-IN
 			        },
 			        {
 			          "Slot_type": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "isSponsored": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -17150,6 +17190,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.727
 			          }
+			        },
+			        {
+			          "subCategory": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -17773,6 +17823,16 @@ cultureInfo en-IN
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.727
+			          }
+			        },
+			        {
+			          "subCategory": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -18730,6 +18790,16 @@ cultureInfo en-IN
 			            },
 			            "Weight": 0.727
 			          }
+			        },
+			        {
+			          "subCategory": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -18858,6 +18928,16 @@ cultureInfo en-IN
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.582
+			          }
+			        },
+			        {
+			          "subCategory": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -24220,6 +24300,111 @@ cultureInfo en-IN
 			      "Terms": [
 			        {
 			          "% ROI": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "comp_asin.comp_1_asin": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Comp_Asin",
+			          "ConceptualProperty": "Comp 1 ASIN"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Comp ASIN": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "finalpricetable.date": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FinalPriceTable",
+			          "ConceptualProperty": "date"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "DATE": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "flipkart_price_tracker_master.brand_fsn": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "flipkart_price_tracker_master",
+			          "ConceptualProperty": "Brand FSN"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "brandFSN": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "flipkart_price_tracker_master.brand_comp": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "flipkart_price_tracker_master",
+			          "ConceptualProperty": "brand_comp"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "brandComp": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "flipkart_price_tracker_master.comp_1_fsn": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "flipkart_price_tracker_master",
+			          "ConceptualProperty": "Comp 1 FSN"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "compFSN": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",

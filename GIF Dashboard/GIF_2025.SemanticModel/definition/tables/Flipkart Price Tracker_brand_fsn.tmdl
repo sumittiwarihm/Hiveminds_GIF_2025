@@ -50,10 +50,19 @@ table 'Flipkart Price Tracker_brand_fsn'
 		annotation SummarizationSetBy = Automatic
 
 	column sort_order
-		dataType: string
+		dataType: int64
+		formatString: 0
 		lineageTag: c36a2852-e728-4cb8-8447-9fc388555c63
-		summarizeBy: none
+		summarizeBy: sum
 		sourceColumn: sort_order
+
+		annotation SummarizationSetBy = Automatic
+
+	column brand_comp
+		dataType: string
+		lineageTag: 814027dc-a5e0-4b1c-b301-404b6aa662c4
+		summarizeBy: none
+		sourceColumn: brand_comp
 
 		annotation SummarizationSetBy = Automatic
 
@@ -67,9 +76,11 @@ table 'Flipkart Price Tracker_brand_fsn'
 				    #"Removed Columns" = Table.RemoveColumns(#"Promoted Headers",{"Brand Price", "Comp 1 Price", "Comp 1 FSN"}),
 				    #"Removed Duplicates" = Table.Distinct(#"Removed Columns"),
 				    #"Added Custom" = Table.AddColumn(#"Removed Duplicates", "Comp 1 FSN", each [Brand FSN]),
-				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "sort_order", each 1)
+				    #"Added Custom1" = Table.AddColumn(#"Added Custom", "sort_order", each 1),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Added Custom1",{{"sort_order", Int64.Type}}),
+				    #"Added Custom2" = Table.AddColumn(#"Changed Type", "brand_comp", each "Brand")
 				in
-				    #"Added Custom1"
+				    #"Added Custom2"
 
 	annotation PBI_NavigationStepName = Navigation
 
