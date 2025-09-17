@@ -6,7 +6,7 @@ model Model
 		legacyRedirects
 		returnErrorValuesAsNull
 
-annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Amazon Price Tracker_brand_asins","amazon_price_tracker_master","HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW","Flipkart Price Tracker","Flipkart Price Tracker_brand_fsn","flipkart_price_tracker_master","public bsr_helium","public amazon_pi_gv","public amazon_pi_offset"]
+annotation PBI_QueryOrder = ["public amazon_buybox","public amazon_sov","public amazon_paid","public flipkart_buybox","public flipkart_sov","HIVEMINDS_FLIPKART_HOURLY_VIEW","Amazon_Campaign_Mapping","Flipkart_Campaign_Mapping","Sale_2024","Target VS Achieved","KPI","Sale_2024-Fk","Target VS Achieved-Fk","Date Mapping","Date Mapping-Fk","Amazon Price Tracker","Amazon Price Tracker_brand_asins","amazon_price_tracker_master","HIVEMINDS_AMAZON_SPONSORED_DISPLAY_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_PRODUCTS_HOURLY_VIEW","HIVEMINDS_AMAZON_SPONSORED_BRANDS_HOURLY_VIEW","Flipkart Price Tracker","Flipkart Price Tracker_brand_fsn","flipkart_price_tracker_master","public bsr_helium","public amazon_pi_gv","public amazon_pi_offset","Target VS Achieved Gur","Target VS Achieved-Fk Gur"]
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
@@ -69,6 +69,10 @@ ref table LocalDateTable_01f6bbb5-7214-4d55-8a17-8d4f57cb75b6
 ref table 'Flipkart Price Tracker'
 ref table 'Flipkart Price Tracker_brand_fsn'
 ref table flipkart_price_tracker_master
+ref table 'Target VS Achieved Gur'
+ref table LocalDateTable_7e10c32a-ff04-4c0c-8d79-929f5003059c
+ref table 'Target VS Achieved-Fk Gur'
+ref table LocalDateTable_32efcd4a-5242-499a-be44-11de4c04a7ff
 
 ref cultureInfo en-IN
 

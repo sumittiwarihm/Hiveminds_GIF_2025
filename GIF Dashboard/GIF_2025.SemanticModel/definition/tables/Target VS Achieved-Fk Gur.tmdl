@@ -1,0 +1,145 @@
+table 'Target VS Achieved-Fk Gur'
+	lineageTag: 505e106e-84ca-4152-9c0e-deda952eed67
+
+	measure '%Spends FK-gur' = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_Spends], SUM('Target VS Achieved-Fk Gur'[Spends]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 04a096dd-b96a-412a-9594-888a0c07990e
+
+	measure '%Clicks Fk-gur' = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_clicks], SUM('Target VS Achieved-Fk Gur'[Clicks]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 040220c1-f399-4e96-ac5e-b96b0c30d4ad
+
+	measure %Impressions-Fk-gur = DIVIDE(sum(HIVEMINDS_FLIPKART_HOURLY_VIEW[VIEWS]), sum('Target VS Achieved-Fk Gur'[Impressions]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e86fc65d-6377-4326-8067-de318172a28f
+
+	measure %Orders-FK-gur = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_orders], sum('Target VS Achieved-Fk Gur'[Orders]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: cb822b16-5e5e-48fe-ac16-48d6e4b2e1c0
+
+	measure %Sales-Fk-gur = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_sales], sum('Target VS Achieved-Fk Gur'[Sales]))
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: f650c72a-3526-4c91-aace-794d33bd0a66
+
+	measure CTR_tf_gur = DIVIDE((SUM('Target VS Achieved-Fk Gur'[Clicks])),(SUM('Target VS Achieved-Fk Gur'[Impressions])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: c4e9a646-e489-49b5-bf54-0942a4ba675e
+
+	measure %CTR-Fk-gur = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[fk_ctr], 'Target VS Achieved-Fk Gur'[CTR_tf_gur], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 780e51d2-4c38-4226-8d00-48bff4e3b36c
+
+	measure CVR_Tf_gur = DIVIDE((SUM('Target VS Achieved-Fk Gur'[Orders])),(SUM('Target VS Achieved-Fk Gur'[Clicks])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: badde6e7-26ed-40ae-b4b1-31b4e346b644
+
+	measure '%CVR Fk-gur' = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[fk_cvr], 'Target VS Achieved-Fk Gur'[CVR_Tf_gur])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 35916e13-1ead-497d-a07a-6629b581d1f2
+
+	measure 'CPC fk-gur' = DIVIDE(SUM('Target VS Achieved-Fk Gur'[Spends]), HIVEMINDS_FLIPKART_HOURLY_VIEW[FK_clicks], 0)
+		lineageTag: 6358fe44-7e67-47a0-838b-2bad91b2e5ba
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '%CPC Fk-gur' = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[fk_cpc], 'Target VS Achieved-Fk Gur'[CPC fk-gur])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 3cbaf0af-03f3-4c27-abdf-bec835f994f9
+
+	measure 'AOV tf-gur' = DIVIDE((SUM('Target VS Achieved-Fk Gur'[Sales])),(SUM('Target VS Achieved-Fk Gur'[Orders])),0)
+		lineageTag: 8ecfdc66-5f6c-4e2c-9b76-0797453cf212
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '%AOV Fk-gur' = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[fk_AOV], 'Target VS Achieved-Fk Gur'[AOV tf-gur])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 29373294-bd16-4de3-8868-3ccbf75f0d19
+
+	measure 'ROAS tf-gur' = DIVIDE((SUM('Target VS Achieved-Fk Gur'[Sales])),(SUM('Target VS Achieved-Fk Gur'[Spends])),0)
+		lineageTag: a4dc989b-1278-4942-b41b-d93fb0d4f132
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '%ROI fk-gur' = DIVIDE(HIVEMINDS_FLIPKART_HOURLY_VIEW[fk_roas], 'Target VS Achieved-Fk Gur'[ROAS tf-gur])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: dfcd24e5-3e24-4cf3-9cd0-af0390626c55
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 0d8083ff-9f11-4bf6-a413-5ba23e24d3a4
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: 5c54d25b-8836-4430-b3cd-d7af573c83db
+			defaultHierarchy: LocalDateTable_32efcd4a-5242-499a-be44-11de4c04a7ff.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Impressions
+		dataType: double
+		lineageTag: 9265b578-6e4e-413c-b2da-230a16e257b6
+		summarizeBy: sum
+		sourceColumn: Impressions
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Clicks
+		dataType: double
+		lineageTag: 03d338fa-bb2e-4cd5-9693-b74235e038b1
+		summarizeBy: sum
+		sourceColumn: Clicks
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Spends
+		dataType: int64
+		formatString: 0
+		lineageTag: cda9e568-f930-4565-94f3-361e2e3ad56c
+		summarizeBy: sum
+		sourceColumn: Spends
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orders
+		dataType: int64
+		formatString: 0
+		lineageTag: f09d595e-3985-4911-8501-c3b53d61bce8
+		summarizeBy: sum
+		sourceColumn: Orders
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: double
+		lineageTag: aab07c8c-f81d-4a73-ac57-bd1cbb759014
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Target VS Achieved-Fk Gur' = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=577372485#gid=577372485"),
+				    #"Target VS Achieved_Table" = Source{[name="Target VS Achieved - Flipkart",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Target VS Achieved_Table", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Impressions", type number}, {"Clicks", type number}, {"Spends", Int64.Type}, {"Orders", Int64.Type}, {"Sales", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

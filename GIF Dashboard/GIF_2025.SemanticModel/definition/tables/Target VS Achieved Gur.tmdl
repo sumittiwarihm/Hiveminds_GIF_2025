@@ -1,0 +1,218 @@
+table 'Target VS Achieved Gur'
+	lineageTag: 0a803ce7-b681-4b99-af1e-02e9d39dd3bf
+
+	measure '% change_spends_tva_gur' =
+			
+			VAR BaselineSpends = SUM ('Target VS Achieved Gur'[Spends] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Spend] )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7935b670-f4ea-4718-abcf-97f95b00bf3f
+
+	measure '% change_clicks_tva_gur' =
+			
+			VAR BaselineSpends = SUM ('Target VS Achieved Gur'[Clicks] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Clicks] )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5b28b2d5-9a95-459e-b21c-acbab5f38d26
+
+	measure '% change_orders_tva_gur' =
+			
+			VAR BaselineSpends = SUM ('Target VS Achieved Gur'[Orders] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Orders] )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: ba2caaf7-4c1b-4f88-8801-a464a9497635
+
+	measure '% change_sales_tva_gur' =
+			
+			VAR BaselineSpends = SUM ('Target VS Achieved Gur'[Sales] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Sales] )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 88b4f689-9345-4e79-a5bc-2adcc8119327
+
+	measure '% change_impressions_tva_gur' =
+			
+			VAR BaselineSpends = SUM ('Target VS Achieved Gur'[Impressions] )
+			VAR ComparisonSpends =
+			    CALCULATE (
+			        SUM ( 'public amazon_paid'[Impressions] )
+			    )
+			VAR Result =
+			    DIVIDE (
+			        ComparisonSpends,
+			        BaselineSpends,
+			        0
+			    )
+			RETURN
+			    Result
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 210d0992-1706-4615-8560-b7fd32ea4bb8
+
+	measure CTR_ta_gur = DIVIDE((SUM('Target VS Achieved Gur'[Clicks])),(SUM('Target VS Achieved Gur'[Impressions])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 96729f7b-83c2-4533-885a-3cfbc1c30611
+
+	measure '% CTR gur' = DIVIDE('public amazon_paid'[CTR_], 'Target VS Achieved Gur'[CTR_ta_gur], 0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 6f670101-e2d3-48fd-bf20-d78161239e67
+
+	measure CVR_ta_gur = DIVIDE((SUM('Target VS Achieved Gur'[Orders])),(SUM('Target VS Achieved Gur'[Clicks])),0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d37ed842-d9a9-4911-919c-a807bb3d1c4f
+
+	measure 'CVR% gur' = DIVIDE('public amazon_paid'[CVR], 'Target VS Achieved Gur'[CVR_ta_gur])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9113035e-f1d3-43e4-8364-819b5b02dd63
+
+	measure CPC_TA_gur = DIVIDE((SUM('Target VS Achieved Gur'[Spends])),(SUM('Target VS Achieved Gur'[Clicks])),0)
+		lineageTag: aebf96fd-e1a6-454d-82ce-2278153ec37a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% CPC gur' = DIVIDE('public amazon_paid'[CPC_], 'Target VS Achieved Gur'[CPC_TA_gur],0)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: d08372b4-91c3-422a-9f82-22b87a9c7d36
+
+	measure AOV_ta_gur = DIVIDE((SUM('Target VS Achieved Gur'[Sales])),(SUM('Target VS Achieved Gur'[Orders])),0)
+		lineageTag: 3906950b-93bf-49ad-a6b6-31df713cd889
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% AOV gur' = ```
+			DIVIDE('public amazon_paid'[AOV], 'Target VS Achieved Gur'[AOV_ta_gur], 0) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b2960e0e-d048-4c21-b6a0-6e0a40379b8e
+
+	measure ROI_TA_gur = DIVIDE((SUM('Target VS Achieved Gur'[Sales])),(SUM('Target VS Achieved Gur'[Spends])),0)
+		lineageTag: 5b1dcfb2-4710-4151-99a8-0534a670612d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure '% ROI gur' = DIVIDE('public amazon_paid'[actual_ROI], 'Target VS Achieved Gur'[ROI_TA_gur], 0 )
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 82404a04-a6f4-4296-9fd4-de59e4e6bc61
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8868b125-2129-4d7e-b345-93b4d7f38b48
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: e69b8354-bb24-471c-b384-95190f95254f
+			defaultHierarchy: LocalDateTable_7e10c32a-ff04-4c0c-8d79-929f5003059c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Impressions
+		dataType: double
+		lineageTag: 23aba4da-a09c-4bc8-9ae3-8915577594e1
+		summarizeBy: sum
+		sourceColumn: Impressions
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Clicks
+		dataType: double
+		lineageTag: a5dfe3a9-7d62-474c-96d2-da79532ef46f
+		summarizeBy: sum
+		sourceColumn: Clicks
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Spends
+		dataType: int64
+		formatString: 0
+		lineageTag: 2922cc58-541c-432d-b5fc-ad7fa36c2315
+		summarizeBy: sum
+		sourceColumn: Spends
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orders
+		dataType: double
+		lineageTag: f9e330de-d2a2-4e44-af47-d4ef50c8c6b1
+		summarizeBy: sum
+		sourceColumn: Orders
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Sales
+		dataType: double
+		lineageTag: 3f15e74c-8b60-4067-afd8-d252d9100367
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Target VS Achieved Gur' = m
+		mode: import
+		source =
+				let
+				    Source = GoogleSheets.Contents("https://docs.google.com/spreadsheets/d/1Z8q637lN1Fymvf04HEbakg_HdDybg_RrO4R846rZSzc/edit?gid=577372485#gid=577372485"),
+				    #"Amazon - Targets vs Achievement_Table" = Source{[name="Target VS Achieved - Amazon",ItemKind="Table"]}[Data],
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Amazon - Targets vs Achievement_Table", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Date", type date}, {"Impressions", type number}, {"Clicks", type number}, {"Spends", Int64.Type}, {"Orders", type number}, {"Sales", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

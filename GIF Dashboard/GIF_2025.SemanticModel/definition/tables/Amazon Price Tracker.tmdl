@@ -65,6 +65,22 @@ table 'Amazon Price Tracker'
 
 		annotation SummarizationSetBy = Automatic
 
+	column 'Comp 2 ASIN'
+		dataType: string
+		lineageTag: 32ad6860-5629-47aa-b704-f1c5606b3334
+		summarizeBy: none
+		sourceColumn: Comp 2 ASIN
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Comp 2 Price'
+		dataType: string
+		lineageTag: bb8b17d5-11f8-4f27-8920-386d716c953d
+		summarizeBy: none
+		sourceColumn: Comp 2 Price
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'Amazon Price Tracker' = m
 		mode: import
 		source =

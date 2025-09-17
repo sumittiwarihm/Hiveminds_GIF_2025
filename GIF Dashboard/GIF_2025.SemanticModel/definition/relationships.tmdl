@@ -156,3 +156,13 @@ relationship 67bd14f2-25f3-c658-b22b-c3384bd81511
 	fromColumn: flipkart_price_tracker_master.'Comp 1 FSN'
 	toColumn: 'public flipkart_buybox'.fsn
 
+relationship e69b8354-bb24-471c-b384-95190f95254f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Target VS Achieved Gur'.Date
+	toColumn: LocalDateTable_7e10c32a-ff04-4c0c-8d79-929f5003059c.Date
+
+relationship 5c54d25b-8836-4430-b3cd-d7af573c83db
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Target VS Achieved-Fk Gur'.Date
+	toColumn: LocalDateTable_32efcd4a-5242-499a-be44-11de4c04a7ff.Date
+

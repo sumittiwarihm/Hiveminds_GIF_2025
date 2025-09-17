@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 567.75700934579436,
+        "x": 12032.242990654206,
         "y": 0
       },
       "nodes": [
@@ -424,6 +424,71 @@
           "nodeIndex": "Flipkart Price Tracker_brand_fsn",
           "size": {
             "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11644,
+            "y": 0
+          },
+          "nodeIndex": "public amazon_pi_gv",
+          "nodeLineageTag": "c568b311-648c-4e51-b7c8-3282216d5410",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 11928,
+            "y": 0
+          },
+          "nodeIndex": "public amazon_pi_offset",
+          "nodeLineageTag": "5e82c8df-778e-479a-8c74-931d773f1783",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12212,
+            "y": 0
+          },
+          "nodeIndex": "public bsr_helium",
+          "nodeLineageTag": "0a1149ea-29ad-4ded-9007-58fbdc649720",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12496,
+            "y": 38
+          },
+          "nodeIndex": "Target VS Achieved Gur",
+          "nodeLineageTag": "0a803ce7-b681-4b99-af1e-02e9d39dd3bf",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 12780,
+            "y": 38
+          },
+          "nodeIndex": "Target VS Achieved-Fk Gur",
+          "nodeLineageTag": "505e106e-84ca-4152-9c0e-deda952eed67",
+          "size": {
+            "height": 224,
             "width": 234
           },
           "zIndex": 0

@@ -207,6 +207,22 @@ table 'public flipkart_sov'
 
 		annotation SummarizationSetBy = Automatic
 
+	column BCG
+		dataType: string
+		lineageTag: 2a5107d8-be8e-42d6-a371-29ef9fb096bb
+		summarizeBy: none
+		sourceColumn: BCG
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: a586ed7b-4a22-493c-b421-312d97ca6751
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
 	partition 'public flipkart_sov' = m
 		mode: import
 		source =
