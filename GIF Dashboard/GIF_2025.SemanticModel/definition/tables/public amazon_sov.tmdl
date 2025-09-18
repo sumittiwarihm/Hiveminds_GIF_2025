@@ -37,7 +37,7 @@ table 'public amazon_sov'
 
 	column date
 		dataType: dateTime
-		formatString: Long Date
+		formatString: mmmm d\, yyyy
 		lineageTag: 9f4091d4-d97b-44bd-813c-f170cd674b56
 		summarizeBy: none
 		sourceColumn: date
@@ -50,6 +50,8 @@ table 'public amazon_sov'
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column keyword
 		dataType: string

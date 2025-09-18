@@ -101,7 +101,7 @@ table 'public flipkart_sov'
 
 	column date
 		dataType: dateTime
-		formatString: Long Date
+		formatString: d mmmm\, yyyy
 		lineageTag: 5d2389ef-e9a3-4126-9fff-59b2cc273d37
 		summarizeBy: none
 		sourceColumn: date
@@ -114,6 +114,8 @@ table 'public flipkart_sov'
 		annotation SummarizationSetBy = Automatic
 
 		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
 
 	column hour
 		dataType: string
