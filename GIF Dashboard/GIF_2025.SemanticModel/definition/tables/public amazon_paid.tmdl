@@ -266,24 +266,50 @@ table 'public amazon_paid'
 
 	measure HourlyCTR_A = ```
 			
+			VAR CurrentHour = MAX('public amazon_paid'[hour])
 			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
-			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
 			
+			-- Current hour clicks & impressions
 			VAR CurrClicks =
-			    CALCULATE(SUM('public amazon_paid'[clicks]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[clicks]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
 			VAR CurrImpr =
-			    CALCULATE(SUM('public amazon_paid'[impressions]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[impressions]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
-			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrClicks, CurrImpr))
+			VAR CurrCTR = DIVIDE(CurrClicks, CurrImpr)
+			
+			-- Previous hour clicks & impressions
+			VAR PrevClicks =
+			    CALCULATE(
+			        SUM('public amazon_paid'[clicks]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevImpr =
+			    CALCULATE(
+			        SUM('public amazon_paid'[impressions]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevCTR = DIVIDE(PrevClicks, PrevImpr)
+			
+			-- Return difference vs previous hour
+			RETURN
+			IF(
+			    ISBLANK(PrevCTR),
+			    CurrCTR,
+			    CurrCTR - PrevCTR
+			)
 			
 			```
 		formatString: 0.00%;-0.00%;0.00%
@@ -291,24 +317,50 @@ table 'public amazon_paid'
 
 	measure HourlyCPC_A = ```
 			
+			VAR CurrentHour = MAX('public amazon_paid'[hour])
 			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
-			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
 			
+			-- Current hour spend & clicks
 			VAR CurrSpend =
-			    CALCULATE(SUM('public amazon_paid'[spend]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[spend]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
 			VAR CurrClicks =
-			    CALCULATE(SUM('public amazon_paid'[clicks]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[clicks]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
-			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrSpend, CurrClicks))
+			VAR CurrCPC = DIVIDE(CurrSpend, CurrClicks)
+			
+			-- Previous hour spend & clicks
+			VAR PrevSpend =
+			    CALCULATE(
+			        SUM('public amazon_paid'[spend]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevClicks =
+			    CALCULATE(
+			        SUM('public amazon_paid'[clicks]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevCPC = DIVIDE(PrevSpend, PrevClicks)
+			
+			-- Return difference like HourlyCVR
+			RETURN
+			IF(
+			    ISBLANK(PrevCPC),
+			    CurrCPC,
+			    CurrCPC - PrevCPC
+			)
 			
 			```
 		lineageTag: 86b098a2-73c6-4dd8-9a87-ffd964bbf3b0
@@ -317,24 +369,50 @@ table 'public amazon_paid'
 
 	measure HourlyROAS_A = ```
 			
+			VAR CurrentHour = MAX('public amazon_paid'[hour])
 			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
-			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
 			
+			-- Current hour sales & spend
 			VAR CurrSales =
-			    CALCULATE(SUM('public amazon_paid'[sales]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[sales]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
 			VAR CurrSpend =
-			    CALCULATE(SUM('public amazon_paid'[spend]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[spend]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
-			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrSales, CurrSpend))
+			VAR CurrROAS = DIVIDE(CurrSales, CurrSpend)
+			
+			-- Previous hour sales & spend
+			VAR PrevSales =
+			    CALCULATE(
+			        SUM('public amazon_paid'[sales]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevSpend =
+			    CALCULATE(
+			        SUM('public amazon_paid'[spend]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevROAS = DIVIDE(PrevSales, PrevSpend)
+			
+			-- Return difference vs previous hour
+			RETURN
+			IF(
+			    ISBLANK(PrevROAS),
+			    CurrROAS,
+			    CurrROAS - PrevROAS
+			)
 			
 			```
 		lineageTag: 05782390-8260-43c1-9452-409c8d491d4a
@@ -343,24 +421,50 @@ table 'public amazon_paid'
 
 	measure HourlyCVR_A = ```
 			
+			VAR CurrentHour = MAX('public amazon_paid'[hour])
 			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
-			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
 			
+			-- Current hour orders & clicks
 			VAR CurrOrders =
-			    CALCULATE(SUM('public amazon_paid'[orders]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[orders]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
 			VAR CurrClicks =
-			    CALCULATE(SUM('public amazon_paid'[clicks]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[clicks]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
-			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrOrders, CurrClicks))
+			VAR CurrCVR = DIVIDE(CurrOrders, CurrClicks)
+			
+			-- Previous hour orders & clicks
+			VAR PrevOrders =
+			    CALCULATE(
+			        SUM('public amazon_paid'[orders]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevClicks =
+			    CALCULATE(
+			        SUM('public amazon_paid'[clicks]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevCVR = DIVIDE(PrevOrders, PrevClicks)
+			
+			-- Return difference like in your Hourly CVR screenshot
+			RETURN
+			IF(
+			    ISBLANK(PrevCVR),
+			    CurrCVR,
+			    CurrCVR - PrevCVR
+			)
 			
 			```
 		formatString: 0.00%;-0.00%;0.00%
@@ -368,24 +472,50 @@ table 'public amazon_paid'
 
 	measure HourlyACOS_A = ```
 			
+			VAR CurrentHour = MAX('public amazon_paid'[hour])
 			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
-			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
 			
+			-- Current hour spend & sales
 			VAR CurrSpend =
-			    CALCULATE(SUM('public amazon_paid'[spend]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[spend]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
 			VAR CurrSales =
-			    CALCULATE(SUM('public amazon_paid'[sales]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[sales]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
-			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrSpend, CurrSales))
+			VAR CurrACOS = DIVIDE(CurrSpend, CurrSales)
+			
+			-- Previous hour spend & sales
+			VAR PrevSpend =
+			    CALCULATE(
+			        SUM('public amazon_paid'[spend]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevSales =
+			    CALCULATE(
+			        SUM('public amazon_paid'[sales]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevACOS = DIVIDE(PrevSpend, PrevSales)
+			
+			-- Return difference vs previous hour
+			RETURN
+			IF(
+			    ISBLANK(PrevACOS),
+			    CurrACOS,
+			    CurrACOS - PrevACOS
+			)
 			
 			```
 		formatString: 0.00%;-0.00%;0.00%
@@ -393,24 +523,50 @@ table 'public amazon_paid'
 
 	measure HourlyAOV_A = ```
 			
+			VAR CurrentHour = MAX('public amazon_paid'[hour])
 			VAR CurrentDate = SELECTEDVALUE('public amazon_paid'[date])
-			VAR CurrentHour = SELECTEDVALUE('public amazon_paid'[hour])
 			
+			-- Current hour sales & orders
 			VAR CurrSales =
-			    CALCULATE(SUM('public amazon_paid'[sales]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[sales]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
 			VAR CurrOrders =
-			    CALCULATE(SUM('public amazon_paid'[orders]),
-			        FILTER(ALL('public amazon_paid'),
-			            'public amazon_paid'[date] = CurrentDate &&
-			            'public amazon_paid'[hour] = CurrentHour)
+			    CALCULATE(
+			        SUM('public amazon_paid'[orders]),
+			        'public amazon_paid'[hour] = CurrentHour,
+			        'public amazon_paid'[date] = CurrentDate
 			    )
 			
-			RETURN IF(NOT ISBLANK(CurrentHour), DIVIDE(CurrSales, CurrOrders))
+			VAR CurrAOV = DIVIDE(CurrSales, CurrOrders)
+			
+			-- Previous hour sales & orders
+			VAR PrevSales =
+			    CALCULATE(
+			        SUM('public amazon_paid'[sales]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevOrders =
+			    CALCULATE(
+			        SUM('public amazon_paid'[orders]),
+			        'public amazon_paid'[hour] = CurrentHour - 1,
+			        'public amazon_paid'[date] = CurrentDate
+			    )
+			
+			VAR PrevAOV = DIVIDE(PrevSales, PrevOrders)
+			
+			-- Return difference vs previous hour
+			RETURN
+			IF(
+			    ISBLANK(PrevAOV),
+			    CurrAOV,
+			    CurrAOV - PrevAOV
+			)
 			
 			```
 		lineageTag: 49701fb3-a569-4130-b82c-cfffe01be12e

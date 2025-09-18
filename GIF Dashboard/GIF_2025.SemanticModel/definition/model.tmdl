@@ -12,6 +12,8 @@ annotation __PBI_TimeIntelligenceEnabled = 1
 
 annotation PBI_ProTooling = ["DevMode"]
 
+annotation PBIDesktopVersion = 2.146.1454.0 (25.08)+901d6c338d1dea81ac3e53073ffb10469f0f37b8
+
 ref table DateTableTemplate_27e9ce9d-915c-430d-b9d2-89f75440e43b
 ref table 'public amazon_buybox'
 ref table LocalDateTable_6581351a-bd8b-46d4-8b1c-b59eb7966829

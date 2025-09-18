@@ -155,12 +155,39 @@ table 'Target VS Achieved'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
+	column Impressions
+		dataType: int64
+		formatString: 0
+		lineageTag: 7fb97096-b46e-4bd3-b4e0-a1ea11b4e302
+		summarizeBy: sum
+		sourceColumn: Impressions
+
+		annotation SummarizationSetBy = Automatic
+
+	column Clicks
+		dataType: int64
+		formatString: 0
+		lineageTag: 8eee9206-6fb4-47ad-bdec-8fcd0e59f306
+		summarizeBy: sum
+		sourceColumn: Clicks
+
+		annotation SummarizationSetBy = Automatic
+
 	column Spends
 		dataType: int64
 		formatString: 0
 		lineageTag: 5db52557-6278-44e0-8172-257c76c7a559
 		summarizeBy: sum
 		sourceColumn: Spends
+
+		annotation SummarizationSetBy = Automatic
+
+	column Orders
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ffceee1-e335-4f8a-a296-983f58d722f2
+		summarizeBy: sum
+		sourceColumn: Orders
 
 		annotation SummarizationSetBy = Automatic
 
@@ -235,39 +262,12 @@ table 'Target VS Achieved'
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
-	column Orders
-		dataType: int64
-		formatString: 0
-		lineageTag: 0ffceee1-e335-4f8a-a296-983f58d722f2
-		summarizeBy: sum
-		sourceColumn: Orders
-
-		annotation SummarizationSetBy = Automatic
-
 	column Sales_1
 		dataType: int64
 		formatString: 0
 		lineageTag: 51fb9aca-c884-4f59-9127-12ae8aec9d55
 		summarizeBy: sum
 		sourceColumn: Sales_1
-
-		annotation SummarizationSetBy = Automatic
-
-	column Impressions
-		dataType: int64
-		formatString: 0
-		lineageTag: 7fb97096-b46e-4bd3-b4e0-a1ea11b4e302
-		summarizeBy: sum
-		sourceColumn: Impressions
-
-		annotation SummarizationSetBy = Automatic
-
-	column Clicks
-		dataType: int64
-		formatString: 0
-		lineageTag: 8eee9206-6fb4-47ad-bdec-8fcd0e59f306
-		summarizeBy: sum
-		sourceColumn: Clicks
 
 		annotation SummarizationSetBy = Automatic
 
